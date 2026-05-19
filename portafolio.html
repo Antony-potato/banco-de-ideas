@@ -3,90 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investigación - Portafolio Web</title>
+    <title>Portafolio de Desarrollo Web — Investigación</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #FDF8F0;
+            --bg-alt: #F5EDE3;
+            --paper: #FFFCF5;
+            --text: #37352F;
+            --text-light: #787774;
+            --text-lighter: #A9A9A6;
+            --border: #E8E0D5;
+            --accent: #D4A574;
+            --accent-dark: #B8864E;
+            --green: #6B8F71;
+            --green-bg: #EEF3EE;
+            --amber: #C2934A;
+            --amber-bg: #FDF3E7;
+            --blue: #5B7EA1;
+            --blue-bg: #EEF2F6;
+            --red: #C0392B;
+            --red-bg: #FDEDEC;
+            --tag-bg: #EDEAE5;
+            --hover: #FAF5ED;
+            --shadow: rgba(55, 53, 47, 0.06);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
+            font-family: 'IBM Plex Serif', 'Georgia', serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
             min-height: 100vh;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
-        header { padding: 1rem 0 2rem; border-bottom: 1px solid #21262d; margin-bottom: 2rem; }
-        .back-link { color: #58a6ff; text-decoration: none; font-size: 0.95rem; }
-        .back-link:hover { text-decoration: underline; }
-        h1 { font-size: 2rem; color: #58a6ff; margin-top: 1rem; }
-        h2 { font-size: 1.4rem; color: #f0f6fc; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #21262d; }
-        h3 { font-size: 1.15rem; color: #f0f6fc; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .cover {
+            height: 120px;
+            margin: -2rem -2rem 0;
+            background: linear-gradient(135deg, var(--green) 0%, #4A7A52 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.03) 2px,
+                rgba(255,255,255,0.03) 4px
+            );
+        }
+
+        .breadcrumb {
+            padding: 1.5rem 0 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+        }
+        .breadcrumb a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: var(--text-lighter); margin: 0 0.35rem; }
+
+        .page-header {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+        .page-header-icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* ── Headings ── */
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: var(--text);
+        }
+
         p { margin-bottom: 0.75rem; }
-        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-        li { margin-bottom: 0.3rem; }
-        strong { color: #f0f6fc; }
-        a { color: #58a6ff; }
-        .highlight-box {
-            background: #161b22;
-            border-left: 3px solid #58a6ff;
-            padding: 1rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1rem 0;
+
+        .notion-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0;
+        }
+        .notion-list li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .notion-list li::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-lighter);
+        }
+
+        .notion-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.25rem 0 0 0;
+        }
+        .notion-list ul li::before {
+            width: 3px;
+            height: 3px;
+            background: var(--border);
+        }
+        .notion-list ul li {
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* ── Callout ── */
+        .callout {
+            background: var(--bg-alt);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 4px 4px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+        .callout-green { border-left-color: var(--green); background: var(--green-bg); }
+        .callout-amber { border-left-color: var(--amber); background: var(--amber-bg); }
+        .callout-blue { border-left-color: var(--blue); background: var(--blue-bg); }
+        .callout p { margin: 0; font-size: 0.92rem; }
+
+        /* ── Tags ── */
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin: 0.5rem 0 0.75rem;
         }
         .tag {
-            display: inline-block;
-            background: #1c3a4f;
-            color: #79c0ff;
-            padding: 0.15rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            margin: 0.2rem 0.2rem 0.2rem 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            background: var(--tag-bg);
+            color: var(--text-light);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            border: 1px solid var(--border);
         }
+        .tag-green { background: var(--green-bg); color: var(--green); border-color: transparent; }
+        .tag-blue { background: var(--blue-bg); color: var(--blue); border-color: transparent; }
+        .tag-amber { background: var(--amber-bg); color: var(--amber); border-color: transparent; }
+
+        /* ── Steps ── */
         .step {
-            background: #161b22;
-            padding: 1rem;
-            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem 1rem;
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 4px;
             margin-bottom: 0.5rem;
-            border: 1px solid #30363d;
+            transition: border-color 0.15s;
         }
+        .step:hover { border-color: var(--accent); }
         .step-num {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 28px; height: 28px;
-            background: #58a6ff;
-            color: #0d1117;
+            min-width: 26px;
+            height: 26px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--accent);
+            color: #fff;
             border-radius: 50%;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-right: 0.75rem;
+            margin-top: 1px;
         }
-        footer { text-align: center; padding: 2rem 0; color: #484f58; font-size: 0.85rem; border-top: 1px solid #21262d; margin-top: 3rem; }
+        .step-text {
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        /* ── Toggle ── */
+        details {
+            margin: 0.75rem 0;
+        }
+        details summary {
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text);
+            padding: 0.4rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: '▸';
+            display: inline-block;
+            transition: transform 0.15s;
+            color: var(--text-lighter);
+            font-size: 0.75rem;
+        }
+        details[open] summary::before { transform: rotate(90deg); }
+        details summary:hover { color: var(--accent-dark); }
+        details .toggle-content { padding-left: 1.25rem; margin-top: 0.5rem; }
+
+        .sub-block {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.85rem 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .link-inline {
+            color: var(--blue);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .link-inline:hover { border-bottom-color: var(--blue); }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            background: var(--tag-bg);
+            padding: 0.15em 0.4em;
+            border-radius: 3px;
+            color: var(--red);
+        }
+
+        .page-footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-lighter);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .page { padding: 1.5rem 1.25rem 4rem; }
+            .cover { margin: -1.5rem -1.25rem 0; height: 100px; }
+            .page-header h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.15rem; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2, h3 { animation: fadeIn 0.3s ease both; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="back-link">← Volver al Banco de Ideas</a>
-            <h1>🎨 Portafolio de Desarrollo Web - Investigación</h1>
-            <p style="color: #8b949e;">19 de mayo de 2026</p>
+    <div class="page">
+        <div class="cover"></div>
+
+        <nav class="breadcrumb">
+            <a href="index.html">📓 Banco de Ideas</a>
+            <span>›</span>
+            Portafolio de Desarrollo Web
+        </nav>
+
+        <header class="page-header">
+            <span class="page-header-icon">🎨</span>
+            <h1>Portafolio de Desarrollo Web</h1>
+            <p>Investigación completa — qué necesitas para armar tu portafolio profesional</p>
         </header>
 
-        <div class="highlight-box">
-            <strong>¿Qué es?</strong> Un portafolio web es tu carta de presentación digital donde muestras proyectos, habilidades, experiencia y logros como desarrollador.
+        <!-- ── Section 1 ── -->
+        <div class="callout">
+            <p><strong>¿Qué es?</strong> Un portafolio web es tu carta de presentación digital donde muestras proyectos, habilidades, experiencia y logros como desarrollador.</p>
         </div>
 
-        <h2>1. Elementos Esenciales</h2>
+        <h2>📐 1. Elementos Esenciales</h2>
+        
         <h3>Estructura básica</h3>
-        <ul>
-            <li><strong>Hero/Header:</strong> Presentación personal + foto</li>
-            <li><strong>Sobre mí:</strong> Quién eres, tu perfil profesional</li>
-            <li><strong>Habilidades:</strong> Tecnologías que manejas</li>
-            <li><strong>Proyectos:</strong> Trabajos destacados con capturas y links</li>
-            <li><strong>Experiencia:</strong> Historial laboral o freelance</li>
-            <li><strong>Contacto:</strong> Formulario, email, redes, LinkedIn, GitHub</li>
+        <ul class="notion-list">
+            <li><strong>Hero/Header</strong> — Presentación personal + foto</li>
+            <li><strong>Sobre mí</strong> — Quién eres, tu perfil profesional</li>
+            <li><strong>Habilidades</strong> — Tecnologías que manejas</li>
+            <li><strong>Proyectos</strong> — Trabajos destacados con capturas y links</li>
+            <li><strong>Experiencia</strong> — Historial laboral o freelance</li>
+            <li><strong>Contacto</strong> — Formulario, email, redes, LinkedIn, GitHub</li>
         </ul>
+
         <h3>Recomendados</h3>
-        <ul>
+        <ul class="notion-list">
             <li>Blog técnico</li>
             <li>Testimonios de clientes</li>
             <li>Certificaciones y cursos</li>
@@ -94,98 +360,214 @@
             <li>Modo oscuro/claro</li>
         </ul>
 
-        <h2>2. Tecnologías Recomendadas</h2>
+        <!-- ── Section 2 ── -->
+        <h2>🛠 2. Tecnologías Recomendadas</h2>
+
         <h3>Nivel Básico</h3>
         <p>HTML5 semántico + CSS3 (grid, flexbox) + JavaScript vanilla. Rápido, ligero, sin dependencias.</p>
+
         <h3>Nivel Intermedio (Frameworks)</h3>
-        <ul>
-            <li><strong>React / Next.js</strong> — SSR, routing, SEO optimizado</li>
-            <li><strong>Vue / Nuxt</strong> — fácil de aprender, buena documentación</li>
-            <li><strong>Svelte / SvelteKit</strong> — rendimiento, bundle pequeño</li>
+        <ul class="notion-list">
+            <li>
+                <strong>React / Next.js</strong> — SSR, routing, SEO optimizado
+                <ul>
+                    <li>El más popular del mercado</li>
+                    <li>Deploy gratis en Vercel</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Vue / Nuxt</strong> — fácil de aprender, buena documentación
+                <ul>
+                    <li>Curva de aprendizaje suave</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Svelte / SvelteKit</strong> — rendimiento, bundle pequeño
+                <ul>
+                    <li>Menos código, más velocidad</li>
+                </ul>
+            </li>
         </ul>
+
         <h3>Estilos</h3>
-        <div>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">CSS Modules</span>
-            <span class="tag">Styled Components</span>
+        <div class="tag-row">
+            <span class="tag tag-blue">Tailwind CSS</span>
+            <span class="tag tag-blue">CSS Modules</span>
+            <span class="tag tag-blue">Styled Components</span>
             <span class="tag">Bootstrap</span>
         </div>
+
         <h3>Hosting Gratuito</h3>
-        <ul>
-            <li><strong>Vercel</strong> — ideal para Next.js, deploy automático</li>
-            <li><strong>Netlify</strong> — fácil, CI/CD integrado</li>
-            <li><strong>GitHub Pages</strong> — estático, directo desde repo</li>
-            <li><strong>Cloudflare Pages</strong> — rápido, CDN global</li>
-        </ul>
+        <details>
+            <summary>🔵 Vercel</summary>
+            <div class="toggle-content">
+                <div class="sub-block">
+                    <p>Ideal para Next.js. Deploy automático desde GitHub. CI/CD integrado. Analytics incluido.</p>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>🟢 Netlify</summary>
+            <div class="toggle-content">
+                <div class="sub-block">
+                    <p>Fácil de usar. CI/CD integrado. Formularios incluidos sin backend. Functions serverless.</p>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>⚫ GitHub Pages</summary>
+            <div class="toggle-content">
+                <div class="sub-block">
+                    <p>Estático, directo desde tu repo. Gratis con tu cuenta GitHub. Sin config adicional.</p>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>🟠 Cloudflare Pages</summary>
+            <div class="toggle-content">
+                <div class="sub-block">
+                    <p>Rápido con CDN global. Builds automáticas. Integración con Workers para funciones.</p>
+                </div>
+            </div>
+        </details>
 
-        <h2>3. Diseño y UX</h2>
-        <ul>
-            <li><strong>Menos es más</strong> — diseño limpio</li>
-            <li><strong>Mobile-first</strong> — responsive desde el inicio</li>
-            <li><strong>Performance</strong> — carga rápida (&lt; 3 segundos)</li>
-            <li><strong>Accesibilidad</strong> — WCAG, alt en imágenes, contraste</li>
-            <li><strong>Tipografía legible</strong> — 1-2 fuentes máximo</li>
-        </ul>
+        <!-- ── Section 3 ── -->
+        <h2>🎯 3. Diseño y UX</h2>
+
+        <div class="callout callout-green">
+            <p><strong>Principios clave:</strong> menos es más, mobile-first, carga rápida (< 3s), accesibilidad, 1-2 fuentes máximo.</p>
+        </div>
+
         <h3>Sitios de inspiración</h3>
-        <ul>
-            <li><a href="https://www.awwwards.com/websites/portfolio/" target="_blank">Awwwards</a></li>
-            <li><a href="https://dribbble.com/tags/portfolio" target="_blank">Dribbble</a></li>
-            <li><a href="https://godly.website" target="_blank">Godly</a> — diseños modernos</li>
-            <li><a href="https://www.lapa.ninja" target="_blank">Lapa Ninja</a></li>
+        <ul class="notion-list">
+            <li><a href="https://www.awwwards.com/websites/portfolio/" class="link-inline" target="_blank">Awwwards</a> — los mejores diseños del mundo</li>
+            <li><a href="https://dribbble.com/tags/portfolio" class="link-inline" target="_blank">Dribbble</a> — comunidad de diseñadores</li>
+            <li><a href="https://godly.website" class="link-inline" target="_blank">Godly</a> — diseños modernos y creativos</li>
+            <li><a href="https://www.lapa.ninja" class="link-inline" target="_blank">Lapa Ninja</a> — colección de landing pages</li>
         </ul>
 
-        <h2>4. Qué Proyectos Incluir</h2>
-        <ul>
-            <li><strong>Calidad > Cantidad</strong> — 3-6 proyectos sólidos</li>
+        <!-- ── Section 4 ── -->
+        <h2>📂 4. Qué Proyectos Incluir</h2>
+
+        <div class="callout callout-amber">
+            <p><strong>Regla de oro:</strong> Calidad > Cantidad. Mejor 3-6 proyectos sólidos que 10 mediocres.</p>
+        </div>
+
+        <ul class="notion-list">
             <li><strong>Variedad</strong> — muestra diferentes tecnologías</li>
+            <li><strong>Recientes</strong> — trabajo más relevante primero</li>
             <li><strong>Con código</strong> — link a GitHub de cada uno</li>
             <li><strong>Demo en vivo</strong> — link al proyecto funcionando</li>
         </ul>
-        <p>Para cada proyecto: título, descripción, tecnologías (tags), captura, link al proyecto, link al repo, y tu rol.</p>
 
-        <h2>5. SEO y Optimización</h2>
-        <ul>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">Para cada proyecto incluir:</p>
+        <div class="tag-row">
+            <span class="tag">Título</span>
+            <span class="tag">Descripción</span>
+            <span class="tag tag-blue">Tecnologías</span>
+            <span class="tag">Captura</span>
+            <span class="tag tag-green">Demo en vivo</span>
+            <span class="tag">Link al repo</span>
+            <span class="tag">Tu rol</span>
+        </div>
+
+        <!-- ── Section 5 ── -->
+        <h2>🔍 5. SEO y Optimización</h2>
+
+        <ul class="notion-list">
             <li>Meta tags (title, description, Open Graph)</li>
             <li>Semantic HTML (header, main, section, article, footer)</li>
+            <li>Sitemap.xml + Robots.txt</li>
             <li>Imágenes optimizadas (WebP, lazy loading)</li>
             <li>Core Web Vitals (LCP, FID, CLS)</li>
         </ul>
 
-        <h2>6. Dominio Personalizado</h2>
-        <ul>
-            <li><strong>Namecheap</strong> — económicos</li>
-            <li><strong>Cloudflare Registrar</strong> — precio sin markup</li>
-            <li><strong>Porkbun</strong> — precios bajos</li>
+        <!-- ── Section 6 ── -->
+        <h2>🌐 6. Dominio Personalizado</h2>
+
+        <ul class="notion-list">
+            <li>
+                <strong>Compradores recomendados:</strong>
+                <ul>
+                    <li>Namecheap — económicos, buen soporte</li>
+                    <li>Cloudflare Registrar — precio sin markup</li>
+                    <li>Porkbun — precios bajos, buena interfaz</li>
+                </ul>
+            </li>
             <li>Recomendación: <code>tunombre.dev</code> o <code>tunombre.com</code></li>
+            <li>Alternativas: <code>.tech</code>, <code>.me</code>, <code>.io</code></li>
         </ul>
 
-        <h2>7. Herramientas Útiles</h2>
+        <!-- ── Section 7 ── -->
+        <h2>🧰 7. Herramientas Útiles</h2>
+
         <h3>Desarrollo</h3>
-        <div>
-            <span class="tag">VS Code</span>
-            <span class="tag">Figma</span>
-            <span class="tag">Lighthouse</span>
+        <div class="tag-row">
+            <span class="tag tag-blue">VS Code</span>
+            <span class="tag tag-blue">Figma</span>
+            <span class="tag tag-blue">Lighthouse</span>
+            <span class="tag">Can I Use</span>
         </div>
+
         <h3>Assets</h3>
-        <div>
-            <span class="tag">Unsplash</span>
-            <span class="tag">undraw.co</span>
-            <span class="tag">Heroicons</span>
-            <span class="tag">Google Fonts</span>
+        <div class="tag-row">
+            <span class="tag tag-green">Unsplash</span>
+            <span class="tag tag-green">undraw.co</span>
+            <span class="tag tag-green">Heroicons</span>
+            <span class="tag tag-green">Google Fonts</span>
         </div>
 
-        <h2>8. Paso a Paso</h2>
-        <div class="step"><span class="step-num">1</span> Definir contenido — qué proyectos, qué decir de ti</div>
-        <div class="step"><span class="step-num">2</span> Diseñar en Figma — wireframe → diseño final</div>
-        <div class="step"><span class="step-num">3</span> Elegir tecnología — según tu stack</div>
-        <div class="step"><span class="step-num">4</span> Desarrollar — mobile-first</div>
-        <div class="step"><span class="step-num">5</span> Optimizar — performance, SEO, accesibilidad</div>
-        <div class="step"><span class="step-num">6</span> Deploy — subir a hosting</div>
-        <div class="step"><span class="step-num">7</span> Dominio — conectar dominio personalizado</div>
-        <div class="step"><span class="step-num">8</span> Promocionar — LinkedIn, GitHub, redes</div>
+        <h3>Analytics</h3>
+        <div class="tag-row">
+            <span class="tag tag-amber">Google Analytics</span>
+            <span class="tag tag-amber">Vercel Analytics</span>
+            <span class="tag tag-amber">Plausible</span>
+        </div>
 
-        <footer>
-            <p><a href="index.html">← Volver al Banco de Ideas</a></p>
+        <!-- ── Section 8 ── -->
+        <h2>🗺 8. Paso a Paso</h2>
+
+        <div class="step">
+            <span class="step-num">1</span>
+            <span class="step-text"><strong>Definir contenido</strong> — qué proyectos incluir, qué decir de ti</span>
+        </div>
+        <div class="step">
+            <span class="step-num">2</span>
+            <span class="step-text"><strong>Diseñar en Figma</strong> — wireframe → diseño final</span>
+        </div>
+        <div class="step">
+            <span class="step-num">3</span>
+            <span class="step-text"><strong>Elegir tecnología</strong> — según tu stack y experiencia</span>
+        </div>
+        <div class="step">
+            <span class="step-num">4</span>
+            <span class="step-text"><strong>Desarrollar</strong> — mobile-first, responsive</span>
+        </div>
+        <div class="step">
+            <span class="step-num">5</span>
+            <span class="step-text"><strong>Optimizar</strong> — performance, SEO, accesibilidad</span>
+        </div>
+        <div class="step">
+            <span class="step-num">6</span>
+            <span class="step-text"><strong>Deploy</strong> — subir a hosting (Vercel, Netlify, etc.)</span>
+        </div>
+        <div class="step">
+            <span class="step-num">7</span>
+            <span class="step-text"><strong>Dominio</strong> — conectar dominio personalizado</span>
+        </div>
+        <div class="step">
+            <span class="step-num">8</span>
+            <span class="step-text"><strong>Promocionar</strong> — LinkedIn, GitHub, redes sociales</span>
+        </div>
+
+        <hr class="divider">
+
+        <div class="callout">
+            <p>💡 <strong>Tip:</strong> El portafolio debe ser tu <strong>mejor proyecto</strong> — es el que ven los reclutadores primero. Incluye métricas de impacto y actualiza regularmente.</p>
+        </div>
+
+        <footer class="page-footer">
+            <p><a href="index.html" style="color: var(--blue); text-decoration: none;">← Volver al Banco de Ideas</a></p>
             <p style="margin-top: 0.5rem;">Banco de Ideas — Antony</p>
         </footer>
     </div>

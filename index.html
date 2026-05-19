@@ -3,80 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco de Ideas - Antony</title>
+    <title>Banco de Ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #FDF8F0;
+            --bg-alt: #F5EDE3;
+            --paper: #FFFCF5;
+            --text: #37352F;
+            --text-light: #787774;
+            --text-lighter: #A9A9A6;
+            --border: #E8E0D5;
+            --accent: #D4A574;
+            --accent-dark: #B8864E;
+            --green: #6B8F71;
+            --green-bg: #EEF3EE;
+            --amber: #C2934A;
+            --amber-bg: #FDF3E7;
+            --blue: #5B7EA1;
+            --blue-bg: #EEF2F6;
+            --red: #C0392B;
+            --red-bg: #FDEDEC;
+            --tag-bg: #EDEAE5;
+            --hover: #FAF5ED;
+            --shadow: rgba(55, 53, 47, 0.06);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
+            font-family: 'IBM Plex Serif', 'Georgia', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
             min-height: 100vh;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
-        header { text-align: center; padding: 2rem 0 3rem; border-bottom: 1px solid #21262d; margin-bottom: 2rem; }
-        header h1 { font-size: 2.5rem; color: #58a6ff; margin-bottom: 0.5rem; }
-        header p { color: #8b949e; font-size: 1.1rem; }
-        .idea-card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: border-color 0.2s;
+
+        /* Grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9999;
         }
-        .idea-card:hover { border-color: #58a6ff; }
-        .idea-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-        .idea-header h2 { color: #f0f6fc; font-size: 1.3rem; }
-        .status { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-        .status-standby { background: #1c3a4f; color: #79c0ff; }
-        .status-research { background: #1f3a2d; color: #7ee787; }
-        .idea-meta { color: #8b949e; font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .idea-desc { color: #c9d1d9; margin-bottom: 1rem; }
-        .section-title { color: #8b949e; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-        .feature-list { list-style: none; padding-left: 0; }
-        .feature-list li { padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
-        .feature-list li::before { content: "•"; color: #58a6ff; position: absolute; left: 0; }
-        .sub-list { list-style: none; padding: 0; margin: 0.5rem 0 0 1rem; }
-        .sub-list li { color: #8b949e; font-size: 0.9rem; padding: 0.2rem 0 0.2rem 1rem; }
-        .sub-list li::before { content: "–"; color: #484f58; position: absolute; left: 0; }
-        .sub-list li { position: relative; }
-        .tech-block { background: #0d1117; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; }
-        .tech-block h4 { color: #f0f6fc; font-size: 0.95rem; margin-bottom: 0.5rem; }
-        .link-card {
-            display: inline-block;
-            background: #238636;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
+
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+        }
+
+        /* ── Cover ── */
+        .cover {
+            height: 160px;
+            margin: -3rem -2rem 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.03) 2px,
+                rgba(255,255,255,0.03) 4px
+            );
+        }
+
+        /* ── Header ── */
+        .page-header {
+            padding: 2rem 0 2.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+        .page-icon {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .page-header h1 {
+            font-family: 'IBM Plex Serif', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1rem;
             margin-top: 0.5rem;
-            transition: background 0.2s;
+            font-style: italic;
         }
-        .link-card:hover { background: #2ea043; }
-        .empty-state { text-align: center; padding: 3rem; color: #484f58; }
-        footer { text-align: center; padding: 2rem 0; color: #484f58; font-size: 0.85rem; border-top: 1px solid #21262d; margin-top: 3rem; }
+
+        /* ── Section ── */
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-lighter);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Idea Card ── */
+        .idea-card {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+        .idea-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            border-radius: 4px 0 0 4px;
+        }
+        .idea-card.standby::before { background: var(--amber); }
+        .idea-card.research::before { background: var(--green); }
+
+        .idea-card:hover {
+            box-shadow: 0 2px 8px var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .idea-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .idea-emoji { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .idea-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .idea-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            color: var(--text-lighter);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Status badges */
+        .badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.15rem 0.6rem;
+            border-radius: 3px;
+            letter-spacing: 0.3px;
+        }
+        .badge-standby { background: var(--amber-bg); color: var(--amber); }
+        .badge-research { background: var(--green-bg); color: var(--green); }
+
+        .idea-desc {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ── Notion-style callout ── */
+        .callout {
+            background: var(--tag-bg);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .callout-icon { font-size: 1.2rem; flex-shrink: 0; }
+        .callout-text { font-size: 0.92rem; color: var(--text); }
+
+        /* ── Bullet list (Notion style) ── */
+        .notion-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0;
+        }
+        .notion-list li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .notion-list li::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-lighter);
+        }
+
+        /* ── Nested list ── */
+        .notion-list .notion-list li::before {
+            width: 3px;
+            height: 3px;
+            background: var(--border);
+        }
+        .notion-list .notion-list {
+            margin: 0.25rem 0;
+        }
+
+        /* ── Sub-blocks (tech options) ── */
+        .sub-block {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin: 0.75rem 0;
+        }
+        .sub-block-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ── Tags ── */
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin: 0.5rem 0 0;
+        }
+        .tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            background: var(--tag-bg);
+            color: var(--text-light);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+
+        /* ── Toggle section ── */
+        details {
+            margin: 0.75rem 0;
+        }
+        details summary {
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text);
+            padding: 0.4rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before {
+            content: '▸';
+            display: inline-block;
+            transition: transform 0.15s;
+            color: var(--text-lighter);
+            font-size: 0.75rem;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        details summary:hover {
+            color: var(--accent-dark);
+        }
+        details .toggle-content {
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        /* ── Link button ── */
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blue);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            transition: background 0.15s;
+            border: 1px solid transparent;
+        }
+        .page-link:hover {
+            background: var(--blue-bg);
+            border-color: var(--border);
+        }
+
+        /* ── Empty state ── */
+        .empty-state {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: var(--text-lighter);
+            font-style: italic;
+        }
+
+        /* ── Footer ── */
+        .page-footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-lighter);
+            line-height: 1.8;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .page { padding: 2rem 1.25rem 4rem; }
+            .cover { margin: -2rem -1.25rem 0; height: 120px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .idea-card { padding: 1.5rem; }
+        }
+
+        /* ── Subtle animation ── */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .idea-card { animation: fadeIn 0.4s ease both; }
+        .idea-card:nth-child(2) { animation-delay: 0.1s; }
+        .idea-card:nth-child(3) { animation-delay: 0.2s; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📝 Banco de Ideas</h1>
-            <p>Proyecto de Antony — Ideas en desarrollo</p>
+    <div class="page">
+        <div class="cover"></div>
+
+        <header class="page-header">
+            <span class="page-icon">📓</span>
+            <h1>Banco de Ideas</h1>
+            <p>Cuaderno de notas de Antony — donde nacen los proyectos</p>
         </header>
 
-        <!-- IDEA 1 -->
-        <div class="idea-card">
-            <div class="idea-header">
-                <h2>💡 Idea 1: Contestadora automática para WhatsApp</h2>
-                <span class="status status-standby">⏸️ Standby</span>
+        <!-- ═══════ IDEA 1 ═══════ -->
+        <div class="section-label">Ideas pendientes</div>
+
+        <article class="idea-card standby">
+            <div class="idea-top">
+                <span class="idea-emoji">📱</span>
+                <span class="idea-title">Contestadora automática para WhatsApp</span>
             </div>
-            <div class="idea-meta">📅 19 mayo 2026</div>
-            <p class="idea-desc">Sistema de contestadora de mensajes donde pueda decirle "respóndele a tal persona" y envíe un mensaje por WhatsApp automáticamente.</p>
-            
-            <div class="section-title">Posibles funcionalidades</div>
-            <ul class="feature-list">
+
+            <div class="idea-meta">
+                <span>19 may 2026</span>
+                <span class="badge badge-standby">⏸ Standby</span>
+            </div>
+
+            <p class="idea-desc">
+                Sistema de contestadora de mensajes donde pueda decirle «respóndele a tal persona» 
+                y envíe un mensaje por WhatsApp automáticamente.
+            </p>
+
+            <div class="callout">
+                <span class="callout-icon">💡</span>
+                <div class="callout-text">
+                    <strong>Flujo:</strong> «Hermes, respóndele a María que llego en 15 min» → el sistema envía el mensaje sin que toques el teléfono.
+                </div>
+            </div>
+
+            <p style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-lighter); margin-bottom: 0.5rem;">Funcionalidades</p>
+            <ul class="notion-list">
                 <li>Identificar contacto por nombre o número</li>
                 <li>Enviar mensaje de texto automáticamente</li>
                 <li>Integración con voz para dictar el mensaje</li>
@@ -84,51 +423,81 @@
                 <li>Historial de mensajes enviados</li>
             </ul>
 
-            <div style="margin-top: 1rem;">
-                <div class="section-title">Opciones técnicas investigadas</div>
-                <div class="tech-block">
-                    <h4>🅰️ WhatsApp Cloud API (oficial)</h4>
-                    <ul class="sub-list">
-                        <li>Gratis hasta 1,000 conversaciones/mes</li>
-                        <li>Requiere cuenta de desarrollador Meta</li>
-                        <li>✅ Confiable | ❌ Proceso de verificación</li>
-                    </ul>
-                </div>
-                <div class="tech-block">
-                    <h4>🅱️ WhatsApp Web automation (no oficial)</h4>
-                    <ul class="sub-list">
-                        <li>selenium/playwright para WhatsApp Web</li>
-                        <li>Librerías: pywhatkit, whatsapp-web.js</li>
-                        <li>✅ Flexible | ❌ Riesgo de baneo</li>
-                    </ul>
-                </div>
-                <div class="tech-block">
-                    <h4>©️ Servicios de terceros</h4>
-                    <ul class="sub-list">
-                        <li>Twilio (pagado), CallMeBot (gratis limitado)</li>
-                        <li>✅ Fácil de integrar | ❌ Costo o limitaciones</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            <hr class="divider">
 
-        <!-- IDEA 2 -->
-        <div class="idea-card">
-            <div class="idea-header">
-                <h2>💡 Idea 2: Portafolio de desarrollo web</h2>
-                <span class="status status-research">📋 Investigación</span>
+            <p style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-lighter); margin-bottom: 0.5rem;">Opciones técnicas investigadas</p>
+
+            <details>
+                <summary>A · WhatsApp Cloud API (oficial)</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p style="font-size: 0.92rem;">API oficial de Meta, gratuita hasta 1,000 conversaciones/mes.</p>
+                        <div class="tag-row">
+                            <span class="tag">Confiable</span>
+                            <span class="tag">Soportado por Meta</span>
+                            <span class="tag">Requiere verificación</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>B · WhatsApp Web automation</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p style="font-size: 0.92rem;">selenium/playwright para automatizar WhatsApp Web. Más flexible pero con riesgo de baneo.</p>
+                        <div class="tag-row">
+                            <span class="tag">Flexible</span>
+                            <span class="tag">Sin verificación</span>
+                            <span class="tag">Menos estable</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>C · Servicios de terceros</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p style="font-size: 0.92rem;">Twilio (pagado pero fácil), CallMeBot (gratis pero limitado), wenbot open-source.</p>
+                        <div class="tag-row">
+                            <span class="tag">Fácil integración</span>
+                            <span class="tag">Costo variable</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </article>
+
+        <!-- ═══════ IDEA 2 ═══════ -->
+        <article class="idea-card research">
+            <div class="idea-top">
+                <span class="idea-emoji">🎨</span>
+                <span class="idea-title">Portafolio de desarrollo web</span>
             </div>
-            <div class="idea-meta">📅 19 mayo 2026</div>
-            <p class="idea-desc">Crear un portafolio profesional de desarrollo web para mostrar proyectos, habilidades y experiencia.</p>
-            <a href="portafolio.html" class="link-card">📄 Ver investigación completa →</a>
-        </div>
+
+            <div class="idea-meta">
+                <span>19 may 2026</span>
+                <span class="badge badge-research">📋 Investigación</span>
+            </div>
+
+            <p class="idea-desc">
+                Crear un portafolio profesional de desarrollo web para mostrar proyectos, habilidades y experiencia.
+            </p>
+
+            <a href="portafolio.html" class="page-link">
+                📄 Ver investigación completa
+                <span style="font-size: 1rem;">→</span>
+            </a>
+        </article>
 
         <div class="empty-state">
-            <p>💭 Más ideas próximamente...</p>
+            <p>✏️ Más ideas próximamente...</p>
         </div>
 
-        <footer>
-            <p>Banco de Ideas — Actualizado el 19 de mayo de 2026</p>
+        <footer class="page-footer">
+            <p>Banco de Ideas — Antony</p>
+            <p>Última actualización: 19 de mayo de 2026</p>
         </footer>
     </div>
 </body>
