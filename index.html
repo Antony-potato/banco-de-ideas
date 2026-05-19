@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco de Ideas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=Lucide&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FDF8F0;
@@ -28,6 +28,7 @@
             --tag-bg: #EDEAE5;
             --hover: #FAF5ED;
             --shadow: rgba(55, 53, 47, 0.06);
+            --icon: 1.25rem;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,31 +41,40 @@
             min-height: 100vh;
         }
 
-        /* Grain texture overlay */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             pointer-events: none;
-            opacity: 0.025;
+            opacity: 0.02;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
             z-index: 9999;
         }
 
+        /* ── Layout ── */
         .page {
-            max-width: 780px;
+            max-width: 860px;
             margin: 0 auto;
-            padding: 3rem 2rem 6rem;
+            padding: 4rem 3rem 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .page { padding: 2rem 1.5rem 4rem; }
         }
 
         /* ── Cover ── */
         .cover {
-            height: 160px;
-            margin: -3rem -2rem 0;
+            height: 180px;
+            margin: -4rem -3rem 0;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             position: relative;
             overflow: hidden;
         }
+
+        @media (max-width: 768px) {
+            .cover { margin: -2rem -1.5rem 0; height: 120px; }
+        }
+
         .cover::after {
             content: '';
             position: absolute;
@@ -84,11 +94,12 @@
             border-bottom: 1px solid var(--border);
             margin-bottom: 2.5rem;
         }
+
         .page-icon {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            display: block;
+            color: var(--text);
+            margin-bottom: 0.75rem;
         }
+
         .page-header h1 {
             font-family: 'IBM Plex Serif', Georgia, serif;
             font-size: 2.5rem;
@@ -96,14 +107,20 @@
             color: var(--text);
             line-height: 1.2;
         }
+
         .page-header p {
             color: var(--text-light);
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-top: 0.5rem;
             font-style: italic;
         }
 
-        /* ── Section ── */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.8rem; }
+            .page-header p { font-size: 0.95rem; }
+        }
+
+        /* ── Section label ── */
         .section-label {
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
@@ -132,6 +149,7 @@
             margin-bottom: 2rem;
             position: relative;
             box-shadow: 0 1px 3px var(--shadow);
+            transition: box-shadow 0.2s, border-color 0.2s;
         }
         .idea-card::before {
             content: '';
@@ -146,8 +164,12 @@
         .idea-card.research::before { background: var(--green); }
 
         .idea-card:hover {
-            box-shadow: 0 2px 8px var(--shadow);
+            box-shadow: 0 2px 12px var(--shadow);
             border-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .idea-card { padding: 1.5rem; }
         }
 
         .idea-top {
@@ -156,9 +178,13 @@
             gap: 0.75rem;
             margin-bottom: 0.75rem;
         }
-        .idea-emoji { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .idea-icon-wrap {
+            color: var(--text);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
         .idea-title {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--text);
             line-height: 1.3;
@@ -179,12 +205,16 @@
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
             font-weight: 500;
-            padding: 0.15rem 0.6rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 3px;
             letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
         .badge-standby { background: var(--amber-bg); color: var(--amber); }
         .badge-research { background: var(--green-bg); color: var(--green); }
+        .badge svg { width: 12px; height: 12px; }
 
         .idea-desc {
             font-size: 1rem;
@@ -195,7 +225,7 @@
 
         /* ── Notion-style callout ── */
         .callout {
-            background: var(--tag-bg);
+            background: var(--bg-alt);
             border-radius: 4px;
             padding: 1rem 1.25rem;
             margin: 1.25rem 0;
@@ -203,14 +233,30 @@
             gap: 0.75rem;
             align-items: flex-start;
         }
-        .callout-icon { font-size: 1.2rem; flex-shrink: 0; }
+        .callout-icon { color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
         .callout-text { font-size: 0.92rem; color: var(--text); }
+        .callout-text strong { font-weight: 600; }
+
+        /* ── Sub-heading inside cards ── */
+        .card-sub-heading {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-lighter);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card-sub-heading svg { width: 14px; height: 14px; }
 
         /* ── Bullet list (Notion style) ── */
         .notion-list {
             list-style: none;
             padding: 0;
-            margin: 0.75rem 0;
+            margin: 0.5rem 0;
         }
         .notion-list li {
             padding: 0.3rem 0 0.3rem 1.5rem;
@@ -230,33 +276,20 @@
             background: var(--text-lighter);
         }
 
-        /* ── Nested list ── */
         .notion-list .notion-list li::before {
             width: 3px;
             height: 3px;
             background: var(--border);
         }
-        .notion-list .notion-list {
-            margin: 0.25rem 0;
-        }
+        .notion-list .notion-list { margin: 0.15rem 0; }
 
-        /* ── Sub-blocks (tech options) ── */
+        /* ── Sub-blocks ── */
         .sub-block {
             background: var(--bg-alt);
             border: 1px solid var(--border);
             border-radius: 4px;
             padding: 1rem 1.25rem;
-            margin: 0.75rem 0;
-        }
-        .sub-block-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin: 0.5rem 0;
         }
 
         /* ── Tags ── */
@@ -277,9 +310,7 @@
         }
 
         /* ── Toggle section ── */
-        details {
-            margin: 0.75rem 0;
-        }
+        details { margin: 0.75rem 0; }
         details summary {
             cursor: pointer;
             font-family: 'Inter', sans-serif;
@@ -291,25 +322,18 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: color 0.15s;
         }
         details summary::-webkit-details-marker { display: none; }
         details summary::before {
-            content: '▸';
+            content: '';
             display: inline-block;
             transition: transform 0.15s;
             color: var(--text-lighter);
-            font-size: 0.75rem;
         }
-        details[open] summary::before {
-            transform: rotate(90deg);
-        }
-        details summary:hover {
-            color: var(--accent-dark);
-        }
-        details .toggle-content {
-            padding-left: 1.25rem;
-            margin-top: 0.5rem;
-        }
+        details[open] summary::before { transform: rotate(90deg); }
+        details summary:hover { color: var(--accent-dark); }
+        details .toggle-content { padding-left: 1.25rem; margin-top: 0.5rem; }
 
         /* ── Divider ── */
         .divider {
@@ -330,21 +354,20 @@
             text-decoration: none;
             padding: 0.5rem 0.75rem;
             border-radius: 4px;
-            transition: background 0.15s;
+            transition: background 0.15s, border-color 0.15s;
             border: 1px solid transparent;
         }
-        .page-link:hover {
-            background: var(--blue-bg);
-            border-color: var(--border);
-        }
+        .page-link:hover { background: var(--blue-bg); border-color: var(--border); }
+        .page-link svg { width: 16px; height: 16px; }
 
         /* ── Empty state ── */
         .empty-state {
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
             color: var(--text-lighter);
             font-style: italic;
         }
+        .empty-state svg { width: 32px; height: 32px; margin-bottom: 0.75rem; opacity: 0.4; }
 
         /* ── Footer ── */
         .page-footer {
@@ -360,22 +383,25 @@
             line-height: 1.8;
         }
 
-        /* ── Responsive ── */
-        @media (max-width: 600px) {
-            .page { padding: 2rem 1.25rem 4rem; }
-            .cover { margin: -2rem -1.25rem 0; height: 120px; }
-            .page-header h1 { font-size: 1.8rem; }
-            .idea-card { padding: 1.5rem; }
+        /* ── SVG icon global style ── */
+        svg.i {
+            display: inline-block;
+            vertical-align: middle;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        /* ── Subtle animation ── */
+        /* ── Animation ── */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .idea-card { animation: fadeIn 0.4s ease both; }
-        .idea-card:nth-child(2) { animation-delay: 0.1s; }
-        .idea-card:nth-child(3) { animation-delay: 0.2s; }
+        .idea-card:nth-child(2) { animation-delay: 0.08s; }
+        .idea-card:nth-child(3) { animation-delay: 0.16s; }
     </style>
 </head>
 <body>
@@ -383,72 +409,89 @@
         <div class="cover"></div>
 
         <header class="page-header">
-            <span class="page-icon">📓</span>
+            <!-- notebook icon -->
+            <svg class="page-icon" width="40" height="40" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
             <h1>Banco de Ideas</h1>
-            <p>Cuaderno de notas de Antony — donde nacen los proyectos</p>
+            <p>Cuaderno de notas de Antony &mdash; donde nacen los proyectos</p>
         </header>
 
-        <!-- ═══════ IDEA 1 ═══════ -->
+        <!-- ═══ IDEA 1 ═══ -->
         <div class="section-label">Ideas pendientes</div>
 
         <article class="idea-card standby">
             <div class="idea-top">
-                <span class="idea-emoji">📱</span>
-                <span class="idea-title">Contestadora automática para WhatsApp</span>
+                <span class="idea-icon-wrap">
+                    <!-- message-square -->
+                    <svg class="i" width="24" height="24" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </span>
+                <span class="idea-title">Contestadora automatica para WhatsApp</span>
             </div>
 
             <div class="idea-meta">
                 <span>19 may 2026</span>
-                <span class="badge badge-standby">⏸ Standby</span>
+                <span class="badge badge-standby">
+                    <!-- pause -->
+                    <svg class="i" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    Standby
+                </span>
             </div>
 
             <p class="idea-desc">
-                Sistema de contestadora de mensajes donde pueda decirle «respóndele a tal persona» 
-                y envíe un mensaje por WhatsApp automáticamente.
+                Sistema de contestadora de mensajes donde pueda decirle &laquo;respondel&#xe9; a tal persona&raquo; 
+                y envie un mensaje por WhatsApp automaticamente.
             </p>
 
             <div class="callout">
-                <span class="callout-icon">💡</span>
+                <!-- lightbulb -->
+                <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
                 <div class="callout-text">
-                    <strong>Flujo:</strong> «Hermes, respóndele a María que llego en 15 min» → el sistema envía el mensaje sin que toques el teléfono.
+                    <strong>Flujo:</strong> &laquo;Hermes, respondel&#xe9; a Mar&#xed;a que llego en 15 min&raquo; el sistema env&#xed;a el mensaje sin que toques el tel&#xe9;fono.
                 </div>
             </div>
 
-            <p style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-lighter); margin-bottom: 0.5rem;">Funcionalidades</p>
+            <p class="card-sub-heading">
+                <!-- list-checks -->
+                <svg class="i" viewBox="0 0 24 24"><path d="m16 2 4 4-4 4"/><path d="M20 6H9"/><path d="m3 13 3 3 7-7"/><path d="M13 13H3"/><path d="M17 18H3"/></svg>
+                Funcionalidades
+            </p>
             <ul class="notion-list">
-                <li>Identificar contacto por nombre o número</li>
-                <li>Enviar mensaje de texto automáticamente</li>
-                <li>Integración con voz para dictar el mensaje</li>
-                <li>Respuestas rápidas predefinidas</li>
+                <li>Identificar contacto por nombre o nu&#x0301;mero</li>
+                <li>Enviar mensaje de texto automaticamente</li>
+                <li>Integracio&#x0301;n con voz para dictar el mensaje</li>
+                <li>Respuestas ra&#x0301;pidas predefinidas</li>
                 <li>Historial de mensajes enviados</li>
             </ul>
 
             <hr class="divider">
 
-            <p style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-lighter); margin-bottom: 0.5rem;">Opciones técnicas investigadas</p>
+            <p class="card-sub-heading">
+                <!-- settings -->
+                <svg class="i" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                Opciones te&#x0301;cnicas investigadas
+            </p>
 
             <details>
-                <summary>A · WhatsApp Cloud API (oficial)</summary>
+                <summary>A &#x00B7; WhatsApp Cloud API (oficial)</summary>
                 <div class="toggle-content">
                     <div class="sub-block">
-                        <p style="font-size: 0.92rem;">API oficial de Meta, gratuita hasta 1,000 conversaciones/mes.</p>
+                        <p style="font-size:0.92rem;">API oficial de Meta, gratuita hasta 1,000 conversaciones/mes.</p>
                         <div class="tag-row">
                             <span class="tag">Confiable</span>
                             <span class="tag">Soportado por Meta</span>
-                            <span class="tag">Requiere verificación</span>
+                            <span class="tag">Requiere verificacio&#x0301;n</span>
                         </div>
                     </div>
                 </div>
             </details>
 
             <details>
-                <summary>B · WhatsApp Web automation</summary>
+                <summary>B &#x00B7; WhatsApp Web automation</summary>
                 <div class="toggle-content">
                     <div class="sub-block">
-                        <p style="font-size: 0.92rem;">selenium/playwright para automatizar WhatsApp Web. Más flexible pero con riesgo de baneo.</p>
+                        <p style="font-size:0.92rem;">selenium/playwright para automatizar WhatsApp Web. Ma&#x0301;s flexible pero con riesgo de baneo.</p>
                         <div class="tag-row">
                             <span class="tag">Flexible</span>
-                            <span class="tag">Sin verificación</span>
+                            <span class="tag">Sin verificacio&#x0301;n</span>
                             <span class="tag">Menos estable</span>
                         </div>
                     </div>
@@ -456,12 +499,12 @@
             </details>
 
             <details>
-                <summary>C · Servicios de terceros</summary>
+                <summary>C &#x00B7; Servicios de terceros</summary>
                 <div class="toggle-content">
                     <div class="sub-block">
-                        <p style="font-size: 0.92rem;">Twilio (pagado pero fácil), CallMeBot (gratis pero limitado), wenbot open-source.</p>
+                        <p style="font-size:0.92rem;">Twilio (pagado pero fa&#x0301;cil), CallMeBot (gratis pero limitado), wenbot open-source.</p>
                         <div class="tag-row">
-                            <span class="tag">Fácil integración</span>
+                            <span class="tag">Fa&#x0301;cil integracio&#x0301;n</span>
                             <span class="tag">Costo variable</span>
                         </div>
                     </div>
@@ -469,16 +512,23 @@
             </details>
         </article>
 
-        <!-- ═══════ IDEA 2 ═══════ -->
+        <!-- ═══ IDEA 2 ═══ -->
         <article class="idea-card research">
             <div class="idea-top">
-                <span class="idea-emoji">🎨</span>
+                <span class="idea-icon-wrap">
+                    <!-- palette -->
+                    <svg class="i" width="24" height="24" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="0.5"/><circle cx="17.5" cy="10.5" r="0.5"/><circle cx="8.5" cy="7.5" r="0.5"/><circle cx="6.5" cy="12.5" r="0.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                </span>
                 <span class="idea-title">Portafolio de desarrollo web</span>
             </div>
 
             <div class="idea-meta">
                 <span>19 may 2026</span>
-                <span class="badge badge-research">📋 Investigación</span>
+                <span class="badge badge-research">
+                    <!-- search -->
+                    <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
+                    Investigacio&#x0301;n
+                </span>
             </div>
 
             <p class="idea-desc">
@@ -486,18 +536,23 @@
             </p>
 
             <a href="portafolio.html" class="page-link">
-                📄 Ver investigación completa
-                <span style="font-size: 1rem;">→</span>
+                <!-- file-text -->
+                <svg class="i" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                Ver investigacio&#x0301;n completa
+                <!-- arrow-right -->
+                <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
         </article>
 
         <div class="empty-state">
-            <p>✏️ Más ideas próximamente...</p>
+            <!-- pen-line -->
+            <svg class="i" viewBox="0 0 24 24"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+            <p>Ma&#x0301;s ideas pro&#x0301;ximamente...</p>
         </div>
 
         <footer class="page-footer">
-            <p>Banco de Ideas — Antony</p>
-            <p>Última actualización: 19 de mayo de 2026</p>
+            <p>Banco de Ideas &#x00B7; Antony</p>
+            <p>&#xda;ltima actualizacio&#x0301;n: 19 de mayo de 2026</p>
         </footer>
     </div>
 </body>

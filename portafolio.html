@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Desarrollo Web — Investigación</title>
+    <title>Portafolio de Desarrollo Web &mdash; Investigaci&oacute;n</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FDF8F0;
@@ -45,24 +45,33 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             pointer-events: none;
-            opacity: 0.025;
+            opacity: 0.02;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
             z-index: 9999;
         }
 
         .page {
-            max-width: 780px;
+            max-width: 860px;
             margin: 0 auto;
-            padding: 2rem 2rem 6rem;
+            padding: 4rem 3rem 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .page { padding: 2rem 1.5rem 4rem; }
         }
 
         .cover {
-            height: 120px;
-            margin: -2rem -2rem 0;
+            height: 140px;
+            margin: -4rem -3rem 0;
             background: linear-gradient(135deg, var(--green) 0%, #4A7A52 100%);
             position: relative;
             overflow: hidden;
         }
+
+        @media (max-width: 768px) {
+            .cover { margin: -2rem -1.5rem 0; height: 100px; }
+        }
+
         .cover::after {
             content: '';
             position: absolute;
@@ -80,20 +89,27 @@
             padding: 1.5rem 0 1rem;
             font-family: 'Inter', sans-serif;
             font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
         }
         .breadcrumb a {
             color: var(--blue);
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
         }
         .breadcrumb a:hover { text-decoration: underline; }
-        .breadcrumb span { color: var(--text-lighter); margin: 0 0.35rem; }
+        .breadcrumb a svg { width: 14px; height: 14px; }
+        .breadcrumb span { color: var(--text-lighter); }
 
         .page-header {
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border);
             margin-bottom: 2.5rem;
         }
-        .page-header-icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+        .page-header-icon { color: var(--text); margin-bottom: 0.75rem; }
         .page-header h1 {
             font-size: 2.2rem;
             font-weight: 700;
@@ -101,12 +117,15 @@
         }
         .page-header p {
             color: var(--text-light);
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-top: 0.5rem;
             font-style: italic;
         }
 
-        /* ── Headings ── */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.6rem; }
+        }
+
         h2 {
             font-size: 1.3rem;
             font-weight: 600;
@@ -118,6 +137,8 @@
             align-items: center;
             gap: 0.5rem;
         }
+        h2 svg { width: 20px; height: 20px; color: var(--text-light); }
+
         h3 {
             font-size: 1.05rem;
             font-weight: 600;
@@ -167,20 +188,23 @@
             color: var(--text-light);
         }
 
-        /* ── Callout ── */
         .callout {
             background: var(--bg-alt);
             border-left: 3px solid var(--accent);
             border-radius: 0 4px 4px 0;
             padding: 1rem 1.25rem;
             margin: 1.25rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
         }
         .callout-green { border-left-color: var(--green); background: var(--green-bg); }
         .callout-amber { border-left-color: var(--amber); background: var(--amber-bg); }
         .callout-blue { border-left-color: var(--blue); background: var(--blue-bg); }
+        .callout-icon { color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
         .callout p { margin: 0; font-size: 0.92rem; }
+        .callout p strong { font-weight: 600; }
 
-        /* ── Tags ── */
         .tag-row {
             display: flex;
             flex-wrap: wrap;
@@ -200,7 +224,6 @@
         .tag-blue { background: var(--blue-bg); color: var(--blue); border-color: transparent; }
         .tag-amber { background: var(--amber-bg); color: var(--amber); border-color: transparent; }
 
-        /* ── Steps ── */
         .step {
             display: flex;
             align-items: flex-start;
@@ -227,15 +250,10 @@
             border-radius: 50%;
             margin-top: 1px;
         }
-        .step-text {
-            font-size: 0.92rem;
-            line-height: 1.5;
-        }
+        .step-text { font-size: 0.92rem; line-height: 1.5; }
+        .step-text strong { font-weight: 600; }
 
-        /* ── Toggle ── */
-        details {
-            margin: 0.75rem 0;
-        }
+        details { margin: 0.75rem 0; }
         details summary {
             cursor: pointer;
             font-family: 'Inter', sans-serif;
@@ -247,14 +265,14 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: color 0.15s;
         }
         details summary::-webkit-details-marker { display: none; }
         details summary::before {
-            content: '▸';
+            content: '';
             display: inline-block;
             transition: transform 0.15s;
             color: var(--text-lighter);
-            font-size: 0.75rem;
         }
         details[open] summary::before { transform: rotate(90deg); }
         details summary:hover { color: var(--accent-dark); }
@@ -267,6 +285,7 @@
             padding: 0.85rem 1rem;
             margin: 0.5rem 0;
         }
+        .sub-block p { font-size: 0.92rem; margin-bottom: 0; }
 
         .divider {
             border: none;
@@ -304,11 +323,14 @@
             line-height: 1.8;
         }
 
-        @media (max-width: 600px) {
-            .page { padding: 1.5rem 1.25rem 4rem; }
-            .cover { margin: -1.5rem -1.25rem 0; height: 100px; }
-            .page-header h1 { font-size: 1.6rem; }
-            h2 { font-size: 1.15rem; }
+        svg.i {
+            display: inline-block;
+            vertical-align: middle;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         @keyframes fadeIn {
@@ -323,69 +345,75 @@
         <div class="cover"></div>
 
         <nav class="breadcrumb">
-            <a href="index.html">📓 Banco de Ideas</a>
-            <span>›</span>
+            <a href="index.html">
+                <!-- home -->
+                <svg class="i" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Banco de Ideas
+            </a>
+            <span>&#x203A;</span>
             Portafolio de Desarrollo Web
         </nav>
 
         <header class="page-header">
-            <span class="page-header-icon">🎨</span>
+            <!-- palette -->
+            <svg class="page-header-icon" width="40" height="40" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="0.5" fill="currentColor"/><circle cx="17.5" cy="10.5" r="0.5" fill="currentColor"/><circle cx="8.5" cy="7.5" r="0.5" fill="currentColor"/><circle cx="6.5" cy="12.5" r="0.5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
             <h1>Portafolio de Desarrollo Web</h1>
-            <p>Investigación completa — qué necesitas para armar tu portafolio profesional</p>
+            <p>Investigaci&oacute;n completa &mdash; qu&eacute; necesitas para armar tu portafolio profesional</p>
         </header>
 
-        <!-- ── Section 1 ── -->
         <div class="callout">
-            <p><strong>¿Qué es?</strong> Un portafolio web es tu carta de presentación digital donde muestras proyectos, habilidades, experiencia y logros como desarrollador.</p>
+            <!-- info -->
+            <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <p><strong>&iquest;Qu&eacute; es?</strong> Un portafolio web es tu carta de presentaci&oacute;n digital donde muestras proyectos, habilidades, experiencia y logros como desarrollador.</p>
         </div>
 
-        <h2>📐 1. Elementos Esenciales</h2>
-        
-        <h3>Estructura básica</h3>
+        <h2>
+            <!-- layout-dashboard -->
+            <svg class="i" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            1. Elementos Esenciales
+        </h2>
+
+        <h3>Estructura b&aacute;sica</h3>
         <ul class="notion-list">
-            <li><strong>Hero/Header</strong> — Presentación personal + foto</li>
-            <li><strong>Sobre mí</strong> — Quién eres, tu perfil profesional</li>
-            <li><strong>Habilidades</strong> — Tecnologías que manejas</li>
-            <li><strong>Proyectos</strong> — Trabajos destacados con capturas y links</li>
-            <li><strong>Experiencia</strong> — Historial laboral o freelance</li>
-            <li><strong>Contacto</strong> — Formulario, email, redes, LinkedIn, GitHub</li>
+            <li><strong>Hero/Header</strong> &mdash; Presentaci&oacute;n personal + foto</li>
+            <li><strong>Sobre m&iacute;</strong> &mdash; Qui&eacute;n eres, tu perfil profesional</li>
+            <li><strong>Habilidades</strong> &mdash; Tecnolog&iacute;as que manejas</li>
+            <li><strong>Proyectos</strong> &mdash; Trabajos destacados con capturas y links</li>
+            <li><strong>Experiencia</strong> &mdash; Historial laboral o freelance</li>
+            <li><strong>Contacto</strong> &mdash; Formulario, email, redes, LinkedIn, GitHub</li>
         </ul>
 
         <h3>Recomendados</h3>
         <ul class="notion-list">
-            <li>Blog técnico</li>
+            <li>Blog t&eacute;cnico</li>
             <li>Testimonios de clientes</li>
             <li>Certificaciones y cursos</li>
             <li>Descarga de CV en PDF</li>
             <li>Modo oscuro/claro</li>
         </ul>
 
-        <!-- ── Section 2 ── -->
-        <h2>🛠 2. Tecnologías Recomendadas</h2>
+        <h2>
+            <!-- code -->
+            <svg class="i" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            2. Tecnolog&iacute;as Recomendadas
+        </h2>
 
-        <h3>Nivel Básico</h3>
-        <p>HTML5 semántico + CSS3 (grid, flexbox) + JavaScript vanilla. Rápido, ligero, sin dependencias.</p>
+        <h3>Nivel B&aacute;sico</h3>
+        <p>HTML5 sem&aacute;ntico + CSS3 (grid, flexbox) + JavaScript vanilla. R&aacute;pido, ligero, sin dependencias.</p>
 
         <h3>Nivel Intermedio (Frameworks)</h3>
         <ul class="notion-list">
             <li>
-                <strong>React / Next.js</strong> — SSR, routing, SEO optimizado
-                <ul>
-                    <li>El más popular del mercado</li>
-                    <li>Deploy gratis en Vercel</li>
-                </ul>
+                <strong>React / Next.js</strong> &mdash; SSR, routing, SEO optimizado
+                <ul><li>El m&aacute;s popular del mercado</li><li>Deploy gratis en Vercel</li></ul>
             </li>
             <li>
-                <strong>Vue / Nuxt</strong> — fácil de aprender, buena documentación
-                <ul>
-                    <li>Curva de aprendizaje suave</li>
-                </ul>
+                <strong>Vue / Nuxt</strong> &mdash; f&aacute;cil de aprender, buena documentaci&oacute;n
+                <ul><li>Curva de aprendizaje suave</li></ul>
             </li>
             <li>
-                <strong>Svelte / SvelteKit</strong> — rendimiento, bundle pequeño
-                <ul>
-                    <li>Menos código, más velocidad</li>
-                </ul>
+                <strong>Svelte / SvelteKit</strong> &mdash; rendimiento, bundle peque&ntilde;o
+                <ul><li>Menos c&oacute;digo, m&aacute;s velocidad</li></ul>
             </li>
         </ul>
 
@@ -399,107 +427,126 @@
 
         <h3>Hosting Gratuito</h3>
         <details>
-            <summary>🔵 Vercel</summary>
+            <summary>Vercel</summary>
             <div class="toggle-content">
                 <div class="sub-block">
-                    <p>Ideal para Next.js. Deploy automático desde GitHub. CI/CD integrado. Analytics incluido.</p>
+                    <p>Ideal para Next.js. Deploy autom&aacute;tico desde GitHub. CI/CD integrado. Analytics incluido.</p>
                 </div>
             </div>
         </details>
         <details>
-            <summary>🟢 Netlify</summary>
+            <summary>Netlify</summary>
             <div class="toggle-content">
                 <div class="sub-block">
-                    <p>Fácil de usar. CI/CD integrado. Formularios incluidos sin backend. Functions serverless.</p>
+                    <p>F&aacute;cil de usar. CI/CD integrado. Formularios incluidos sin backend. Functions serverless.</p>
                 </div>
             </div>
         </details>
         <details>
-            <summary>⚫ GitHub Pages</summary>
+            <summary>GitHub Pages</summary>
             <div class="toggle-content">
                 <div class="sub-block">
-                    <p>Estático, directo desde tu repo. Gratis con tu cuenta GitHub. Sin config adicional.</p>
+                    <p>Est&aacute;tico, directo desde tu repo. Gratis con tu cuenta GitHub. Sin config adicional.</p>
                 </div>
             </div>
         </details>
         <details>
-            <summary>🟠 Cloudflare Pages</summary>
+            <summary>Cloudflare Pages</summary>
             <div class="toggle-content">
                 <div class="sub-block">
-                    <p>Rápido con CDN global. Builds automáticas. Integración con Workers para funciones.</p>
+                    <p>R&aacute;pido con CDN global. Builds autom&aacute;ticas. Integraci&oacute;n con Workers para funciones.</p>
                 </div>
             </div>
         </details>
 
-        <!-- ── Section 3 ── -->
-        <h2>🎯 3. Diseño y UX</h2>
+        <h2>
+            <!-- eye -->
+            <svg class="i" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+            3. Dise&ntilde;o y UX
+        </h2>
 
         <div class="callout callout-green">
-            <p><strong>Principios clave:</strong> menos es más, mobile-first, carga rápida (< 3s), accesibilidad, 1-2 fuentes máximo.</p>
+            <!-- shield-check -->
+            <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.83a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6l8-5 8 5z"/><path d="m9 12 2 2 4-4"/></svg>
+            <p><strong>Principios clave:</strong> menos es m&aacute;s, mobile-first, carga r&aacute;pida (&lt; 3s), accesibilidad, 1-2 fuentes m&aacute;ximo.</p>
         </div>
 
-        <h3>Sitios de inspiración</h3>
+        <h3>Sitios de inspiraci&oacute;n</h3>
         <ul class="notion-list">
-            <li><a href="https://www.awwwards.com/websites/portfolio/" class="link-inline" target="_blank">Awwwards</a> — los mejores diseños del mundo</li>
-            <li><a href="https://dribbble.com/tags/portfolio" class="link-inline" target="_blank">Dribbble</a> — comunidad de diseñadores</li>
-            <li><a href="https://godly.website" class="link-inline" target="_blank">Godly</a> — diseños modernos y creativos</li>
-            <li><a href="https://www.lapa.ninja" class="link-inline" target="_blank">Lapa Ninja</a> — colección de landing pages</li>
+            <li><a href="https://www.awwwards.com/websites/portfolio/" class="link-inline" target="_blank">Awwwards</a> &mdash; los mejores dise&ntilde;os del mundo</li>
+            <li><a href="https://dribbble.com/tags/portfolio" class="link-inline" target="_blank">Dribbble</a> &mdash; comunidad de dise&ntilde;adores</li>
+            <li><a href="https://godly.website" class="link-inline" target="_blank">Godly</a> &mdash; dise&ntilde;os modernos y creativos</li>
+            <li><a href="https://www.lapa.ninja" class="link-inline" target="_blank">Lapa Ninja</a> &mdash; colecci&oacute;n de landing pages</li>
         </ul>
 
-        <!-- ── Section 4 ── -->
-        <h2>📂 4. Qué Proyectos Incluir</h2>
+        <h2>
+            <!-- folder-open -->
+            <svg class="i" viewBox="0 0 24 24"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-.35 1.59a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v1"/><path d="M2 18h20"/></svg>
+            4. Qu&eacute; Proyectos Incluir
+        </h2>
 
         <div class="callout callout-amber">
-            <p><strong>Regla de oro:</strong> Calidad > Cantidad. Mejor 3-6 proyectos sólidos que 10 mediocres.</p>
+            <!-- star -->
+            <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <p><strong>Regla de oro:</strong> Calidad &gt; Cantidad. Mejor 3-6 proyectos s&oacute;lidos que 10 mediocres.</p>
         </div>
 
         <ul class="notion-list">
-            <li><strong>Variedad</strong> — muestra diferentes tecnologías</li>
-            <li><strong>Recientes</strong> — trabajo más relevante primero</li>
-            <li><strong>Con código</strong> — link a GitHub de cada uno</li>
-            <li><strong>Demo en vivo</strong> — link al proyecto funcionando</li>
+            <li><strong>Variedad</strong> &mdash; muestra diferentes tecnolog&iacute;as</li>
+            <li><strong>Recientes</strong> &mdash; trabajo m&aacute;s relevante primero</li>
+            <li><strong>Con c&oacute;digo</strong> &mdash; link a GitHub de cada uno</li>
+            <li><strong>Demo en vivo</strong> &mdash; link al proyecto funcionando</li>
         </ul>
 
         <p style="margin-top: 1rem; font-size: 0.92rem;">Para cada proyecto incluir:</p>
         <div class="tag-row">
-            <span class="tag">Título</span>
-            <span class="tag">Descripción</span>
-            <span class="tag tag-blue">Tecnologías</span>
+            <span class="tag">T&iacute;tulo</span>
+            <span class="tag">Descripci&oacute;n</span>
+            <span class="tag tag-blue">Tecnolog&iacute;as</span>
             <span class="tag">Captura</span>
             <span class="tag tag-green">Demo en vivo</span>
             <span class="tag">Link al repo</span>
             <span class="tag">Tu rol</span>
         </div>
 
-        <!-- ── Section 5 ── -->
-        <h2>🔍 5. SEO y Optimización</h2>
+        <h2>
+            <!-- search -->
+            <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
+            5. SEO y Optimizaci&oacute;n
+        </h2>
 
         <ul class="notion-list">
             <li>Meta tags (title, description, Open Graph)</li>
             <li>Semantic HTML (header, main, section, article, footer)</li>
             <li>Sitemap.xml + Robots.txt</li>
-            <li>Imágenes optimizadas (WebP, lazy loading)</li>
+            <li>Im&aacute;genes optimizadas (WebP, lazy loading)</li>
             <li>Core Web Vitals (LCP, FID, CLS)</li>
         </ul>
 
-        <!-- ── Section 6 ── -->
-        <h2>🌐 6. Dominio Personalizado</h2>
+        <h2>
+            <!-- globe -->
+            <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            6. Dominio Personalizado
+        </h2>
 
         <ul class="notion-list">
             <li>
                 <strong>Compradores recomendados:</strong>
                 <ul>
-                    <li>Namecheap — económicos, buen soporte</li>
-                    <li>Cloudflare Registrar — precio sin markup</li>
-                    <li>Porkbun — precios bajos, buena interfaz</li>
+                    <li>Namecheap &mdash; econ&oacute;micos, buen soporte</li>
+                    <li>Cloudflare Registrar &mdash; precio sin markup</li>
+                    <li>Porkbun &mdash; precios bajos, buena interfaz</li>
                 </ul>
             </li>
-            <li>Recomendación: <code>tunombre.dev</code> o <code>tunombre.com</code></li>
+            <li>Recomendaci&oacute;n: <code>tunombre.dev</code> o <code>tunombre.com</code></li>
             <li>Alternativas: <code>.tech</code>, <code>.me</code>, <code>.io</code></li>
         </ul>
 
-        <!-- ── Section 7 ── -->
-        <h2>🧰 7. Herramientas Útiles</h2>
+        <h2>
+            <!-- wrench -->
+            <svg class="i" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            7. Herramientas &Uacute;tiles
+        </h2>
 
         <h3>Desarrollo</h3>
         <div class="tag-row">
@@ -524,51 +571,56 @@
             <span class="tag tag-amber">Plausible</span>
         </div>
 
-        <!-- ── Section 8 ── -->
-        <h2>🗺 8. Paso a Paso</h2>
+        <h2>
+            <!-- map -->
+            <svg class="i" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>
+            8. Paso a Paso
+        </h2>
 
         <div class="step">
             <span class="step-num">1</span>
-            <span class="step-text"><strong>Definir contenido</strong> — qué proyectos incluir, qué decir de ti</span>
+            <span class="step-text"><strong>Definir contenido</strong> &mdash; qu&eacute; proyectos incluir, qu&eacute; decir de ti</span>
         </div>
         <div class="step">
             <span class="step-num">2</span>
-            <span class="step-text"><strong>Diseñar en Figma</strong> — wireframe → diseño final</span>
+            <span class="step-text"><strong>Dise&ntilde;ar en Figma</strong> &mdash; wireframe &rarr; dise&ntilde;o final</span>
         </div>
         <div class="step">
             <span class="step-num">3</span>
-            <span class="step-text"><strong>Elegir tecnología</strong> — según tu stack y experiencia</span>
+            <span class="step-text"><strong>Elegir tecnolog&iacute;a</strong> &mdash; seg&uacute;n tu stack y experiencia</span>
         </div>
         <div class="step">
             <span class="step-num">4</span>
-            <span class="step-text"><strong>Desarrollar</strong> — mobile-first, responsive</span>
+            <span class="step-text"><strong>Desarrollar</strong> &mdash; mobile-first, responsive</span>
         </div>
         <div class="step">
             <span class="step-num">5</span>
-            <span class="step-text"><strong>Optimizar</strong> — performance, SEO, accesibilidad</span>
+            <span class="step-text"><strong>Optimizar</strong> &mdash; performance, SEO, accesibilidad</span>
         </div>
         <div class="step">
             <span class="step-num">6</span>
-            <span class="step-text"><strong>Deploy</strong> — subir a hosting (Vercel, Netlify, etc.)</span>
+            <span class="step-text"><strong>Deploy</strong> &mdash; subir a hosting (Vercel, Netlify, etc.)</span>
         </div>
         <div class="step">
             <span class="step-num">7</span>
-            <span class="step-text"><strong>Dominio</strong> — conectar dominio personalizado</span>
+            <span class="step-text"><strong>Dominio</strong> &mdash; conectar dominio personalizado</span>
         </div>
         <div class="step">
             <span class="step-num">8</span>
-            <span class="step-text"><strong>Promocionar</strong> — LinkedIn, GitHub, redes sociales</span>
+            <span class="step-text"><strong>Promocionar</strong> &mdash; LinkedIn, GitHub, redes sociales</span>
         </div>
 
         <hr class="divider">
 
         <div class="callout">
-            <p>💡 <strong>Tip:</strong> El portafolio debe ser tu <strong>mejor proyecto</strong> — es el que ven los reclutadores primero. Incluye métricas de impacto y actualiza regularmente.</p>
+            <!-- lightbulb -->
+            <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+            <p><strong>Tip:</strong> El portafolio debe ser tu <strong>mejor proyecto</strong> &mdash; es el que ven los reclutadores primero. Incluye m&eacute;tricas de impacto y actualiza regularmente.</p>
         </div>
 
         <footer class="page-footer">
-            <p><a href="index.html" style="color: var(--blue); text-decoration: none;">← Volver al Banco de Ideas</a></p>
-            <p style="margin-top: 0.5rem;">Banco de Ideas — Antony</p>
+            <p><a href="index.html" class="link-inline">Volver al Banco de Ideas</a></p>
+            <p style="margin-top: 0.5rem;">Banco de Ideas &middot; Antony</p>
         </footer>
     </div>
 </body>
