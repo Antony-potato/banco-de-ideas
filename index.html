@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Ideas - Antony</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        header { text-align: center; padding: 2rem 0 3rem; border-bottom: 1px solid #21262d; margin-bottom: 2rem; }
+        header h1 { font-size: 2.5rem; color: #58a6ff; margin-bottom: 0.5rem; }
+        header p { color: #8b949e; font-size: 1.1rem; }
+        .idea-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s;
+        }
+        .idea-card:hover { border-color: #58a6ff; }
+        .idea-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+        .idea-header h2 { color: #f0f6fc; font-size: 1.3rem; }
+        .status { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .status-standby { background: #1c3a4f; color: #79c0ff; }
+        .status-research { background: #1f3a2d; color: #7ee787; }
+        .idea-meta { color: #8b949e; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .idea-desc { color: #c9d1d9; margin-bottom: 1rem; }
+        .section-title { color: #8b949e; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .feature-list { list-style: none; padding-left: 0; }
+        .feature-list li { padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
+        .feature-list li::before { content: "•"; color: #58a6ff; position: absolute; left: 0; }
+        .sub-list { list-style: none; padding: 0; margin: 0.5rem 0 0 1rem; }
+        .sub-list li { color: #8b949e; font-size: 0.9rem; padding: 0.2rem 0 0.2rem 1rem; }
+        .sub-list li::before { content: "–"; color: #484f58; position: absolute; left: 0; }
+        .sub-list li { position: relative; }
+        .tech-block { background: #0d1117; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; }
+        .tech-block h4 { color: #f0f6fc; font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .link-card {
+            display: inline-block;
+            background: #238636;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
+        }
+        .link-card:hover { background: #2ea043; }
+        .empty-state { text-align: center; padding: 3rem; color: #484f58; }
+        footer { text-align: center; padding: 2rem 0; color: #484f58; font-size: 0.85rem; border-top: 1px solid #21262d; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Banco de Ideas</h1>
+            <p>Proyecto de Antony — Ideas en desarrollo</p>
+        </header>
+
+        <!-- IDEA 1 -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <h2>💡 Idea 1: Contestadora automática para WhatsApp</h2>
+                <span class="status status-standby">⏸️ Standby</span>
+            </div>
+            <div class="idea-meta">📅 19 mayo 2026</div>
+            <p class="idea-desc">Sistema de contestadora de mensajes donde pueda decirle "respóndele a tal persona" y envíe un mensaje por WhatsApp automáticamente.</p>
+            
+            <div class="section-title">Posibles funcionalidades</div>
+            <ul class="feature-list">
+                <li>Identificar contacto por nombre o número</li>
+                <li>Enviar mensaje de texto automáticamente</li>
+                <li>Integración con voz para dictar el mensaje</li>
+                <li>Respuestas rápidas predefinidas</li>
+                <li>Historial de mensajes enviados</li>
+            </ul>
+
+            <div style="margin-top: 1rem;">
+                <div class="section-title">Opciones técnicas investigadas</div>
+                <div class="tech-block">
+                    <h4>🅰️ WhatsApp Cloud API (oficial)</h4>
+                    <ul class="sub-list">
+                        <li>Gratis hasta 1,000 conversaciones/mes</li>
+                        <li>Requiere cuenta de desarrollador Meta</li>
+                        <li>✅ Confiable | ❌ Proceso de verificación</li>
+                    </ul>
+                </div>
+                <div class="tech-block">
+                    <h4>🅱️ WhatsApp Web automation (no oficial)</h4>
+                    <ul class="sub-list">
+                        <li>selenium/playwright para WhatsApp Web</li>
+                        <li>Librerías: pywhatkit, whatsapp-web.js</li>
+                        <li>✅ Flexible | ❌ Riesgo de baneo</li>
+                    </ul>
+                </div>
+                <div class="tech-block">
+                    <h4>©️ Servicios de terceros</h4>
+                    <ul class="sub-list">
+                        <li>Twilio (pagado), CallMeBot (gratis limitado)</li>
+                        <li>✅ Fácil de integrar | ❌ Costo o limitaciones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- IDEA 2 -->
+        <div class="idea-card">
+            <div class="idea-header">
+                <h2>💡 Idea 2: Portafolio de desarrollo web</h2>
+                <span class="status status-research">📋 Investigación</span>
+            </div>
+            <div class="idea-meta">📅 19 mayo 2026</div>
+            <p class="idea-desc">Crear un portafolio profesional de desarrollo web para mostrar proyectos, habilidades y experiencia.</p>
+            <a href="portafolio.html" class="link-card">📄 Ver investigación completa →</a>
+        </div>
+
+        <div class="empty-state">
+            <p>💭 Más ideas próximamente...</p>
+        </div>
+
+        <footer>
+            <p>Banco de Ideas — Actualizado el 19 de mayo de 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
