@@ -18,7 +18,7 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 **Responsabilidades y logros:**
 - **Gestión de activos:** Implementación de Snipe-IT para control de activos fijos, automatización de procesos de altas/bajas con formularios y diseño de dashboards operativos para optimizar la trazabilidad
-- **Desarrollo web:** Desarrollo de mapas interactivos de disponibilidad y landing pages optimizadas para promoción de proyectos residenciales
+- **Desarrollo web:** Desarrollo de mapas interactivos de disponibilidad y landing pages para proyectos residenciales reales (**Koa Towers**, **Aldea Savia**)
 - **Infraestructura cloud:** Despliegue de aplicativos en AWS y administración de almacenamiento en Amazon S3
 - **Soporte técnico:** Soporte de equipos y optimización de hardware a medida
 
@@ -98,7 +98,35 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 ---
 
-### 4. ChuckJokesVue — Vue 3 + Vite
+### 4. Koa Towers — Landing Page + Mapa Interactivo (Onix Living)
+**Proyecto real de trabajo**
+
+**Descripción:** Landing page de promoción residencial con mapa interactivo de disponibilidad de unidades para Koa Towers, proyecto inmobiliario de Onix Living.
+
+**Stack:** Next.js/React, Leaflet (mapas interactivos), AWS S3, CSS/Tailwind
+- Mapa interactivo con disponibilidad en tiempo real
+- Landing page optimizada para promoción del proyecto
+- Despliegue en AWS
+
+**Lo que demuestra:** Desarrollo de proyectos reales para clientes, integración de mapas, despliegue cloud
+
+---
+
+### 5. Aldea Savia — Landing Page + Mapa Interactivo (Onix Living)
+**Proyecto real de trabajo**
+
+**Descripción:** Landing page de promoción residencial con mapa interactivo de disponibilidad de unidades para Aldea Savia, proyecto inmobiliario de Onix Living.
+
+**Stack:** Next.js/React, Leaflet (mapas interactivos), AWS S3, CSS/Tailwind
+- Mapa interactivo con disponibilidad en tiempo real
+- Landing page optimizada para promoción del proyecto
+- Despliegue en AWS
+
+**Lo que demuestra:** Desarrollo de proyectos reales para clientes, integración de mapas, despliegue cloud
+
+---
+
+### 6. ChuckJokesVue — Vue 3 + Vite
 **Repo:** `ChuckJokesVue`
 
 **Descripción:** App de chistes de Chuck Norris con componentes Vue 3, props dinámicos y diseño responsivo.
@@ -112,7 +140,7 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 ---
 
-### 5. La Gaceta Ética — Blog Académico
+### 7. La Gaceta Ética — Blog Académico
 **Repo:** `ethics-news`
 
 **Descripción:** Blog académico estilizado como periódico digital con breaking news marquee.
@@ -126,7 +154,7 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 ---
 
-### 6. Laravel + AdminLTE — Tareas universitarias
+### 8. Laravel + AdminLTE — Tareas universitarias
 **Repos:** `tarea9DisenoWeb` | `actividad11DisenoWeb` | `activity7`
 
 **Stack:** Laravel (Blade), AdminLTE, MySQL, diagramas ER
@@ -140,7 +168,7 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 ---
 
-### 7. Infrastructure as Code — Ansible + AWS
+### 9. Infrastructure as Code — Ansible + AWS
 **Repo:** `act9-iac`
 
 **Descripción:** Playbook de Ansible para probar conexión desde AWS Systems Manager.
@@ -153,26 +181,10 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 ---
 
-### 8. Docker Compose — Pruebas
-**Repo:** `Docker-Pruebas`
-
-**Stack:** Docker Compose, HTML
-
----
-
-### 9. Conecta Cancún — Landing Page
+### 10. Conecta Cancún — Landing Page
 **Repo:** `conecta-cancun`
 
 **Descripción:** Página web sobre un proyecto en Cancún.
-
-**Stack:** HTML, CSS
-
----
-
-### 10. Diseños Web — Tecmilenio
-**Repo:** `diseno-web-tecmilenio`
-
-**Descripción:** Página personal con diseño web.
 
 **Stack:** HTML, CSS
 
@@ -246,7 +258,7 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 **Tecmilenio** — Ingeniería en Desarrollo de Software
 - Período: 2023 - Actualidad
-- Ubicación: Cancún (probablemente)
+- Ubicación: Cancún
 
 ---
 
@@ -263,7 +275,7 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 
 ### Para el portafolio:
 - [ ] Documentar proyecto de Snipe-IT con capturas de pantalla
-- [ ] Documentar mapas interactivos y landing pages de Onix Living
+- [ ] Documentar Koa Towers y Aldea Savia con capturas de los mapas interactivos y landing pages
 - [ ] Destacar el proyecto de microservicios (Docker + K8s + Helm) — es tu proyecto más impresionante
 - [ ] Crear casos de estudio: problema → solución → resultado
 - [ ] Recopilar métricas cuantificables de cada proyecto
@@ -286,8 +298,6 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 - [ ] Métricas de Snipe-IT (cuántos activos, mejora en eficiencia)
 - [ ] KPIs de Office Depot (equipo, resultados)
 - [ ] Detalles del proyecto Conecta Cancún
-- [ ] Qué app usa Steren Home para las cámaras (Tuya, Ezviz, etc.)
-- [ ] Webhook URL de Zoho Cliq (para proyecto de monitoreo)
 
 ---
 
@@ -301,16 +311,16 @@ Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte t
 - Orientación a resultados (manejo de KPIs)
 
 ### Proyectos potenciales para el portafolio:
-1. **Microservicios con Docker + Kubernetes + Helm** — Arquitectura completa con CI/CD ⭐ (el más impresionante)
-2. **Big Data Dashboard** — Next.js + TypeScript + Recharts (conecta con tus certs de IBM)
-3. **OnixPruebas** — Recreación profesional con Next.js + Framer Motion + animaciones
-4. **ChuckJokesVue** — Vue 3 con componentes y props
-5. **La Gaceta Ética** — CSS avanzado con diseño tipo periódico
-6. **Laravel + AdminLTE** — PHP, MVC, bases de datos
-7. **Snipe-IT dashboard** — Gestión de activos de Onix Living
-8. **Mapas interactivos** — Leaflet con datos en tiempo real
-9. **Infrastructure as Code** — Ansible + AWS Systems Manager
-10. **Conecta Cancún** — Landing page de proyecto real
+1. **Koa Towers** — Landing page + mapa interactivo (proyecto real de Onix Living) ⭐
+2. **Aldea Savia** — Landing page + mapa interactivo (proyecto real de Onix Living) ⭐
+3. **Microservicios con Docker + Kubernetes + Helm** — Arquitectura completa con CI/CD ⭐
+4. **Big Data Dashboard** — Next.js + TypeScript + Recharts (conecta con tus certs de IBM)
+5. **OnixPruebas** — Recreación profesional con Next.js + Framer Motion + animaciones
+6. **Snipe-IT dashboard** — Gestión de activos de Onix Living
+7. **ChuckJokesVue** — Vue 3 con componentes y props
+8. **La Gaceta Ética** — CSS avanzado con diseño tipo periódico
+9. **Laravel + AdminLTE** — PHP, MVC, bases de datos
+10. **Infrastructure as Code** — Ansible + AWS Systems Manager
 
 ---
 
