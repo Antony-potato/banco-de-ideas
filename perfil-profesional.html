@@ -28,7 +28,6 @@
         }
         .page { max-width: 860px; margin: 0 auto; padding: 4rem 3rem 6rem; }
         @media (max-width: 768px) { .page { padding: 2rem 1.5rem 4rem; } }
-
         .cover {
             height: 140px; margin: -4rem -3rem 0;
             background: linear-gradient(135deg, var(--blue) 0%, #3D5F80 100%);
@@ -43,9 +42,7 @@
             padding: 1.5rem 0 1rem; font-family: 'Inter', sans-serif; font-size: 0.82rem;
             display: flex; align-items: center; gap: 0.35rem;
         }
-        .breadcrumb a {
-            color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;
-        }
+        .breadcrumb a { color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; }
         .breadcrumb a:hover { text-decoration: underline; }
         .breadcrumb a svg { width: 14px; height: 14px; }
         .breadcrumb span { color: var(--text-lighter); }
@@ -56,7 +53,6 @@
         .page-header h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.2; }
         .page-header p { color: var(--text-light); font-size: 1.05rem; margin-top: 0.5rem; font-style: italic; }
         @media (max-width: 768px) { .page-header h1 { font-size: 1.6rem; } }
-
         h2 {
             font-size: 1.3rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem;
             padding-bottom: 0.4rem; border-bottom: 1px solid var(--border);
@@ -65,7 +61,6 @@
         h2 svg { width: 20px; height: 20px; color: var(--text-light); }
         h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.6rem; color: var(--text); }
         p { margin-bottom: 0.75rem; }
-
         .notion-list { list-style: none; padding: 0; margin: 0.75rem 0; }
         .notion-list li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.6; }
         .notion-list li::before {
@@ -74,7 +69,6 @@
         }
         .notion-list .notion-list li::before { width: 3px; height: 3px; background: var(--border); }
         .notion-list .notion-list { margin: 0.15rem 0; }
-
         .sub-block {
             background: var(--bg-alt); border: 1px solid var(--border);
             border-radius: 4px; padding: 1rem 1.25rem; margin: 0.5rem 0;
@@ -91,7 +85,6 @@
             margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;
         }
         .card-sub-heading svg { width: 14px; height: 14px; }
-
         details { margin: 0.75rem 0; }
         details summary {
             cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.88rem;
@@ -103,9 +96,7 @@
         details[open] summary::before { transform: rotate(90deg); }
         details summary:hover { color: var(--accent-dark); }
         details .toggle-content { padding-left: 1.25rem; margin-top: 0.5rem; }
-
         .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-
         .callout {
             background: var(--bg-alt); border-radius: 4px; padding: 1rem 1.25rem;
             margin: 1.25rem 0; display: flex; gap: 0.75rem; align-items: flex-start;
@@ -113,7 +104,6 @@
         .callout-icon { color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
         .callout-text { font-size: 0.92rem; color: var(--text); }
         .callout-text strong { font-weight: 600; }
-
         .page-link {
             display: inline-flex; align-items: center; gap: 0.5rem;
             font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
@@ -123,14 +113,12 @@
         }
         .page-link:hover { background: var(--blue-bg); border-color: var(--border); }
         .page-link svg { width: 16px; height: 16px; }
-
         .section-label {
             font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500;
             text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-lighter);
             margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
         }
         .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
         .project-card {
             background: var(--paper); border: 1px solid var(--border); border-radius: 4px;
             padding: 2rem; margin-bottom: 2rem; position: relative;
@@ -146,18 +134,22 @@
         .project-card.amber::before { background: var(--amber); }
         .project-card:hover { box-shadow: 0 2px 12px var(--shadow); border-color: var(--accent); }
         @media (max-width: 768px) { .project-card { padding: 1.5rem; } }
-
         .project-title {
             font-size: 1.15rem; font-weight: 600; color: var(--text);
-            margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+            margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
         }
         .project-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
+        .project-meta { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-lighter); margin-bottom: 1rem; display: flex; gap: 0.75rem; }
         .star-badge {
             font-size: 0.65rem; background: var(--amber-bg); color: var(--amber);
             padding: 0.15rem 0.5rem; border-radius: 3px; font-family: 'Inter', sans-serif;
             font-weight: 600; letter-spacing: 0.5px;
         }
-
+        .priv-badge {
+            font-size: 0.65rem; background: var(--blue-bg); color: var(--blue);
+            padding: 0.15rem 0.5rem; border-radius: 3px; font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
         table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
         th {
             font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 500;
@@ -165,13 +157,11 @@
             text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border);
         }
         td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
-
         .todo-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0; font-size: 0.92rem; }
         .todo-box {
             width: 16px; height: 16px; border: 2px solid var(--border); border-radius: 3px;
             flex-shrink: 0; margin-top: 3px;
         }
-
         .footer {
             text-align: center; padding: 2rem 0; margin-top: 3rem;
             border-top: 1px solid var(--border);
@@ -186,7 +176,6 @@
         .project-card:nth-child(2) { animation-delay: 0.06s; }
         .project-card:nth-child(3) { animation-delay: 0.12s; }
         .project-card:nth-child(4) { animation-delay: 0.18s; }
-        .project-card:nth-child(5) { animation-delay: 0.24s; }
     </style>
 </head>
 <body>
@@ -207,7 +196,6 @@
             <p>Antonio Cortázar Jiménez — Ingeniero en Desarrollo de Software</p>
         </header>
 
-        <!-- PERFIL -->
         <div class="callout">
             <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <div class="callout-text">
@@ -215,6 +203,7 @@
             </div>
         </div>
 
+        <!-- EXPERIENCIA -->
         <h2>
             <svg class="i" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
             Experiencia Laboral
@@ -223,11 +212,12 @@
         <div class="section-label">Trabajo actual</div>
         <div class="project-card star">
             <div class="project-title">Auxiliar de TI y Web — Onix Living <span class="star-badge">ACTUAL</span></div>
-            <p class="idea-meta" style="margin-bottom:1rem;">agosto 2025 - actualidad</p>
+            <div class="project-meta"><span>agosto 2025 - actualidad</span></div>
             <ul class="notion-list">
                 <li>Implementación de <strong>Snipe-IT</strong> para control de activos fijos, automatización de altas/bajas con formularios y dashboards operativos</li>
-                <li>Desarrollo de <strong>mapas interactivos</strong> de disponibilidad y <strong>landing pages</strong> para proyectos residenciales</li>
+                <li>Landing pages con <strong>Astro</strong> para proyectos residenciales reales (<strong>Koa Towers</strong>, <strong>Aldea Savia</strong>)</li>
                 <li>Despliegue de aplicativos en <strong>AWS</strong> y administración de almacenamiento en <strong>Amazon S3</strong></li>
+                <li>Dashboard TI interno con <strong>Next.js + Gridstack</strong> para visualización de datos operativos</li>
                 <li>Soporte técnico de equipos y optimización de hardware</li>
             </ul>
         </div>
@@ -235,7 +225,7 @@
         <div class="section-label">Trabajo anterior</div>
         <div class="project-card blue">
             <div class="project-title">Supervisor de Área de Tecnología — Office Depot</div>
-            <p class="idea-meta" style="margin-bottom:1rem;">junio 2024 - agosto 2025</p>
+            <div class="project-meta"><span>junio 2024 - agosto 2025</span></div>
             <ul class="notion-list">
                 <li>Coordinación de personal y capacitación</li>
                 <li>Soporte técnico básico a usuarios (hardware/software)</li>
@@ -244,14 +234,95 @@
             </ul>
         </div>
 
-        <!-- PROYECTOS -->
+        <!-- PROYECTOS ONIX LIVING -->
         <h2>
             <svg class="i" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            Proyectos Destacados
+            Proyectos de Trabajo (Onix Living)
         </h2>
 
         <div class="project-card star">
-            <div class="project-title">Microservicios: Docker + Kubernetes + Helm <span class="star-badge">⭐ TOP</span></div>
+            <div class="project-title">Koa Towers — Landing Page <span class="star-badge">PROYECTO REAL</span></div>
+            <div class="project-meta"><span>🔒 privado</span><span>Live: <a href="https://mapas-onix-living.vercel.app" style="color:var(--blue);text-decoration:none;">mapas-onix-living.vercel.app</a></span></div>
+            <p class="project-desc">Landing page inmobiliaria para el proyecto Koa Towers de Onix Living. Sitio estático con Astro.</p>
+            <div class="tag-row">
+                <span class="tag">Astro 6</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Vercel</span>
+            </div>
+            <details>
+                <summary>Páginas incluidas</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p>index, brochure, contacto, multimedia, ubicación, política de privacidad</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="project-card star">
+            <div class="project-title">Aldea Savia — Landing Page + Disponibilidad <span class="star-badge">PROYECTO REAL</span></div>
+            <div class="project-meta"><span>🔒 privado</span><span>Live: <a href="https://aldeasavia.onixliving.mx" style="color:var(--blue);text-decoration:none;">aldeasavia.onixliving.mx</a></span></div>
+            <p class="project-desc">Landing page inmobiliaria para Aldea Savia, con página de disponibilidad de unidades.</p>
+            <div class="tag-row">
+                <span class="tag">Astro 6</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Servidor propio</span>
+            </div>
+            <details>
+                <summary>Páginas incluidas</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p>index, <strong>disponibilidad</strong>, brochure, contacto, multimedia, ubicación</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="project-card green">
+            <div class="project-title">OnixDashTI — Dashboard TI Interno <span class="star-badge">PROYECTO REAL</span></div>
+            <div class="project-meta"><span>🔒 privado</span></div>
+            <p class="project-desc">Dashboard interno para el área de TI de Onix Living, con visualización de datos operativos usando Gridstack para dashboards arrastrables.</p>
+            <div class="tag-row">
+                <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Gridstack</span><span class="tag">next-auth</span><span class="tag">Tailwind CSS 4</span><span class="tag">Docker</span>
+            </div>
+        </div>
+
+        <div class="project-card green">
+            <div class="project-title">Onix Living Rewards (OxLRewards) <span class="star-badge">PROYECTO REAL</span></div>
+            <div class="project-meta"><span>🔒 privado</span></div>
+            <p class="project-desc">Sistema de recompensas para empleados de Onix Living.</p>
+            <div class="tag-row">
+                <span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">Auth.js v5</span><span class="tag">Turbopack</span><span class="tag">Tailwind CSS 4</span>
+            </div>
+        </div>
+
+        <!-- PROYECTOS PERSONALES -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Proyectos Personales / Académicos
+        </h2>
+
+        <div class="project-card star">
+            <div class="project-title">Pocky — Mascota Virtual PWA <span class="star-badge">⭐ DESTACADO</span></div>
+            <div class="project-meta"><span>🔒 privado</span><span>Live: <a href="https://pocky-next.vercel.app" style="color:var(--blue);text-decoration:none;">pocky-next.vercel.app</a></span></div>
+            <p class="project-desc">Mascota virtual compartida entre dos personas. Funciona en iPhone (Safari PWA) y Android (APK con Capacitor), sin costo alguno.</p>
+            <div class="tag-row">
+                <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">Firebase</span><span class="tag">Zustand</span>
+                <span class="tag">Lottie</span><span class="tag">Web Push</span><span class="tag">PWA</span><span class="tag">Capacitor</span>
+            </div>
+            <details>
+                <summary>Características</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p>🐰 Mascota con ASCII art animado (conejo, gato, perro, hámster)</p>
+                        <p>💾 Sincronización en tiempo real entre dos teléfonos (Firebase)</p>
+                        <p>📱 PWA — se instala en iPhone desde Safari sin App Store</p>
+                        <p>📦 APK — se instala en Android sin Google Play</p>
+                        <p>⏰ Degradación 24/7 aunque no abras la app</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="project-card star">
+            <div class="project-title">Microservicios: Docker + Kubernetes + Helm <span class="star-badge">⭐ DESTACADO</span></div>
+            <div class="project-meta"><span>📂 público</span></div>
             <p class="project-desc">Arquitectura de microservicios completa con CI/CD para Docker Hub y despliegue en Kubernetes con Helm charts.</p>
             <div class="tag-row">
                 <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span>
@@ -262,8 +333,8 @@
                 <summary>Detalles técnicos</summary>
                 <div class="toggle-content">
                     <div class="sub-block">
-                        <p><strong>Backend:</strong> REST API con healthchecks, connection pooling y retry logic (Node.js + Express + MySQL)</p>
-                        <p><strong>Frontend:</strong> HTML/CSS/JS vanilla servido por nginx con reverse-proxy (evita CORS interno en K8s)</p>
+                        <p><strong>Backend:</strong> REST API con healthchecks, connection pooling y retry logic</p>
+                        <p><strong>Frontend:</strong> HTML/CSS/JS vanilla servido por nginx con reverse-proxy</p>
                         <p><strong>Helm chart:</strong> MySQL secret, ConfigMap, PVC, Deployments, Services</p>
                         <p><strong>CI/CD:</strong> GitHub Actions para publicación automática en Docker Hub</p>
                     </div>
@@ -273,6 +344,7 @@
 
         <div class="project-card blue">
             <div class="project-title">Big Data Dashboard — Next.js + TypeScript</div>
+            <div class="project-meta"><span>📂 público</span><span>Live: <a href="https://win95-bigdata-project.vercel.app" style="color:var(--blue);text-decoration:none;">win95-bigdata-project.vercel.app</a></span></div>
             <p class="project-desc">Dashboard de visualización de datos con Next.js 16 y Recharts. Conecta directamente con los certificados de IBM.</p>
             <div class="tag-row">
                 <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span>
@@ -281,34 +353,37 @@
         </div>
 
         <div class="project-card green">
-            <div class="project-title">OnixPruebas — Next.js (Proyecto de trabajo)</div>
+            <div class="project-title">CRZ-Tech — Portfolio Dark Mode</div>
+            <div class="project-meta"><span>🔒 privado</span><span>Live: <a href="https://crzr-tech.vercel.app" style="color:var(--blue);text-decoration:none;">crzr-tech.vercel.app</a></span></div>
+            <p class="project-desc">Portfolio/app web con estética dark mode, detalles ciberespaciales y animaciones fluidas.</p>
+            <div class="tag-row">
+                <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span>
+                <span class="tag">Framer Motion</span><span class="tag">react-lenis</span><span class="tag">Lucide React</span>
+            </div>
+        </div>
+
+        <div class="project-card blue">
+            <div class="project-title">OnixPruebas — Recreación UI Premium</div>
+            <div class="project-meta"><span>📂 público</span></div>
             <p class="project-desc">Recreación componente por componente del sitio hitoba-office.com con diseño premium, animaciones y smooth scroll.</p>
             <div class="tag-row">
-                <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span>
-                <span class="tag">Framer Motion</span><span class="tag">Swiper</span><span class="tag">Lenis</span>
+                <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">Tailwind CSS</span>
+                <span class="tag">Framer Motion</span><span class="tag">Swiper</span><span class="tag">react-lenis</span>
             </div>
         </div>
 
-        <div class="project-card star">
-            <div class="project-title">Koa Towers — Landing Page + Mapa Interactivo <span class="star-badge">PROYECTO REAL</span></div>
-            <p class="project-desc">Landing page de promoción residencial con mapa interactivo de disponibilidad de unidades para Koa Towers, proyecto inmobiliario de Onix Living.</p>
+        <div class="project-card amber">
+            <div class="project-title">Gestor Escolar Frontend</div>
+            <div class="project-meta"><span>🔒 privado</span></div>
+            <p class="project-desc">Frontend de sistema de gestión escolar con calendario integrado.</p>
             <div class="tag-row">
-                <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Leaflet</span>
-                <span class="tag">AWS S3</span><span class="tag">Tailwind CSS</span>
-            </div>
-        </div>
-
-        <div class="project-card star">
-            <div class="project-title">Aldea Savia — Landing Page + Mapa Interactivo <span class="star-badge">PROYECTO REAL</span></div>
-            <p class="project-desc">Landing page de promoción residencial con mapa interactivo de disponibilidad de unidades para Aldea Savia, proyecto inmobiliario de Onix Living.</p>
-            <div class="tag-row">
-                <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Leaflet</span>
-                <span class="tag">AWS S3</span><span class="tag">Tailwind CSS</span>
+                <span class="tag">Vue 3</span><span class="tag">Vite</span><span class="tag">Vue Router</span><span class="tag">Schedule-X</span><span class="tag">Axios</span>
             </div>
         </div>
 
         <div class="project-card amber">
             <div class="project-title">ChuckJokesVue — Vue 3 + Vite</div>
+            <div class="project-meta"><span>📂 público</span></div>
             <p class="project-desc">App con componentes Vue 3, props dinámicos y diseño responsivo (Bootstrap 5).</p>
             <div class="tag-row">
                 <span class="tag">Vue 3</span><span class="tag">Vite</span><span class="tag">Bootstrap 5</span><span class="tag">Composition API</span>
@@ -317,7 +392,8 @@
 
         <div class="project-card blue">
             <div class="project-title">La Gaceta Ética — Blog Académico</div>
-            <p class="project-desc">Blog estilizado como periódico digital con breaking news marquee, diseño editorial completo.</p>
+            <div class="project-meta"><span>📂 público</span><span>Live: <a href="https://ethics-news.vercel.app" style="color:var(--blue);text-decoration:none;">ethics-news.vercel.app</a></span></div>
+            <p class="project-desc">Blog estilizado como periódico digital con breaking news marquee.</p>
             <div class="tag-row">
                 <span class="tag">HTML5</span><span class="tag">CSS3 avanzado</span><span class="tag">JavaScript</span>
             </div>
@@ -325,6 +401,7 @@
 
         <div class="project-card amber">
             <div class="project-title">Laravel + AdminLTE — Tareas universitarias</div>
+            <div class="project-meta"><span>📂 público</span></div>
             <p class="project-desc">Proyectos con Laravel (Blade), AdminLTE, MySQL y diagramas ER.</p>
             <div class="tag-row">
                 <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Blade</span><span class="tag">MySQL</span><span class="tag">AdminLTE</span>
@@ -333,6 +410,7 @@
 
         <div class="project-card green">
             <div class="project-title">Infrastructure as Code — Ansible + AWS</div>
+            <div class="project-meta"><span>📂 público</span></div>
             <p class="project-desc">Playbook de Ansible para probar conexión desde AWS Systems Manager.</p>
             <div class="tag-row">
                 <span class="tag">Ansible</span><span class="tag">AWS Systems Manager</span>
@@ -346,26 +424,48 @@
         </h2>
 
         <div class="sub-block" style="margin-bottom:0.5rem;">
-            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Desarrollo Web</p>
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Frontend</p>
             <div class="tag-row">
-                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-                <span class="tag">Astro</span><span class="tag">Next.js</span><span class="tag">Vue.js</span>
-                <span class="tag">React</span><span class="tag">Leaflet</span>
+                <span class="tag">Astro 6</span><span class="tag">Next.js 15/16</span><span class="tag">Vue 3</span><span class="tag">React 19</span>
+                <span class="tag">TypeScript</span><span class="tag">Tailwind CSS 4</span><span class="tag">Bootstrap 5</span>
+            </div>
+        </div>
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">UI Libraries</p>
+            <div class="tag-row">
+                <span class="tag">Framer Motion</span><span class="tag">Swiper</span><span class="tag">react-lenis</span>
+                <span class="tag">Gridstack</span><span class="tag">Lottie</span><span class="tag">Lucide React</span>
+                <span class="tag">Recharts</span><span class="tag">Schedule-X</span>
             </div>
         </div>
         <div class="sub-block" style="margin-bottom:0.5rem;">
             <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Backend</p>
             <div class="tag-row">
-                <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">PHP</span>
-                <span class="tag">Laravel</span><span class="tag">Node.js</span><span class="tag">Express</span>
+                <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Java</span>
+                <span class="tag">Spring Boot</span><span class="tag">PHP</span><span class="tag">Laravel</span>
+                <span class="tag">MySQL</span>
             </div>
         </div>
         <div class="sub-block" style="margin-bottom:0.5rem;">
             <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Infraestructura & DevOps</p>
             <div class="tag-row">
-                <span class="tag">AWS</span><span class="tag">Amazon S3</span><span class="tag">Docker</span>
+                <span class="tag">AWS</span><span class="tag">Amazon S3</span><span class="tag">Vercel</span>
+                <span class="tag">Docker</span><span class="tag">Docker Compose</span>
                 <span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span>
                 <span class="tag">Ansible</span><span class="tag">Cloudflare</span><span class="tag">Tailscale</span>
+            </div>
+        </div>
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Firebase & PWA</p>
+            <div class="tag-row">
+                <span class="tag">Firebase Realtime</span><span class="tag">Firebase Admin</span>
+                <span class="tag">PWA</span><span class="tag">Capacitor (APK Android)</span><span class="tag">Web Push</span>
+            </div>
+        </div>
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Autenticación & State</p>
+            <div class="tag-row">
+                <span class="tag">next-auth v4/v5</span><span class="tag">Auth.js</span><span class="tag">Zustand</span>
             </div>
         </div>
         <div class="sub-block" style="margin-bottom:0.5rem;">
@@ -378,7 +478,7 @@
             <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Diseño & Otros</p>
             <div class="tag-row">
                 <span class="tag">Figma</span><span class="tag">Adobe</span><span class="tag">Git/GitHub</span>
-                <span class="tag">Snipe-IT</span><span class="tag">Soporte técnico</span>
+                <span class="tag">Snipe-IT</span><span class="tag">Turbopack</span><span class="tag">Soporte técnico</span>
             </div>
         </div>
 
@@ -458,11 +558,11 @@
         <div class="todo-item"><div class="todo-box"></div><span>Detalles del proyecto Conecta Cancún</span></div>
         <div class="todo-item"><div class="todo-box"></div><span>Completar sección "Acerca de" en LinkedIn</span></div>
         <div class="todo-item"><div class="todo-box"></div><span>Agregar certificados de Big Data a LinkedIn</span></div>
-        <div class="todo-item"><div class="todo-box"></div><span>Capturas de pantalla de los mapas interactivos de Koa Towers y Aldea Savia</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>Capturas de pantalla de Koa Towers y Aldea Savia</span></div>
 
         <footer class="footer">
             <p>Perfil Profesional · Antonio Cortázar Jiménez</p>
-            <p>Creado el 20 de mayo de 2026</p>
+            <p>Creado el 20 de mayo de 2026 · Tecnologías verificadas con gh CLI</p>
         </footer>
     </div>
 </body>
