@@ -214,6 +214,7 @@
         }
         .badge-standby { background: var(--amber-bg); color: var(--amber); }
         .badge-research { background: var(--green-bg); color: var(--green); }
+        .badge-new { background: var(--blue-bg); color: var(--blue); }
         .badge svg { width: 12px; height: 12px; }
 
         .idea-desc {
@@ -402,6 +403,7 @@
         .idea-card { animation: fadeIn 0.4s ease both; }
         .idea-card:nth-child(2) { animation-delay: 0.08s; }
         .idea-card:nth-child(3) { animation-delay: 0.16s; }
+        .idea-card:nth-child(4) { animation-delay: 0.24s; }
     </style>
 </head>
 <body>
@@ -544,6 +546,95 @@
             </a>
         </article>
 
+        <!-- ═══ IDEA 3 ═══ -->
+        <article class="idea-card standby">
+            <div class="idea-top">
+                <span class="idea-icon-wrap">
+                    <!-- video -->
+                    <svg class="i" width="24" height="24" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+                </span>
+                <span class="idea-title">Monitoreo de camaras en mu&#x0301;ltiples locaciones</span>
+            </div>
+
+            <div class="idea-meta">
+                <span>20 may 2026</span>
+                <span class="badge badge-new">
+                    <!-- plus -->
+                    <svg class="i" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                    Nuevo
+                </span>
+            </div>
+
+            <p class="idea-desc">
+                Sistema que monitoree ca&#x0301;maras de seguridad Tapo y Steren distribuidas en varias ciudades y envie&#x0301; notificaciones automa&#x0301;ticas si alguna ca&#x0301;mara se apaga o pierde conexio&#x0301;n. Integracio&#x0301;n con Zoho Cliq y Telegram.
+            </p>
+
+            <div class="callout">
+                <!-- bell -->
+                <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <div class="callout-text">
+                    <strong>Flujo:</strong> Cada 5-10 min se revisa el estado de todas las ca&#x0301;maras v&#xed;a APIs cloud. Si alguna cae, te avisa por Telegram y Zoho Cliq.
+                </div>
+            </div>
+
+            <p class="card-sub-heading">
+                <!-- list-checks -->
+                <svg class="i" viewBox="0 0 24 24"><path d="m16 2 4 4-4 4"/><path d="M20 6H9"/><path d="m3 13 3 3 7-7"/><path d="M13 13H3"/><path d="M17 18H3"/></svg>
+                Funcionalidades
+            </p>
+            <ul class="notion-list">
+                <li>Monitoreo remoto de ca&#x0301;maras Tapo (API cloud)</li>
+                <li>Monitoreo de ca&#x0301;maras Steren (API Tuya Cloud)</li>
+                <li>Deteccio&#x0301;n de estado offline/apagado en tiempo real</li>
+                <li>Notificaciones por Zoho Cliq y Telegram</li>
+                <li>Dashboard con estado de todas las ca&#x0301;maras</li>
+                <li>Historial de eventos (caida&#x0301;s y recuperaciones)</li>
+            </ul>
+
+            <hr class="divider">
+
+            <details>
+                <summary>A &#x00B7; Tapo Cloud API (pytapo)</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p style="font-size:0.92rem;">Se autentica con email/contrase&#x00f1;a de la app Tapo. Consulta estado de todas las ca&#x0301;maras remotamente sin acceder a la red local.</p>
+                        <div class="tag-row">
+                            <span class="tag">Sin configuracio&#x0301;n de red</span>
+                            <span class="tag">API no-oficial</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>B &#x00B7; Steren Home / Tuya Cloud</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p style="font-size:0.92rem;">Steren Home probablemente usa plataforma Tuya. Se necesita cuenta developer en developer.tuya.com con Access ID y Secret.</p>
+                        <div class="tag-row">
+                            <span class="tag">API oficial</span>
+                            <span class="tag">Requiere setup</span>
+                            <span class="tag">Por investigar</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>C &#x00B7; Zoho Cliq + Telegram webhook</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p style="font-size:0.92rem;">Zoho Cliq incoming webhook + Telegram (ya conectado). Notificaciones multi-canal.</p>
+                        <div class="tag-row">
+                            <span class="tag">Multi-canal</span>
+                            <span class="tag">Telegram ya listo</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </article>
+
         <div class="empty-state">
             <!-- pen-line -->
             <svg class="i" viewBox="0 0 24 24"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
@@ -552,7 +643,7 @@
 
         <footer class="page-footer">
             <p>Banco de Ideas &#x00B7; Antony</p>
-            <p>&#xda;ltima actualizacio&#x0301;n: 19 de mayo de 2026</p>
+            <p>&#xda;ltima actualizacio&#x0301;n: 20 de mayo de 2026</p>
         </footer>
     </div>
 </body>
