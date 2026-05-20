@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profesional &mdash; Antonio Cortázar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FDF8F0; --bg-alt: #F5EDE3; --paper: #FFFCF5;
+            --text: #37352F; --text-light: #787774; --text-lighter: #A9A9A6;
+            --border: #E8E0D5; --accent: #D4A574; --accent-dark: #B8864E;
+            --green: #6B8F71; --green-bg: #EEF3EE; --amber: #C2934A; --amber-bg: #FDF3E7;
+            --blue: #5B7EA1; --blue-bg: #EEF2F6; --red: #C0392B; --red-bg: #FDEDEC;
+            --tag-bg: #EDEAE5; --hover: #FAF5ED; --shadow: rgba(55,53,47,0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IBM Plex Serif', 'Georgia', serif;
+            background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh;
+        }
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none; opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+        .page { max-width: 860px; margin: 0 auto; padding: 4rem 3rem 6rem; }
+        @media (max-width: 768px) { .page { padding: 2rem 1.5rem 4rem; } }
+
+        .cover {
+            height: 140px; margin: -4rem -3rem 0;
+            background: linear-gradient(135deg, var(--blue) 0%, #3D5F80 100%);
+            position: relative; overflow: hidden;
+        }
+        @media (max-width: 768px) { .cover { margin: -2rem -1.5rem 0; height: 100px; } }
+        .cover::after {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+        }
+        .breadcrumb {
+            padding: 1.5rem 0 1rem; font-family: 'Inter', sans-serif; font-size: 0.82rem;
+            display: flex; align-items: center; gap: 0.35rem;
+        }
+        .breadcrumb a {
+            color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb a svg { width: 14px; height: 14px; }
+        .breadcrumb span { color: var(--text-lighter); }
+        .page-header {
+            padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem;
+        }
+        .page-header-icon { color: var(--text); margin-bottom: 0.75rem; }
+        .page-header h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.2; }
+        .page-header p { color: var(--text-light); font-size: 1.05rem; margin-top: 0.5rem; font-style: italic; }
+        @media (max-width: 768px) { .page-header h1 { font-size: 1.6rem; } }
+
+        h2 {
+            font-size: 1.3rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem;
+            padding-bottom: 0.4rem; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        h2 svg { width: 20px; height: 20px; color: var(--text-light); }
+        h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.6rem; color: var(--text); }
+        p { margin-bottom: 0.75rem; }
+
+        .notion-list { list-style: none; padding: 0; margin: 0.75rem 0; }
+        .notion-list li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.6; }
+        .notion-list li::before {
+            content: ''; position: absolute; left: 6px; top: 50%; transform: translateY(-50%);
+            width: 4px; height: 4px; border-radius: 50%; background: var(--text-lighter);
+        }
+        .notion-list .notion-list li::before { width: 3px; height: 3px; background: var(--border); }
+        .notion-list .notion-list { margin: 0.15rem 0; }
+
+        .sub-block {
+            background: var(--bg-alt); border: 1px solid var(--border);
+            border-radius: 4px; padding: 1rem 1.25rem; margin: 0.5rem 0;
+        }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.5rem 0 0; }
+        .tag {
+            font-family: 'Inter', sans-serif; font-size: 0.72rem;
+            background: var(--tag-bg); color: var(--text-light);
+            padding: 0.15rem 0.5rem; border-radius: 3px; border: 1px solid var(--border);
+        }
+        .card-sub-heading {
+            font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; color: var(--text-lighter);
+            margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;
+        }
+        .card-sub-heading svg { width: 14px; height: 14px; }
+
+        details { margin: 0.75rem 0; }
+        details summary {
+            cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.88rem;
+            font-weight: 500; color: var(--text); padding: 0.4rem 0; list-style: none;
+            display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::before { content: '▸ '; display: inline-block; transition: transform 0.15s; color: var(--text-lighter); }
+        details[open] summary::before { transform: rotate(90deg); }
+        details summary:hover { color: var(--accent-dark); }
+        details .toggle-content { padding-left: 1.25rem; margin-top: 0.5rem; }
+
+        .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        .callout {
+            background: var(--bg-alt); border-radius: 4px; padding: 1rem 1.25rem;
+            margin: 1.25rem 0; display: flex; gap: 0.75rem; align-items: flex-start;
+        }
+        .callout-icon { color: var(--accent-dark); flex-shrink: 0; margin-top: 2px; }
+        .callout-text { font-size: 0.92rem; color: var(--text); }
+        .callout-text strong { font-weight: 600; }
+
+        .page-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+            color: var(--blue); text-decoration: none; padding: 0.5rem 0.75rem;
+            border-radius: 4px; transition: background 0.15s, border-color 0.15s;
+            border: 1px solid transparent;
+        }
+        .page-link:hover { background: var(--blue-bg); border-color: var(--border); }
+        .page-link svg { width: 16px; height: 16px; }
+
+        .section-label {
+            font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-lighter);
+            margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        .project-card {
+            background: var(--paper); border: 1px solid var(--border); border-radius: 4px;
+            padding: 2rem; margin-bottom: 2rem; position: relative;
+            box-shadow: 0 1px 3px var(--shadow); transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .project-card::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            border-radius: 4px 0 0 4px;
+        }
+        .project-card.star::before { background: var(--accent); }
+        .project-card.blue::before { background: var(--blue); }
+        .project-card.green::before { background: var(--green); }
+        .project-card.amber::before { background: var(--amber); }
+        .project-card:hover { box-shadow: 0 2px 12px var(--shadow); border-color: var(--accent); }
+        @media (max-width: 768px) { .project-card { padding: 1.5rem; } }
+
+        .project-title {
+            font-size: 1.15rem; font-weight: 600; color: var(--text);
+            margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .project-desc { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1rem; }
+        .star-badge {
+            font-size: 0.65rem; background: var(--amber-bg); color: var(--amber);
+            padding: 0.15rem 0.5rem; border-radius: 3px; font-family: 'Inter', sans-serif;
+            font-weight: 600; letter-spacing: 0.5px;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+        th {
+            font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; color: var(--text-lighter);
+            text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border);
+        }
+        td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+
+        .todo-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0; font-size: 0.92rem; }
+        .todo-box {
+            width: 16px; height: 16px; border: 2px solid var(--border); border-radius: 3px;
+            flex-shrink: 0; margin-top: 3px;
+        }
+
+        .footer {
+            text-align: center; padding: 2rem 0; margin-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer p {
+            font-family: 'Inter', sans-serif; font-size: 0.75rem;
+            color: var(--text-lighter); line-height: 1.8;
+        }
+        svg.i { display: inline-block; vertical-align: middle; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .project-card { animation: fadeIn 0.4s ease both; }
+        .project-card:nth-child(2) { animation-delay: 0.06s; }
+        .project-card:nth-child(3) { animation-delay: 0.12s; }
+        .project-card:nth-child(4) { animation-delay: 0.18s; }
+        .project-card:nth-child(5) { animation-delay: 0.24s; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="cover"></div>
+        <div class="breadcrumb">
+            <a href="index.html">
+                <svg class="i" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Banco de Ideas
+            </a>
+            <span>›</span>
+            <span>Perfil Profesional</span>
+        </div>
+
+        <header class="page-header">
+            <svg class="page-header-icon" width="40" height="40" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <h1>Perfil Profesional</h1>
+            <p>Antonio Cortázar Jiménez — Ingeniero en Desarrollo de Software</p>
+        </header>
+
+        <!-- PERFIL -->
+        <div class="callout">
+            <svg class="callout-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="callout-text">
+                <strong>Perfil:</strong> Estudiante de Ingeniería en Desarrollo de Software con experiencia en soporte técnico, diseño y ventas. Destaco por mi pensamiento creativo, enfoque en soluciones y habilidades interpersonales. Experiencia en desarrollo web y soporte técnico de primer y segundo nivel.
+            </div>
+        </div>
+
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Experiencia Laboral
+        </h2>
+
+        <div class="section-label">Trabajo actual</div>
+        <div class="project-card star">
+            <div class="project-title">Auxiliar de TI y Web — Onix Living <span class="star-badge">ACTUAL</span></div>
+            <p class="idea-meta" style="margin-bottom:1rem;">agosto 2025 - actualidad</p>
+            <ul class="notion-list">
+                <li>Implementación de <strong>Snipe-IT</strong> para control de activos fijos, automatización de altas/bajas con formularios y dashboards operativos</li>
+                <li>Desarrollo de <strong>mapas interactivos</strong> de disponibilidad y <strong>landing pages</strong> para proyectos residenciales</li>
+                <li>Despliegue de aplicativos en <strong>AWS</strong> y administración de almacenamiento en <strong>Amazon S3</strong></li>
+                <li>Soporte técnico de equipos y optimización de hardware</li>
+            </ul>
+        </div>
+
+        <div class="section-label">Trabajo anterior</div>
+        <div class="project-card blue">
+            <div class="project-title">Supervisor de Área de Tecnología — Office Depot</div>
+            <p class="idea-meta" style="margin-bottom:1rem;">junio 2024 - agosto 2025</p>
+            <ul class="notion-list">
+                <li>Coordinación de personal y capacitación</li>
+                <li>Soporte técnico básico a usuarios (hardware/software)</li>
+                <li>Cierre de ventas y asesoría sobre tecnología</li>
+                <li>Manejo de KPIs</li>
+            </ul>
+        </div>
+
+        <!-- PROYECTOS -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Proyectos Destacados
+        </h2>
+
+        <div class="project-card star">
+            <div class="project-title">Microservicios: Docker + Kubernetes + Helm <span class="star-badge">⭐ TOP</span></div>
+            <p class="project-desc">Arquitectura de microservicios completa con CI/CD para Docker Hub y despliegue en Kubernetes con Helm charts.</p>
+            <div class="tag-row">
+                <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span>
+                <span class="tag">nginx</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
+                <span class="tag">Helm</span><span class="tag">GitHub Actions</span>
+            </div>
+            <details>
+                <summary>Detalles técnicos</summary>
+                <div class="toggle-content">
+                    <div class="sub-block">
+                        <p><strong>Backend:</strong> REST API con healthchecks, connection pooling y retry logic (Node.js + Express + MySQL)</p>
+                        <p><strong>Frontend:</strong> HTML/CSS/JS vanilla servido por nginx con reverse-proxy (evita CORS interno en K8s)</p>
+                        <p><strong>Helm chart:</strong> MySQL secret, ConfigMap, PVC, Deployments, Services</p>
+                        <p><strong>CI/CD:</strong> GitHub Actions para publicación automática en Docker Hub</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="project-card blue">
+            <div class="project-title">Big Data Dashboard — Next.js + TypeScript</div>
+            <p class="project-desc">Dashboard de visualización de datos con Next.js 16 y Recharts. Conecta directamente con los certificados de IBM.</p>
+            <div class="tag-row">
+                <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span>
+                <span class="tag">Tailwind CSS 4</span><span class="tag">Recharts</span>
+            </div>
+        </div>
+
+        <div class="project-card green">
+            <div class="project-title">OnixPruebas — Next.js (Proyecto de trabajo)</div>
+            <p class="project-desc">Recreación componente por componente del sitio hitoba-office.com con diseño premium, animaciones y smooth scroll.</p>
+            <div class="tag-row">
+                <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span>
+                <span class="tag">Framer Motion</span><span class="tag">Swiper</span><span class="tag">Lenis</span>
+            </div>
+        </div>
+
+        <div class="project-card amber">
+            <div class="project-title">ChuckJokesVue — Vue 3 + Vite</div>
+            <p class="project-desc">App con componentes Vue 3, props dinámicos y diseño responsivo (Bootstrap 5).</p>
+            <div class="tag-row">
+                <span class="tag">Vue 3</span><span class="tag">Vite</span><span class="tag">Bootstrap 5</span><span class="tag">Composition API</span>
+            </div>
+        </div>
+
+        <div class="project-card blue">
+            <div class="project-title">La Gaceta Ética — Blog Académico</div>
+            <p class="project-desc">Blog estilizado como periódico digital con breaking news marquee, diseño editorial completo.</p>
+            <div class="tag-row">
+                <span class="tag">HTML5</span><span class="tag">CSS3 avanzado</span><span class="tag">JavaScript</span>
+            </div>
+        </div>
+
+        <div class="project-card amber">
+            <div class="project-title">Laravel + AdminLTE — Tareas universitarias</div>
+            <p class="project-desc">Proyectos con Laravel (Blade), AdminLTE, MySQL y diagramas ER.</p>
+            <div class="tag-row">
+                <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Blade</span><span class="tag">MySQL</span><span class="tag">AdminLTE</span>
+            </div>
+        </div>
+
+        <div class="project-card green">
+            <div class="project-title">Infrastructure as Code — Ansible + AWS</div>
+            <p class="project-desc">Playbook de Ansible para probar conexión desde AWS Systems Manager.</p>
+            <div class="tag-row">
+                <span class="tag">Ansible</span><span class="tag">AWS Systems Manager</span>
+            </div>
+        </div>
+
+        <!-- HABILIDADES -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Habilidades Técnicas
+        </h2>
+
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Desarrollo Web</p>
+            <div class="tag-row">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+                <span class="tag">Astro</span><span class="tag">Next.js</span><span class="tag">Vue.js</span>
+                <span class="tag">React</span><span class="tag">Leaflet</span>
+            </div>
+        </div>
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Backend</p>
+            <div class="tag-row">
+                <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">PHP</span>
+                <span class="tag">Laravel</span><span class="tag">Node.js</span><span class="tag">Express</span>
+            </div>
+        </div>
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Infraestructura & DevOps</p>
+            <div class="tag-row">
+                <span class="tag">AWS</span><span class="tag">Amazon S3</span><span class="tag">Docker</span>
+                <span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">GitHub Actions</span>
+                <span class="tag">Ansible</span><span class="tag">Cloudflare</span><span class="tag">Tailscale</span>
+            </div>
+        </div>
+        <div class="sub-block" style="margin-bottom:0.5rem;">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Big Data</p>
+            <div class="tag-row">
+                <span class="tag">Apache Spark</span><span class="tag">Apache Hadoop</span><span class="tag">Big Data Foundations</span>
+            </div>
+        </div>
+        <div class="sub-block">
+            <p style="font-size:0.85rem;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-lighter);margin-bottom:0.5rem;">Diseño & Otros</p>
+            <div class="tag-row">
+                <span class="tag">Figma</span><span class="tag">Adobe</span><span class="tag">Git/GitHub</span>
+                <span class="tag">Snipe-IT</span><span class="tag">Soporte técnico</span>
+            </div>
+        </div>
+
+        <!-- CERTIFICADOS -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Certificados
+        </h2>
+
+        <h3>Big Data & Analytics</h3>
+        <table>
+            <tr><th>Certificado</th><th>Emisor</th><th>Fecha</th></tr>
+            <tr><td>Big Data 101</td><td>Cognitive Class (IBM)</td><td>abr 2026</td></tr>
+            <tr><td>Big Data Foundations - Level 1</td><td>IBM</td><td>abr 2026</td></tr>
+            <tr><td>Big Data Foundations - Level 2</td><td>IBM</td><td>abr 2026</td></tr>
+            <tr><td>Spark - Level 1</td><td>IBM</td><td>abr 2026</td></tr>
+            <tr><td>Hadoop Foundations - Level 1</td><td>IBM</td><td>abr 2026</td></tr>
+        </table>
+
+        <h3>Cloud & AWS</h3>
+        <table>
+            <tr><th>Certificado</th><th>Emisor</th><th>Fecha</th></tr>
+            <tr><td>AWS Academy Graduate - Data Engineering</td><td>Amazon Web Services</td><td>dic 2025</td></tr>
+        </table>
+
+        <h3>Idiomas</h3>
+        <table>
+            <tr><th>Certificado</th><th>Emisor</th><th>Fecha</th></tr>
+            <tr><td>EF SET English Certificate 67/100 (C1 Advanced)</td><td>EF SET</td><td>jul 2025</td></tr>
+        </table>
+
+        <h3>Redes & Diseño</h3>
+        <table>
+            <tr><th>Certificado</th><th>Emisor</th><th>Fecha</th></tr>
+            <tr><td>Networking Academy Learn-A-Thon 2024</td><td>Cisco</td><td>jun 2024</td></tr>
+            <tr><td>Figma Avanzado</td><td>LinkedIn Learning</td><td>-</td></tr>
+        </table>
+
+        <h3>Otros</h3>
+        <table>
+            <tr><th>Certificado</th><th>Emisor</th><th>Fecha</th></tr>
+            <tr><td>Innovation Meet Up (Creatividad)</td><td>Universidad Tecmilenio</td><td>mar 2026</td></tr>
+        </table>
+
+        <!-- EDUCACIÓN -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Educación
+        </h2>
+        <div class="sub-block">
+            <p style="font-weight:600;">Tecmilenio — Ingeniería en Desarrollo de Software</p>
+            <p style="color:var(--text-light);font-size:0.9rem;">2023 - Actualidad</p>
+        </div>
+
+        <!-- CONTACTO -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contacto
+        </h2>
+        <div class="sub-block">
+            <ul class="notion-list">
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/antoniocortazar/" style="color:var(--blue);text-decoration:none;">linkedin.com/in/antoniocortazar</a></li>
+                <li><strong>Teléfono:</strong> 81 3511 2848</li>
+                <li><strong>Email:</strong> Antony_cj12@outlook.com</li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/Antony-potato" style="color:var(--blue);text-decoration:none;">github.com/Antony-potato</a></li>
+            </ul>
+        </div>
+
+        <!-- PENDIENTES -->
+        <h2>
+            <svg class="i" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Próximos Pasos
+        </h2>
+
+        <div class="todo-item"><div class="todo-box"></div><span>Métricas de Snipe-IT (cuántos activos, mejora en eficiencia)</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>KPIs de Office Depot (equipo, resultados)</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>Detalles del proyecto Conecta Cancún</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>Qué app usa Steren Home para las cámaras</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>Webhook URL de Zoho Cliq</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>Completar sección "Acerca de" en LinkedIn</span></div>
+        <div class="todo-item"><div class="todo-box"></div><span>Agregar certificados de Big Data a LinkedIn</span></div>
+
+        <footer class="footer">
+            <p>Perfil Profesional · Antonio Cortázar Jiménez</p>
+            <p>Creado el 20 de mayo de 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
