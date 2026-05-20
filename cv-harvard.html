@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Cortazar Jimenez — CV</title>
+    <style>
+        /* ===== HARVARD RESUME STYLE ===== */
+        @page {
+            size: letter;
+            margin: 0.6in 0.7in;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 10.5pt;
+            line-height: 1.35;
+            color: #1a1a1a;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.6in 0.7in;
+        }
+
+        /* === HEADER === */
+        .header {
+            text-align: center;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+            border-bottom: 1.5px solid #1a1a1a;
+        }
+        .header h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .header .contact {
+            font-size: 9.5pt;
+            color: #333;
+            line-height: 1.5;
+        }
+        .header .contact a {
+            color: #333;
+            text-decoration: none;
+        }
+        .header .contact a:hover {
+            text-decoration: underline;
+        }
+        .contact-sep {
+            margin: 0 4px;
+            color: #999;
+        }
+
+        /* === SECTION HEADINGS === */
+        .section-heading {
+            font-size: 11pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 2px;
+            margin-top: 14px;
+            margin-bottom: 6px;
+        }
+
+        /* === ENTRIES === */
+        .entry {
+            margin-bottom: 8px;
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .entry-org {
+            font-weight: bold;
+            font-size: 10.5pt;
+        }
+        .entry-location {
+            font-style: italic;
+            font-size: 9.5pt;
+            color: #555;
+        }
+        .entry-role {
+            font-style: italic;
+            font-size: 10pt;
+            margin-bottom: 2px;
+        }
+        .entry-date {
+            font-size: 9.5pt;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* === BULLETS === */
+        .bullets {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 2px;
+        }
+        .bullets li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 2px;
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+        .bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 2px;
+            font-size: 11pt;
+            line-height: 1.2;
+        }
+
+        /* === SKILLS TABLE === */
+        .skills-row {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 2px;
+            font-size: 10pt;
+        }
+        .skills-label {
+            font-weight: bold;
+            min-width: 110px;
+            font-size: 10pt;
+        }
+        .skills-val {
+            font-size: 10pt;
+        }
+
+        /* === CERTS === */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px 20px;
+        }
+        .cert-item {
+            font-size: 9.5pt;
+            line-height: 1.35;
+            margin-bottom: 2px;
+        }
+        .cert-name {
+            font-weight: bold;
+        }
+
+        /* === PRINT === */
+        @media print {
+            body { padding: 0; max-width: none; }
+            .no-print { display: none; }
+        }
+
+        /* === SCREEN ONLY: subtle page frame === */
+        @media screen {
+            body {
+                background: #f5f5f0;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+            .cv-page {
+                background: white;
+                box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+                padding: 0.6in 0.7in;
+                max-width: 8.5in;
+                margin: 0 auto;
+            }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 700px) {
+            .certs-grid { grid-template-columns: 1fr; }
+            .skills-row { flex-direction: column; }
+            .entry-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="cv-page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Antonio Cortazar Jimenez</h1>
+        <div class="contact">
+            Cancún, México
+            <span class="contact-sep">|</span>
+            81 3511 2848
+            <span class="contact-sep">|</span>
+            <a href="mailto:Antony_cj12@outlook.com">Antony_cj12@outlook.com</a>
+            <br>
+            <a href="https://linkedin.com/in/antoniocortazar">linkedin.com/in/antoniocortazar</a>
+            <span class="contact-sep">|</span>
+            <a href="https://antoniocortazar.dev">antoniocortazar.dev</a>
+            <span class="contact-sep">|</span>
+            <a href="https://github.com/Antony-potato">github.com/Antony-potato</a>
+        </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section-heading">Education</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">Universidad Tecmilenio</span>
+                <span class="entry-location"> — Cancún, México</span>
+            </div>
+            <span class="entry-date">2023 – Present</span>
+        </div>
+        <div class="entry-role">Ingeniería en Desarrollo de Software (B.S. in Software Development Engineering)</div>
+        <ul class="bullets">
+            <li>Relevant Coursework: Data Structures, Object-Oriented Programming (Java), Full Stack Web Development, Relational Databases, Infrastructure as Code</li>
+        </ul>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section-heading">Experience</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">Onix Living</span>
+                <span class="entry-location"> — IT Assistant & Web Developer</span>
+            </div>
+            <span class="entry-date">Aug 2025 – Present</span>
+        </div>
+        <ul class="bullets">
+            <li>Developed and deployed landing pages with <strong>Astro</strong> for 3 residential real estate projects (Koa Towers, Aldea Savia, CRZR), including 2 interactive availability maps for unit tracking</li>
+            <li>Implemented <strong>Snipe-IT</strong> asset management system to track <strong>100+ fixed assets</strong>; automated provisioning and decommissioning workflows with web forms and operational dashboards</li>
+            <li>Deployed web applications on <strong>AWS</strong> and managed static asset storage via <strong>Amazon S3</strong></li>
+            <li>Built an internal IT operations dashboard using <strong>Next.js</strong> and <strong>Gridstack</strong> with drag-and-drop widgets for real-time data visualization</li>
+            <li>Provided Tier 1 and Tier 2 technical support for hardware and software across office infrastructure</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">Office Depot</span>
+                <span class="entry-location"> — Technology Department Supervisor</span>
+            </div>
+            <span class="entry-date">Jun 2024 – Aug 2025</span>
+        </div>
+        <ul class="bullets">
+            <li>Led a team of <strong>5 associates</strong> in the technology department, providing training and daily operational guidance</li>
+            <li>Drove technology product sales and delivered customer-facing consultations on hardware, software, and electronics</li>
+            <li>Managed department KPIs including sales targets, customer satisfaction scores, and inventory accuracy</li>
+            <li>Provided technical troubleshooting and product demonstrations to customers</li>
+        </ul>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section-heading">Projects</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">Koa Towers & Aldea Savia — Interactive Availability Maps</span>
+                <span class="entry-location"> — Onix Living</span>
+            </div>
+            <span class="entry-date">2025</span>
+        </div>
+        <ul class="bullets">
+            <li>Built static landing pages with <strong>Astro 6</strong> featuring interactive availability maps for residential unit tracking</li>
+            <li>Deployed to Vercel and custom domain (aldeasavia.onixliving.mx)</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">Pocky — Cross-Platform Virtual Pet PWA</span>
+                <span class="entry-location"> — Personal</span>
+            </div>
+        </div>
+        <ul class="bullets">
+            <li>Developed a shared virtual pet application with real-time synchronization via <strong>Firebase</strong> across iOS (Safari PWA) and Android (Capacitor APK) without App Store or Google Play</li>
+            <li>Implemented 24/7 pet degradation system, animated ASCII art characters, and Web Push notifications</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">Microservices Architecture — Docker + Kubernetes + Helm</span>
+                <span class="entry-location"> — Academic</span>
+            </div>
+        </div>
+        <ul class="bullets">
+            <li>Designed a full microservices stack with Node.js/Express backend, nginx reverse-proxy frontend, and MySQL database</li>
+            <li>Configured <strong>Kubernetes</strong> deployments via <strong>Helm charts</strong> (Secrets, ConfigMaps, PVCs, Services) and automated CI/CD pipeline with <strong>GitHub Actions</strong> for Docker Hub publishing</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">CRZ-Tech — Dark Mode Portfolio</span>
+                <span class="entry-location"> — Personal</span>
+            </div>
+        </div>
+        <ul class="bullets">
+            <li>Built a modern portfolio with dark-mode aesthetic and fluid animations using <strong>Framer Motion</strong> and smooth scroll via <strong>react-lenis</strong></li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <div>
+                <span class="entry-org">OnixDashTI — Internal IT Dashboard</span>
+                <span class="entry-location"> — Onix Living</span>
+            </div>
+        </div>
+        <ul class="bullets">
+            <li>Created a drag-and-drop dashboard for IT operations data visualization using <strong>Gridstack</strong>; containerized with <strong>Docker Compose</strong> and deployed on internal network</li>
+        </ul>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section-heading">Skills</div>
+
+    <div class="skills-row">
+        <span class="skills-label">Languages:</span>
+        <span class="skills-val">JavaScript, TypeScript, HTML5, CSS3, Java, PHP, SQL</span>
+    </div>
+    <div class="skills-row">
+        <span class="skills-label">Frontend:</span>
+        <span class="skills-val">Astro, Next.js, React, Vue 3, Tailwind CSS, Framer Motion, Swiper</span>
+    </div>
+    <div class="skills-row">
+        <span class="skills-label">Backend:</span>
+        <span class="skills-val">Node.js, Express, Spring Boot, Laravel, Blade</span>
+    </div>
+    <div class="skills-row">
+        <span class="skills-label">Infrastructure:</span>
+        <span class="skills-val">AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions, Ansible</span>
+    </div>
+    <div class="skills-row">
+        <span class="skills-label">Databases:</span>
+        <span class="skills-val">MySQL</span>
+    </div>
+    <div class="skills-row">
+        <span class="skills-label">Other:</span>
+        <span class="skills-val">Firebase (Realtime, Admin), PWA, Capacitor (APK), Git, Snipe-IT, Figma</span>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section-heading">Certifications</div>
+
+    <div class="certs-grid">
+        <div class="cert-item">
+            <span class="cert-name">Big Data 101</span> — Cognitive Class (IBM), Apr 2026
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Big Data Foundations L1 & L2</span> — IBM, Apr 2026
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Spark — Level 1</span> — IBM, Apr 2026
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Hadoop Foundations — Level 1</span> — IBM, Apr 2026
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">AWS Academy Graduate — Data Engineering</span> — AWS, Dec 2025
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">EF SET English — C1 Advanced (67/100)</span> — EF SET, Jul 2025
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Networking Academy Learn-A-Thon 2024</span> — Cisco, Jun 2024
+        </div>
+        <div class="cert-item">
+            <span class="cert-name">Figma Avanzado</span> — LinkedIn Learning
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
