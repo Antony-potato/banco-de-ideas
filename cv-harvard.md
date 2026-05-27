@@ -31,10 +31,16 @@ LinkedIn: linkedin.com/in/antoniocortazar | Portfolio: antoniocortazar.dev | Git
 
 ## PROYECTOS
 
-**Koa Towers & Aldea Savia — Mapas Interactivos de Disponibilidad** | Onix Living
-- Construí landing pages estáticas con **Astro 6** con mapas interactivos de disponibilidad para seguimiento de unidades residenciales
-- Desplegadas en Vercel y dominio personalizado (aldeasavia.onixliving.mx)
-- Tech: Astro, HTML, CSS, Amazon S3
+**Koa Towers — Landing Page con Mapa Interactivo de Disponibilidad** | Onix Living
+- Landing page completa con mapa interactivo de disponibilidad para **4 torres de 9 niveles** (5 unidades por torre); animación con scroll donde las 2 torres frontales se alejan revelando las traseras, navegación clickeable por torre y nivel con renders 3D
+- Vistas laterales (izquierda/derecha) con transiciones fluidas generadas con **inteligencia artificial**; galería multimedia interactiva con scroll horizontal usando **Lenis** smooth scroll
+- Integración con **Google Sheets** para gestión de disponibilidad en tiempo real por el equipo de ventas; formulario de contacto con envío directo a Sheets
+- Mapa de ubicación con **Google Maps API**, página de contacto completa y sección de brochure (PDF renderizado como galería de imágenes para vendedores)
+- Desplegada con **Astro 6** en Vercel y dominio personalizado (koa-towers)
+
+**Aldea Savia — Landing Page Residencial** | Onix Living
+- Landing page residencial con mapa interactivo de disponibilidad para seguimiento de unidades
+- Desplegada en dominio personalizado (aldeasavia.onixliving.mx)
 
 **Pocky — Mascota Virtual Multiplataforma PWA** | Personal
 - Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía **Firebase** a través de iOS (Safari PWA) y Android (Capacitor APK) sin App Store ni Google Play
