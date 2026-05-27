@@ -191,13 +191,27 @@
             }
         }
 
-        /* === RESPONSIVE === */
+        /* === RESPONSIVE: same layout as desktop, just scaled down === */
         @media (max-width: 700px) {
-            .certs-grid { grid-template-columns: 1fr; }
-            .skills-row { flex-direction: column; }
-            .entry-header { flex-direction: column; }
-            .top-bar { padding: 6px 10px; gap: 8px; }
-            .top-bar button { padding: 3px 10px; font-size: 12px; }
+            body { padding-top: 46px; padding-bottom: 16px; }
+            .cv-page { padding: 12px 14px; }
+            .header h1 { font-size: 14pt; }
+            .header .contact { font-size: 8.5pt; }
+            .section-heading { font-size: 9.5pt; margin-top: 10px; margin-bottom: 4px; }
+            .entry { margin-bottom: 6px; }
+            .entry-org { font-size: 9.5pt; }
+            .entry-location { font-size: 8pt; }
+            .entry-role { font-size: 8.5pt; }
+            .entry-date { font-size: 8pt; }
+            .bullets li { font-size: 8.5pt; padding-left: 12px; margin-bottom: 1px; }
+            .bullets li::before { font-size: 9pt; }
+            .skills-row { font-size: 8.5pt; margin-bottom: 1px; }
+            .skills-label { font-size: 8.5pt; min-width: 90px; }
+            .skills-val { font-size: 8.5pt; }
+            .certs-grid { gap: 1px 12px; }
+            .cert-item { font-size: 8pt; }
+            .top-bar { padding: 5px 10px; gap: 6px; }
+            .top-bar button { padding: 3px 8px; font-size: 11px; }
         }
     </style>
 </head>
