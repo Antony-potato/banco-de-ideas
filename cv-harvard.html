@@ -86,6 +86,13 @@
             margin-bottom: 6px;
         }
 
+        /* === PROFILE SUMMARY === */
+        .profile-summary {
+            font-size: 10pt;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
         /* === ENTRIES === */
         .entry {
             margin-bottom: 8px;
@@ -146,7 +153,7 @@
         }
         .skills-label {
             font-weight: bold;
-            min-width: 110px;
+            min-width: 155px;
             font-size: 10pt;
         }
         .skills-val {
@@ -198,6 +205,7 @@
             .header h1 { font-size: 13pt; }
             .header .contact { font-size: 8pt; }
             .section-heading { font-size: 9.5pt; margin-top: 10px; margin-bottom: 3px; padding-bottom: 1px; }
+            .profile-summary { font-size: 8pt; margin-bottom: 2px; }
             .entry { margin-bottom: 5px; }
             .entry-header { gap: 0 8px; }
             .entry-org { font-size: 9.5pt; }
@@ -207,7 +215,7 @@
             .bullets li { font-size: 8pt; padding-left: 11px; margin-bottom: 1px; line-height: 1.3; }
             .bullets li::before { font-size: 8.5pt; }
             .skills-row { font-size: 8pt; margin-bottom: 1px; gap: 4px; }
-            .skills-label { font-size: 8pt; min-width: 85px; }
+            .skills-label { font-size: 8pt; min-width: 110px; }
             .skills-val { font-size: 8pt; }
             .certs-grid { gap: 1px 14px; }
             .cert-item { font-size: 8pt; }
@@ -243,7 +251,7 @@
             <span class="contact-sep">|</span>
             81 3511 2848
             <span class="contact-sep">|</span>
-            <a href="mailto:Antony_cj12@outlook.com">Antony_cj12@outlook.com</a>
+            <a href="mailto:hola@antoniocortazar.dev">hola@antoniocortazar.dev</a>
             <br>
             <a href="https://linkedin.com/in/antoniocortazar">linkedin.com/in/antoniocortazar</a>
             <span class="contact-sep">|</span>
@@ -252,6 +260,14 @@
             <a href="https://github.com/Antony-potato">github.com/Antony-potato</a>
         </div>
     </div>
+
+    <!-- PROFILE SUMMARY -->
+    <div class="section-heading">
+        <span data-es="Perfil Profesional" data-en="Professional Summary">Perfil Profesional</span>
+    </div>
+    <p class="profile-summary">
+        <span data-es="Desarrollador Full Stack y estudiante de Ingeniería en Desarrollo de Software con nivel de inglés C1. Especializado en construir soluciones web escalables e interfaces inmersivas utilizando tecnologías modernas como React, Next.js y Astro, integradas con infraestructuras en la nube (AWS, Docker). Orientado a resultados y comprometido con la entrega de código eficiente. Combino una sólida base técnica con excelentes habilidades interpersonales para colaborar en equipos multidisciplinarios, digitalizar procesos corporativos y crear herramientas tecnológicas que aporten valor real al negocio y a la experiencia del usuario." data-en="Full Stack Developer and Software Development Engineering student with C1 English proficiency. Specialized in building scalable web solutions and immersive interfaces using modern technologies like React, Next.js, and Astro, integrated with cloud infrastructures (AWS, Docker). Results-oriented and committed to delivering efficient code. I combine a strong technical foundation with excellent interpersonal skills to collaborate in multidisciplinary teams, digitize corporate processes, and create technological tools that deliver real business value and enhance user experience.">Desarrollador Full Stack y estudiante de Ingeniería en Desarrollo de Software con nivel de inglés C1. Especializado en construir soluciones web escalables e interfaces inmersivas utilizando tecnologías modernas como React, Next.js y Astro, integradas con infraestructuras en la nube (AWS, Docker). Orientado a resultados y comprometido con la entrega de código eficiente. Combino una sólida base técnica con excelentes habilidades interpersonales para colaborar en equipos multidisciplinarios, digitalizar procesos corporativos y crear herramientas tecnológicas que aporten valor real al negocio y a la experiencia del usuario.</span>
+    </p>
 
     <!-- EDUCATION -->
     <div class="section-heading">
@@ -265,7 +281,7 @@
                 <span class="entry-location"> — <span data-es="Cancún, México" data-en="Cancún, Mexico">Cancún, México</span></span>
             </div>
             <span class="entry-date">
-                <span data-es="2023 – Actualidad" data-en="2023 – Present">2023 – Actualidad</span>
+                <span data-es="2023 – Esperado: Mayo 2027" data-en="2023 – Expected: May 2027">2023 – Esperado: Mayo 2027</span>
             </span>
         </div>
         <div class="entry-role">
@@ -273,7 +289,7 @@
         </div>
         <ul class="bullets">
             <li>
-                <span data-es="Materias relevantes: Estructuras de Datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infraestructura como Código" data-en="Relevant Coursework: Data Structures, Object-Oriented Programming (Java), Full Stack Web Development, Relational Databases, Infrastructure as Code">Materias relevantes: Estructuras de Datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infraestructura como Código</span>
+                <span data-es="Materias relevantes: Estructuras de Datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infraestructura como Código." data-en="Relevant Coursework: Data Structures, Object-Oriented Programming (Java), Full Stack Web Development, Relational Databases, Infrastructure as Code.">Materias relevantes: Estructuras de Datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infraestructura como Código.</span>
             </li>
         </ul>
     </div>
@@ -295,16 +311,16 @@
         </div>
         <ul class="bullets">
             <li>
-                <span data-es="Containericé y desplegué aplicaciones web internas usando Docker Compose en infraestructura propia, reduciendo tiempos de despliegue y mejorando la consistencia entre entornos." data-en="Containerized and deployed internal web applications using Docker Compose on self-hosted infrastructure, reducing deployment time and improving environment consistency.">Containericé y desplegué aplicaciones web internas usando <strong>Docker Compose</strong> en infraestructura propia, reduciendo tiempos de despliegue y mejorando la consistencia entre entornos.</span>
+                <span data-es="Containericé y desplegué aplicaciones web internas mediante Docker Compose en AWS Lightsail, optimizando los tiempos de liberación y asegurando la consistencia entre entornos." data-en="Containerized and deployed internal web applications using Docker Compose on AWS Lightsail, optimizing release times and ensuring consistency across environments.">Containericé y desplegué aplicaciones web internas mediante <strong>Docker Compose</strong> en <strong>AWS Lightsail</strong>, optimizando los tiempos de liberación y asegurando la consistencia entre entornos.</span>
             </li>
             <li>
-                <span data-es="Construí un dashboard interno de operaciones de TI con Next.js y Gridstack, proporcionando widgets drag-and-drop para monitoreo en tiempo real de estado de activos y tickets de soporte." data-en="Built an internal IT operations dashboard with Next.js and Gridstack, providing drag-and-drop widgets for real-time monitoring of asset status and support tickets.">Construí un dashboard interno de operaciones de TI con <strong>Next.js</strong> y <strong>Gridstack</strong>, proporcionando widgets drag-and-drop para monitoreo en tiempo real de estado de activos y tickets de soporte.</span>
+                <span data-es="Construí un dashboard interno de operaciones de TI con Next.js y Gridstack, proporcionando widgets drag-and-drop para monitoreo en tiempo real del estado de activos y tickets de soporte." data-en="Built an internal IT operations dashboard with Next.js and Gridstack, providing drag-and-drop widgets for real-time monitoring of asset status and support tickets.">Construí un dashboard interno de operaciones de TI con <strong>Next.js</strong> y <strong>Gridstack</strong>, proporcionando widgets drag-and-drop para monitoreo en tiempo real del estado de activos y tickets de soporte.</span>
             </li>
             <li>
                 <span data-es="Implementé el sistema de gestión de activos Snipe-IT para rastrear 100+ activos fijos; automaticé flujos de aprovisionamiento y baja con formularios web y dashboards operativos." data-en="Implemented Snipe-IT asset management system to track 100+ fixed assets; automated provisioning and decommissioning workflows with web forms and operational dashboards.">Implementé el sistema de gestión de activos <strong>Snipe-IT</strong> para rastrear <strong>100+ activos fijos</strong>; automaticé flujos de aprovisionamiento y baja con formularios web y dashboards operativos.</span>
             </li>
             <li>
-                <span data-es="Desplegué aplicaciones web estáticas en AWS y gestioné almacenamiento de assets multimedia vía Amazon S3 para proyectos de la empresa." data-en="Deployed static web applications on AWS and managed media asset storage via Amazon S3 for company projects.">Desplegué aplicaciones web estáticas en <strong>AWS</strong> y gestioné almacenamiento de assets multimedia vía <strong>Amazon S3</strong> para proyectos de la empresa.</span>
+                <span data-es="Desplegué aplicaciones web estáticas en AWS y gestioné almacenamiento de assets multimedia vía Amazon S3 para proyectos de la empresa." data-en="Deployed static web applications on AWS and managed multimedia asset storage via Amazon S3 for company projects.">Desplegué aplicaciones web estáticas en <strong>AWS</strong> y gestioné almacenamiento de assets multimedia vía <strong>Amazon S3</strong> para proyectos de la empresa.</span>
             </li>
             <li>
                 <span data-es="Brindé soporte técnico Nivel 1 y 2 para hardware y software en infraestructura de oficina; capacité a 25+ empleados en herramientas de IA y flujos de automatización de Zoho One." data-en="Provided Tier 1 and Tier 2 technical support for hardware and software across office infrastructure; trained 25+ employees on AI tools and Zoho One automation workflows.">Brindé soporte técnico Nivel 1 y 2 para hardware y software en infraestructura de oficina; capacité a <strong>25+ empleados</strong> en herramientas de IA y flujos de automatización de Zoho One.</span>
@@ -355,13 +371,13 @@
         </div>
         <ul class="bullets">
             <li>
-                <span data-es="Arquitecté y construí landing pages estáticas con Astro 6 SSG para dos proyectos inmobiliarios residenciales, optimizando SEO y cargas de página por debajo de un segundo." data-en="Architected and built static landing pages with Astro 6 SSG for two residential real estate projects, optimizing for SEO and sub-second page loads.">Arquitecté y construí landing pages estáticas con <strong>Astro 6 SSG</strong> para dos proyectos inmobiliarios residenciales, optimizando SEO y cargas de página por debajo de un segundo.</span>
+                <span data-es="Arquitecté y construí landing pages estáticas con Astro 6 (SSG) para digitalizar la presentación de dos proyectos inmobiliarios (anteriormente distribuidos en archivos PDF desorganizados), mejorando drásticamente el posicionamiento SEO y logrando tiempos de carga de página por debajo de un segundo." data-en="Architected and built static landing pages with Astro 6 (SSG) to digitize the presentation of two real estate projects (previously distributed in disorganized PDF files), dramatically improving SEO positioning and achieving sub-second page load times.">Arquitecté y construí landing pages estáticas con <strong>Astro 6 (SSG)</strong> para digitalizar la presentación de dos proyectos inmobiliarios (anteriormente distribuidos en archivos PDF desorganizados), mejorando drásticamente el posicionamiento SEO y logrando tiempos de carga de página por debajo de un segundo.</span>
             </li>
             <li>
-                <span data-es="Desarrollé mapas interactivos de disponibilidad con Google Maps API y datos dinámicos de unidades provenientes de Google Sheets API, permitiendo visualización de inventario en tiempo real para 180+ unidades residenciales." data-en="Developed interactive availability maps with Google Maps API and dynamic unit-level data sourced from Google Sheets API, enabling real-time inventory visualization for 180+ residential units.">Desarrollé mapas interactivos de disponibilidad con <strong>Google Maps API</strong> y datos dinámicos de unidades provenientes de <strong>Google Sheets API</strong>, permitiendo visualización de inventario en tiempo real para 180+ unidades residenciales.</span>
+                <span data-es="Construí interfaces inmersivas mediante mapas interactivos 3D y animaciones al hacer scroll, sincronizando datos dinámicos vía API de Google Sheets para visualizar el inventario de 180+ unidades en tiempo real." data-en="Built immersive interfaces with interactive 3D maps and scroll-triggered animations, synchronizing dynamic data via Google Sheets API to visualize inventory of 180+ units in real time.">Construí interfaces inmersivas mediante mapas interactivos 3D y animaciones al hacer scroll, sincronizando datos dinámicos vía <strong>API de Google Sheets</strong> para visualizar el inventario de 180+ unidades en tiempo real.</span>
             </li>
             <li>
-                <span data-es="Configuré pipelines de CI/CD automatizados con GitHub Actions para rebuilds programados cada 12 horas, y despliegue a dominio personalizado (aldeasavia.onixliving.mx)." data-en="Configured automated CI/CD pipelines with GitHub Actions for scheduled rebuilds every 12 hours, and deployed to custom domain (aldeasavia.onixliving.mx).">Configuré pipelines de CI/CD automatizados con <strong>GitHub Actions</strong> para rebuilds programados cada 12 horas, y despliegue a dominio personalizado (aldeasavia.onixliving.mx).</span>
+                <span data-es="Configuré pipelines de CI/CD automatizados con GitHub Actions para rebuilds programados cada 12 horas, y despliegue a dominio personalizado." data-en="Configured automated CI/CD pipelines with GitHub Actions for scheduled rebuilds every 12 hours, and deployment to custom domain.">Configuré pipelines de CI/CD automatizados con <strong>GitHub Actions</strong> para rebuilds programados cada 12 horas, y despliegue a dominio personalizado.</span>
             </li>
         </ul>
     </div>
@@ -380,7 +396,7 @@
                 <span data-es="Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía Firebase a través de iOS (Safari PWA) y Android (Capacitor) sin distribución por App Store ni Google Play." data-en="Developed a shared virtual pet application with real-time synchronization via Firebase across iOS (Safari PWA) and Android (Capacitor) without App Store or Google Play distribution.">Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía <strong>Firebase</strong> a través de iOS (Safari PWA) y Android (Capacitor) sin distribución por App Store ni Google Play.</span>
             </li>
             <li>
-                <span data-es="Implementé sistema de degradación 24/7 de la mascota, personajes animados en ASCII art y notificaciones Web Push para engagement multiplataforma." data-en="Implemented 24/7 pet degradation system, animated ASCII art characters, and Web Push notifications for cross-platform user engagement.">Implementé sistema de degradación 24/7 de la mascota, personajes animados en ASCII art y notificaciones Web Push para engagement multiplataforma.</span>
+                <span data-es="Implementé sistema de degradación 24/7 de la mascota, personajes animados y notificaciones Web Push para engagement multiplataforma." data-en="Implemented 24/7 pet degradation system, animated characters, and Web Push notifications for cross-platform engagement.">Implementé sistema de degradación 24/7 de la mascota, personajes animados y notificaciones Web Push para engagement multiplataforma.</span>
             </li>
         </ul>
     </div>
@@ -404,44 +420,26 @@
         </ul>
     </div>
 
-    <div class="entry">
-        <div class="entry-header">
-            <div>
-                <span class="entry-org">OnixDashTI — <span data-es="Dashboard Interno de TI" data-en="Internal IT Dashboard">Dashboard Interno de TI</span></span>
-                <span class="entry-location"> — Onix Living</span>
-            </div>
-        </div>
-        <ul class="bullets">
-            <li>
-                <span data-es="Creé un dashboard drag-and-drop para visualización de datos de operaciones de TI usando Gridstack; containericé con Docker Compose y desplegué en red interna." data-en="Created a drag-and-drop dashboard for IT operations data visualization using Gridstack; containerized with Docker Compose and deployed on internal network.">Creé un dashboard drag-and-drop para visualización de datos de operaciones de TI usando <strong>Gridstack</strong>; containericé con <strong>Docker Compose</strong> y desplegué en red interna.</span>
-            </li>
-        </ul>
-    </div>
-
     <!-- SKILLS -->
     <div class="section-heading">
         <span data-es="Habilidades" data-en="Skills">Habilidades</span>
     </div>
 
     <div class="skills-row">
+        <span class="skills-label" data-es="Frontend:" data-en="Frontend:">Frontend:</span>
+        <span class="skills-val">Next.js, React, Astro, Vue 3, Tailwind CSS, Framer Motion, Swiper</span>
+    </div>
+    <div class="skills-row">
         <span class="skills-label" data-es="Lenguajes:" data-en="Languages:">Lenguajes:</span>
         <span class="skills-val">JavaScript, TypeScript, HTML5, CSS3, Java, PHP, SQL</span>
     </div>
     <div class="skills-row">
-        <span class="skills-label">Frontend:</span>
-        <span class="skills-val">Astro, Next.js, React, Vue 3, Tailwind CSS, Framer Motion, Swiper</span>
-    </div>
-    <div class="skills-row">
-        <span class="skills-label">Backend:</span>
+        <span class="skills-label" data-es="Backend:" data-en="Backend:">Backend:</span>
         <span class="skills-val">Node.js, Spring Boot, Laravel</span>
     </div>
     <div class="skills-row">
-        <span class="skills-label" data-es="Infraestructura:" data-en="Infrastructure:">Infraestructura:</span>
-        <span class="skills-val">AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions</span>
-    </div>
-    <div class="skills-row">
-        <span class="skills-label" data-es="Bases de datos:" data-en="Databases:">Bases de datos:</span>
-        <span class="skills-val">MySQL</span>
+        <span class="skills-label" data-es="Infraestructura y BD:" data-en="Infrastructure & DB:">Infraestructura y BD:</span>
+        <span class="skills-val">AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions, MySQL</span>
     </div>
     <div class="skills-row">
         <span class="skills-label" data-es="Otros:" data-en="Other:">Otros:</span>
@@ -455,28 +453,19 @@
 
     <div class="certs-grid">
         <div class="cert-item">
-            <span class="cert-name">Big Data 101</span> — Cognitive Class (IBM), <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
-        </div>
-        <div class="cert-item">
-            <span class="cert-name">Big Data Foundations L1 & L2</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
-        </div>
-        <div class="cert-item">
-            <span class="cert-name">Spark — Level 1</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
-        </div>
-        <div class="cert-item">
-            <span class="cert-name">Hadoop Foundations — Level 1</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
+            <span class="cert-name">EF SET English — C1 Advanced (67/100)</span> — EF SET, <span data-es="Jul 2025" data-en="Jul 2025">Jul 2025</span>
         </div>
         <div class="cert-item">
             <span class="cert-name">AWS Academy Graduate — Data Engineering</span> — AWS, <span data-es="Dic 2025" data-en="Dec 2025">Dic 2025</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">EF SET English — C1 Advanced (67/100)</span> — EF SET, <span data-es="Jul 2025" data-en="Jul 2025">Jul 2025</span>
+            <span class="cert-name">Figma Avanzado</span> — LinkedIn Learning
         </div>
         <div class="cert-item">
             <span class="cert-name">Networking Academy Learn-A-Thon 2024</span> — Cisco, <span data-es="Jun 2024" data-en="Jun 2024">Jun 2024</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">Figma Avanzado</span> — LinkedIn Learning
+            <span class="cert-name">Big Data &amp; Hadoop Foundations (L1, L2, Spark)</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
         </div>
     </div>
 
