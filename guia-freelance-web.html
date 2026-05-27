@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Freelance Web — Banco de Ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=Lucide&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FDF8F0;
+            --bg-alt: #F5EDE3;
+            --paper: #FFFCF5;
+            --text: #37352F;
+            --text-light: #787774;
+            --text-lighter: #A9A9A6;
+            --border: #E8E0D5;
+            --accent: #D4A574;
+            --accent-dark: #B8864E;
+            --green: #6B8F71;
+            --green-bg: #EEF3EE;
+            --amber: #C2934A;
+            --amber-bg: #FDF3E7;
+            --blue: #5B7EA1;
+            --blue-bg: #EEF2F6;
+            --red: #C0392B;
+            --red-bg: #FDEDEC;
+            --tag-bg: #EDEAE5;
+            --hover: #FAF5ED;
+            --shadow: rgba(55, 53, 47, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'IBM Plex Serif', 'Georgia', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 3rem 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .page { padding: 2rem 1.5rem 4rem; }
+        }
+
+        .cover {
+            height: 180px;
+            margin: -4rem -3rem 0;
+            background: linear-gradient(135deg, var(--green) 0%, #4a6b4f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .cover { margin: -2rem -1.5rem 0; height: 120px; }
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.03) 2px,
+                rgba(255,255,255,0.03) 4px
+            );
+        }
+
+        .page-header {
+            padding: 2rem 0 2.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+
+        .page-header h1 {
+            font-family: 'IBM Plex Serif', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blue);
+            text-decoration: none;
+            padding: 0.4rem 0;
+            margin-bottom: 2rem;
+            transition: color 0.15s;
+        }
+        .back-link:hover { color: var(--accent-dark); }
+        .back-link svg { width: 16px; height: 16px; }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 1.25rem 0 0.5rem;
+        }
+
+        .section p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .sub-card {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem 1.5rem;
+            margin: 0.75rem 0;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        .sub-card strong {
+            color: var(--accent-dark);
+        }
+
+        .notion-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+        .notion-list li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .notion-list li::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-lighter);
+        }
+
+        .callout {
+            background: var(--amber-bg);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            border-left: 3px solid var(--amber);
+        }
+        .callout-icon { flex-shrink: 0; margin-top: 2px; color: var(--amber); }
+        .callout-text { font-size: 0.92rem; }
+        .callout-text strong { font-weight: 600; }
+
+        .callout.red {
+            background: var(--red-bg);
+            border-left-color: var(--red);
+        }
+        .callout.red .callout-icon { color: var(--red); }
+
+        .callout.green {
+            background: var(--green-bg);
+            border-left-color: var(--green);
+        }
+        .callout.green .callout-icon { color: var(--green); }
+
+        .callout.blue {
+            background: var(--blue-bg);
+            border-left-color: var(--blue);
+        }
+        .callout.blue .callout-icon { color: var(--blue); }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin: 0.5rem 0 0;
+        }
+        .tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            background: var(--tag-bg);
+            color: var(--text-light);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .pricing-table th,
+        .pricing-table td {
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .pricing-table th {
+            background: var(--bg-alt);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+        }
+        .pricing-table td {
+            color: var(--text);
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .page-footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-lighter);
+            line-height: 1.8;
+        }
+
+        svg.i {
+            display: inline-block;
+            vertical-align: middle;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .highlight-box {
+            background: var(--green-bg);
+            border: 1px solid #c3d4c6;
+            border-radius: 4px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+        }
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+        }
+        .phase-item {
+            background: var(--paper);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .phase-item .phase-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .phase-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .phase-item p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .phase-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        code {
+            background: var(--bg-alt);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-family: 'Inter', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="cover"></div>
+
+        <header class="page-header">
+            <!-- briefcase icon -->
+            <svg class="i" width="40" height="40" viewBox="0 0 24 24" style="margin-bottom:0.75rem; color: var(--text);">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <h1>Gu&iacute;a: Freelance en Desarrollo Web</h1>
+            <p>Investigaci&oacute;n sobre pricing, entregas, revisiones, contratos y mejores pr&aacute;cticas</p>
+        </header>
+
+        <a href="index.html" class="back-link">
+            <!-- arrow-left -->
+            <svg class="i" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Volver al Banco de Ideas
+        </a>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 1: CÓMO COBRAR -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">1</span> C&oacute;mo cobrar (Pricing)</h2>
+
+            <h3>Modelo 1: Precio fijo (Fixed Price)</h3>
+            <p>El m&aacute;s com&uacute;n para empezar. Defines un precio por el proyecto completo. Bueno para proyectos con alcance bien definido (landing page, sitio corporativo).</p>
+            <div class="callout red">
+                <svg class="callout-icon i" width="18" height="18" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <div class="callout-text">
+                    <strong>Riesgo:</strong> Si el scope crece, trabajas gratis. Por eso el alcance debe estar claro por escrito antes de empezar.
+                </div>
+            </div>
+
+            <h3>Modelo 2: Por hora (Hourly Rate)</h3>
+            <p>Cobras por cada hora de trabajo. Bueno para mantenimiento o proyectos con alcance difuso.</p>
+            <div class="sub-card">
+                <p><strong>Tarifas orientativas (USD/hr):</strong></p>
+                <ul class="notion-list">
+                    <li>Junior: $25 – $50/hr</li>
+                    <li>Mid-level: $50 – $100/hr</li>
+                    <li>Senior: $100 – $200+/hr</li>
+                </ul>
+            </div>
+
+            <h3>Modelo 3: H&iacute;brido (Recomendado)</h3>
+            <p>Precio fijo por el desarrollo base + tarifa por hora para cambios adicionales fuera del scope acordado.</p>
+
+            <hr class="divider">
+
+            <h3>C&oacute;mo calcular tu precio fijo</h3>
+            <div class="highlight-box">
+                <ol class="notion-list" style="counter-reset: none;">
+                    <li>Estima cu&aacute;ntas horas te tomar&aacute;</li>
+                    <li>Multiplica por tu tarifa por hora deseada</li>
+                    <li>Agrega <strong>20-30% de buffer</strong> (siempre toma m&aacute;s de lo que piensas)</li>
+                    <li>Eso es tu precio base</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 2: PRECIOS REFERENCIALES -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">2</span> Precios referenciales (M&eacute;xico / LatAm)</h2>
+
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Proyecto</th>
+                        <th>Rango (MXN)</th>
+                        <th>Tiempo t&iacute;pico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Landing page simple</td><td>$8,000 – $25,000</td><td>1–2 semanas</td></tr>
+                    <tr><td>Sitio corporativo 5–7 p&aacute;ginas</td><td>$20,000 – $60,000</td><td>2–4 semanas</td></tr>
+                    <tr><td>E-commerce b&aacute;sico</td><td>$30,000 – $100,000+</td><td>4–8 semanas</td></tr>
+                    <tr><td>Web app personalizada</td><td>$50,000 – $200,000+</td><td>1–3 meses</td></tr>
+                    <tr><td>Mantenimiento mensual</td><td>$3,000 – $15,000/mes</td><td>Recurrente</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 3: ENTREGAS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">3</span> C&oacute;mo definir las entregas</h2>
+
+            <p>Cada proyecto debe tener un <strong>Scope of Work</strong> (Alcance del trabajo) por escrito:</p>
+
+            <div class="sub-card">
+                <p><strong>Qu&eacute; incluir:</strong></p>
+                <ul class="notion-list">
+                    <li>✅ Descripci&oacute;n clara de lo que <strong>S&Iacute;</strong> incluye</li>
+                    <li>❌ Lo que <strong>NO</strong> incluye (contenido, fotograf&iacute;a, SEO, hosting)</li>
+                    <li>✅ Tecnolog&iacute;as a usar</li>
+                    <li>✅ Entregables espec&iacute;ficos (archivos, c&oacute;digo, credenciales, docs)</li>
+                    <li>✅ Fechas de entrega por fase</li>
+                </ul>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Fases t&iacute;picas de entrega:</strong></p>
+
+            <div class="phase-grid">
+                <div class="phase-item">
+                    <div class="phase-num">1</div>
+                    <h4>Wireframes / Mockups</h4>
+                    <p>El cliente aprueba el dise&ntilde;o antes de codear</p>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num">2</div>
+                    <h4>Desarrollo</h4>
+                    <p>Sitio funcional en URL de staging</p>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num">3</div>
+                    <h4>Revisi&oacute;n</h4>
+                    <p>Feedback sobre el staging</p>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num">4</div>
+                    <h4>Entrega final</h4>
+                    <p>Deploy + handover de c&oacute;digo</p>
+                </div>
+            </div>
+
+            <div class="callout green">
+                <svg class="callout-icon i" width="18" height="18" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <div class="callout-text">
+                    <strong>Regla de oro:</strong> Nunca empieces a codear sin que el dise&ntilde;o/mockup est&eacute; aprobado. Si despu&eacute;s quieren cambiar el dise&ntilde;o, eso es un cambio extra y se cobra.
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 4: REVISIONES Y CAMBIOS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">4</span> Revisiones y cambios</h2>
+
+            <p>Aqu&iacute; es donde los freelancers nuevos pierden m&aacute;s dinero. Def&iacute;nelo as&iacute;:</p>
+
+            <div class="sub-card">
+                <p><strong>Incluye 2-3 rondas de revisi&oacute;n</strong> dentro del precio base:</p>
+                <ul class="notion-list">
+                    <li>Cada &ldquo;ronda&rdquo; = el cliente junta TODO su feedback y lo env&iacute;a de una vez</li>
+                    <li>Las revisiones son sobre lo acordado en el mockup, no redise&ntilde;ar desde cero</li>
+                    <li>Cada revisi&oacute;n posterior se cobra a tu tarifa por hora</li>
+                </ul>
+            </div>
+
+            <div class="callout">
+                <svg class="callout-icon i" width="18" height="18" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="callout-text">
+                    <strong>Cambios de scope = cambio de precio.</strong> Si el cliente dice &ldquo;&iquest;y podemos agregar X?&rdquo; → &ldquo;Claro, eso ser&iacute;a fuera del alcance original. Te env&iacute;o un estimado por separado.&rdquo; Nunca digas que s&iacute; gratis.
+                </div>
+            </div>
+
+            <div class="sub-card" style="border-left: 3px solid var(--accent);">
+                <p><strong>Ejemplo de cl&aacute;usula para el acuerdo:</strong></p>
+                <p style="font-style: italic; margin-top: 0.5rem;">
+                    &ldquo;El precio incluye 2 rondas de revisi&oacute;n. Cada ronda adicional se cobra a $X/hr. Cambios al alcance original se presupuestan por separado.&rdquo;
+                </p>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 5: CONTRATO -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">5</span> Contrato (s&iacute;, siempre)</h2>
+
+            <p>Aunque sea simple. Un email con los t&eacute;rminos vale m&aacute;s que nada:</p>
+
+            <div class="sub-card">
+                <p><strong>M&iacute;nimo que debe tener:</strong></p>
+                <ul class="notion-list">
+                    <li>Alcance del trabajo (qu&eacute; incluye, qu&eacute; no)</li>
+                    <li>Precio total y forma de pago</li>
+                    <li>N&uacute;mero de revisiones incluidas</li>
+                    <li>Timeline / fechas de entrega</li>
+                    <li>Qui&eacute;n provee qu&eacute; (textos, im&aacute;genes, logos, hosting)</li>
+                    <li>Pol&iacute;tica de cambios fuera de scope</li>
+                    <li>T&eacute;rminos de propiedad intelectual (&iquest;qui&eacute;n es due&ntilde;o del c&oacute;digo?)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 6: FORMA DE PAGO -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">6</span> Forma de pago</h2>
+
+            <div class="callout red">
+                <svg class="callout-icon i" width="18" height="18" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <div class="callout-text">
+                    <strong>NUNCA trabajes sin anticipo.</strong> Si el cliente no quiere pagar anticipo, no quiere pagar punto.
+                </div>
+            </div>
+
+            <h3>Estructura recomendada:</h3>
+            <div class="phase-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="phase-item">
+                    <div class="phase-num" style="background: var(--amber);">50%</div>
+                    <h4>Al inicio</h4>
+                    <p>No empiezas sin esto</p>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background: var(--green);">50%</div>
+                    <h4>Al entregar</h4>
+                    <p>Antes de pasar el c&oacute;digo o deploy</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 0.75rem;"><strong>Para proyectos grandes (+$5K USD):</strong></p>
+            <ul class="notion-list">
+                <li>40% al inicio</li>
+                <li>30% al aprobar mockup</li>
+                <li>30% al entrega final</li>
+            </ul>
+
+            <h3>Herramientas de cobro:</h3>
+            <div class="sub-card">
+                <ul class="notion-list">
+                    <li><strong>Internacional:</strong> Stripe, Wise, PayPal (cobran comisi&oacute;n pero son est&aacute;ndar)</li>
+                    <li><strong>M&eacute;xico:</strong> Transferencia bancaria es lo m&aacute;s com&uacute;n</li>
+                    <li><strong>Crypto:</strong> Opci&oacute;n si el cliente est&aacute; de acuerdo</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECCIÓN 7: MEJORES PRÁCTICAS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="section">
+            <h2><span class="section-number">7</span> Mejores pr&aacute;cticas para empezar</h2>
+
+            <div class="sub-card">
+                <ol class="notion-list">
+                    <li><strong>Portfolio primero</strong> — Aunque sean proyectos personales o ficticios. Muestra lo que sabes hacer.</li>
+                    <li><strong>Especial&iacute;zate</strong> — Mejor &ldquo;hago landings para inmobiliarias&rdquo; que &ldquo;hago cualquier cosa web&rdquo;</li>
+                    <li><strong>Comun&iacute;cate mucho</strong> — El #1 por qu&eacute; los clientes no repiten es mala comunicaci&oacute;n, no mal c&oacute;digo</li>
+                    <li><strong>Usa staging</strong> — Nunca deployes directo al sitio del cliente sin que lo revise primero</li>
+                    <li><strong>Documenta todo</strong> — Cada decisi&oacute;n importante por email/chat, no de palabra</li>
+                    <li><strong>Aprende a decir &ldquo;no&rdquo;</strong> — Clientes t&oacute;xicos o proyectos mal pagados te cuestan m&aacute;s de lo que ganas</li>
+                    <li><strong>No compitas por precio</strong> — Compite por calidad y comunicaci&oacute;n. Si cobras barato atraes clientes baratos</li>
+                    <li><strong>Ten plantillas</strong> — Contrato, propuesta, invoice, email de bienvenida. No empieces desde cero cada vez</li>
+                </ol>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <footer class="page-footer">
+            <p>Gu&iacute;a Freelance Web &#x00B7; Banco de Ideas &#x00B7; Antony</p>
+            <p>Investigaci&oacute;n realizada: Junio 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
