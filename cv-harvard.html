@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,26 @@
             max-width: 8.5in;
             margin: 0 auto;
             padding: 0.6in 0.7in;
+        }
+
+        /* === TOP BAR: Language Toggle + Print === */
+        .top-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: #1a1a1a; color: #fff; padding: 8px 16px;
+            display: flex; justify-content: center; align-items: center; gap: 12px;
+            font-family: 'Inter', sans-serif; font-size: 13px;
+        }
+        .top-bar button {
+            background: transparent; color: #ccc; border: 1px solid #555;
+            padding: 4px 12px; border-radius: 4px; cursor: pointer;
+            font-size: 13px; transition: all 0.15s;
+        }
+        .top-bar button.active {
+            background: #fff; color: #1a1a1a; border-color: #fff; font-weight: 600;
+        }
+        .top-bar button:hover:not(.active) { color: #fff; border-color: #999; }
+        .top-bar .print-btn {
+            margin-left: 8px; border-color: #777;
         }
 
         /* === HEADER === */
@@ -150,15 +170,16 @@
 
         /* === PRINT === */
         @media print {
-            body { padding: 0; max-width: none; }
-            .no-print { display: none; }
+            .top-bar, .no-print { display: none !important; }
+            body { padding: 0; max-width: none; background: #fff; }
+            .cv-page { box-shadow: none; padding: 0; background: #fff; }
         }
 
         /* === SCREEN ONLY: subtle page frame === */
         @media screen {
             body {
                 background: #f5f5f0;
-                padding-top: 30px;
+                padding-top: 50px;
                 padding-bottom: 30px;
             }
             .cv-page {
@@ -175,17 +196,29 @@
             .certs-grid { grid-template-columns: 1fr; }
             .skills-row { flex-direction: column; }
             .entry-header { flex-direction: column; }
+            .top-bar { padding: 6px 10px; gap: 8px; }
+            .top-bar button { padding: 3px 10px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
+
+<!-- TOP BAR: Language Toggle + Print (hidden on print) -->
+<div class="top-bar no-print">
+    <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="print-btn" onclick="window.print()">
+        <span data-es="Imprimir" data-en="Print">Imprimir</span>
+    </button>
+</div>
+
 <div class="cv-page">
 
     <!-- HEADER -->
     <div class="header">
         <h1>Antonio Cortazar Jimenez</h1>
         <div class="contact">
-            Cancún, México
+            <span data-es="Cancún, México" data-en="Cancún, Mexico">Cancún, México</span>
             <span class="contact-sep">|</span>
             81 3511 2848
             <span class="contact-sep">|</span>
@@ -200,39 +233,61 @@
     </div>
 
     <!-- EDUCATION -->
-    <div class="section-heading">Education</div>
+    <div class="section-heading">
+        <span data-es="Educación" data-en="Education">Educación</span>
+    </div>
 
     <div class="entry">
         <div class="entry-header">
             <div>
                 <span class="entry-org">Universidad Tecmilenio</span>
-                <span class="entry-location"> — Cancún, México</span>
+                <span class="entry-location"> — <span data-es="Cancún, México" data-en="Cancún, Mexico">Cancún, México</span></span>
             </div>
-            <span class="entry-date">2023 – Present</span>
+            <span class="entry-date">
+                <span data-es="2023 – Actualidad" data-en="2023 – Present">2023 – Actualidad</span>
+            </span>
         </div>
-        <div class="entry-role">Ingeniería en Desarrollo de Software (B.S. in Software Development Engineering)</div>
+        <div class="entry-role">
+            <span data-es="Ingeniería en Desarrollo de Software" data-en="B.S. in Software Development Engineering">Ingeniería en Desarrollo de Software</span>
+        </div>
         <ul class="bullets">
-            <li>Relevant Coursework: Data Structures, Object-Oriented Programming (Java), Full Stack Web Development, Relational Databases, Infrastructure as Code</li>
+            <li>
+                <span data-es="Materias relevantes: Estructuras de Datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infraestructura como Código" data-en="Relevant Coursework: Data Structures, Object-Oriented Programming (Java), Full Stack Web Development, Relational Databases, Infrastructure as Code">Materias relevantes: Estructuras de Datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infraestructura como Código</span>
+            </li>
         </ul>
     </div>
 
     <!-- EXPERIENCE -->
-    <div class="section-heading">Experience</div>
+    <div class="section-heading">
+        <span data-es="Experiencia" data-en="Experience">Experiencia</span>
+    </div>
 
     <div class="entry">
         <div class="entry-header">
             <div>
                 <span class="entry-org">Onix Living</span>
-                <span class="entry-location"> — IT Assistant & Web Developer</span>
+                <span class="entry-location"> — <span data-es="Auxiliar de TI y Desarrollo Web" data-en="IT Assistant & Web Developer">Auxiliar de TI y Desarrollo Web</span></span>
             </div>
-            <span class="entry-date">Aug 2025 – Present</span>
+            <span class="entry-date">
+                <span data-es="Ago 2025 – Presente" data-en="Aug 2025 – Present">Ago 2025 – Presente</span>
+            </span>
         </div>
         <ul class="bullets">
-            <li>Containerized and deployed internal web applications using <strong>Docker Compose</strong> on self-hosted infrastructure, reducing deployment time and improving environment consistency.</li>
-            <li>Built an internal IT operations dashboard with <strong>Next.js</strong> and <strong>Gridstack</strong>, providing drag-and-drop widgets for real-time monitoring of asset status and support tickets.</li>
-            <li>Implemented <strong>Snipe-IT</strong> asset management system to track <strong>100+ fixed assets</strong>; automated provisioning and decommissioning workflows with web forms and operational dashboards.</li>
-            <li>Deployed static web applications on <strong>AWS</strong> and managed media asset storage via <strong>Amazon S3</strong> for company projects.</li>
-            <li>Provided Tier 1 and Tier 2 technical support for hardware and software across office infrastructure; trained 25+ employees on AI tools and Zoho One automation workflows.</li>
+            <li>
+                <span data-es="Containericé y desplegué aplicaciones web internas usando Docker Compose en infraestructura propia, reduciendo tiempos de despliegue y mejorando la consistencia entre entornos." data-en="Containerized and deployed internal web applications using Docker Compose on self-hosted infrastructure, reducing deployment time and improving environment consistency.">Containericé y desplegué aplicaciones web internas usando <strong>Docker Compose</strong> en infraestructura propia, reduciendo tiempos de despliegue y mejorando la consistencia entre entornos.</span>
+            </li>
+            <li>
+                <span data-es="Construí un dashboard interno de operaciones de TI con Next.js y Gridstack, proporcionando widgets drag-and-drop para monitoreo en tiempo real de estado de activos y tickets de soporte." data-en="Built an internal IT operations dashboard with Next.js and Gridstack, providing drag-and-drop widgets for real-time monitoring of asset status and support tickets.">Construí un dashboard interno de operaciones de TI con <strong>Next.js</strong> y <strong>Gridstack</strong>, proporcionando widgets drag-and-drop para monitoreo en tiempo real de estado de activos y tickets de soporte.</span>
+            </li>
+            <li>
+                <span data-es="Implementé el sistema de gestión de activos Snipe-IT para rastrear 100+ activos fijos; automaticé flujos de aprovisionamiento y baja con formularios web y dashboards operativos." data-en="Implemented Snipe-IT asset management system to track 100+ fixed assets; automated provisioning and decommissioning workflows with web forms and operational dashboards.">Implementé el sistema de gestión de activos <strong>Snipe-IT</strong> para rastrear <strong>100+ activos fijos</strong>; automaticé flujos de aprovisionamiento y baja con formularios web y dashboards operativos.</span>
+            </li>
+            <li>
+                <span data-es="Desplegué aplicaciones web estáticas en AWS y gestioné almacenamiento de assets multimedia vía Amazon S3 para proyectos de la empresa." data-en="Deployed static web applications on AWS and managed media asset storage via Amazon S3 for company projects.">Desplegué aplicaciones web estáticas en <strong>AWS</strong> y gestioné almacenamiento de assets multimedia vía <strong>Amazon S3</strong> para proyectos de la empresa.</span>
+            </li>
+            <li>
+                <span data-es="Brindé soporte técnico Nivel 1 y 2 para hardware y software en infraestructura de oficina; capacité a 25+ empleados en herramientas de IA y flujos de automatización de Zoho One." data-en="Provided Tier 1 and Tier 2 technical support for hardware and software across office infrastructure; trained 25+ employees on AI tools and Zoho One automation workflows.">Brindé soporte técnico Nivel 1 y 2 para hardware y software en infraestructura de oficina; capacité a <strong>25+ empleados</strong> en herramientas de IA y flujos de automatización de Zoho One.</span>
+            </li>
         </ul>
     </div>
 
@@ -240,79 +295,115 @@
         <div class="entry-header">
             <div>
                 <span class="entry-org">Office Depot</span>
-                <span class="entry-location"> — Technology Department Supervisor</span>
+                <span class="entry-location"> — <span data-es="Supervisor de Departamento de Tecnología" data-en="Technology Department Supervisor">Supervisor de Departamento de Tecnología</span></span>
             </div>
-            <span class="entry-date">Jun 2024 – Aug 2025</span>
+            <span class="entry-date">
+                <span data-es="Jun 2024 – Ago 2025" data-en="Jun 2024 – Aug 2025">Jun 2024 – Ago 2025</span>
+            </span>
         </div>
         <ul class="bullets">
-            <li>Led a team of <strong>5 associates</strong> in the technology department, providing training and daily operational guidance.</li>
-            <li>Drove technology product warranty sales and exceeded quarterly KPI targets through customer-facing consultations on hardware, software, and electronics.</li>
-            <li>Managed department KPIs including warranty sales targets, customer satisfaction scores, and inventory accuracy.</li>
-            <li>Provided technical troubleshooting and product demonstrations to customers.</li>
+            <li>
+                <span data-es="Lideré un equipo de 5 colaboradores en el departamento de tecnología, brindando capacitación y guía operativa diaria." data-en="Led a team of 5 associates in the technology department, providing training and daily operational guidance.">Lideré un equipo de <strong>5 colaboradores</strong> en el departamento de tecnología, brindando capacitación y guía operativa diaria.</span>
+            </li>
+            <li>
+                <span data-es="Impulsé ventas de garantías de productos tecnológicos y superé objetivos trimestrales de KPIs mediante consultas a clientes sobre hardware, software y electrónica." data-en="Drove technology product warranty sales and exceeded quarterly KPI targets through customer-facing consultations on hardware, software, and electronics.">Impulsé ventas de <strong>garantías de productos tecnológicos</strong> y superé objetivos trimestrales de KPIs mediante consultas a clientes sobre hardware, software y electrónica.</span>
+            </li>
+            <li>
+                <span data-es="Gestioné KPIs del departamento incluyendo metas de ventas de garantías, satisfacción del cliente y precisión de inventario." data-en="Managed department KPIs including warranty sales targets, customer satisfaction scores, and inventory accuracy.">Gestioné KPIs del departamento incluyendo metas de ventas de garantías, satisfacción del cliente y precisión de inventario.</span>
+            </li>
+            <li>
+                <span data-es="Brindé resolución de problemas técnicos y demostraciones de productos a clientes." data-en="Provided technical troubleshooting and product demonstrations to customers.">Brindé resolución de problemas técnicos y demostraciones de productos a clientes.</span>
+            </li>
         </ul>
     </div>
 
     <!-- PROJECTS -->
-    <div class="section-heading">Projects</div>
+    <div class="section-heading">
+        <span data-es="Proyectos" data-en="Projects">Proyectos</span>
+    </div>
 
     <div class="entry">
         <div class="entry-header">
             <div>
-                <span class="entry-org">Koa Towers & Aldea Savia — Interactive Real Estate Platforms</span>
+                <span class="entry-org">
+                    <span data-es="Koa Towers y Aldea Savia — Plataformas Inmobiliarias Interactivas" data-en="Koa Towers & Aldea Savia — Interactive Real Estate Platforms">Koa Towers y Aldea Savia — Plataformas Inmobiliarias Interactivas</span>
+                </span>
                 <span class="entry-location"> — Onix Living</span>
             </div>
             <span class="entry-date">2025</span>
         </div>
         <ul class="bullets">
-            <li>Architected and built static landing pages with <strong>Astro 6 SSG</strong> for two residential real estate projects, optimizing for SEO and sub-second page loads.</li>
-            <li>Developed interactive availability maps with <strong>Google Maps API</strong> and dynamic unit-level data sourced from <strong>Google Sheets API</strong>, enabling real-time inventory visualization for 180+ residential units.</li>
-            <li>Configured automated CI/CD pipelines with <strong>GitHub Actions</strong> for scheduled rebuilds every 12 hours, and deployed to custom domain (aldeasavia.onixliving.mx).</li>
+            <li>
+                <span data-es="Arquitecté y construí landing pages estáticas con Astro 6 SSG para dos proyectos inmobiliarios residenciales, optimizando SEO y cargas de página por debajo de un segundo." data-en="Architected and built static landing pages with Astro 6 SSG for two residential real estate projects, optimizing for SEO and sub-second page loads.">Arquitecté y construí landing pages estáticas con <strong>Astro 6 SSG</strong> para dos proyectos inmobiliarios residenciales, optimizando SEO y cargas de página por debajo de un segundo.</span>
+            </li>
+            <li>
+                <span data-es="Desarrollé mapas interactivos de disponibilidad con Google Maps API y datos dinámicos de unidades provenientes de Google Sheets API, permitiendo visualización de inventario en tiempo real para 180+ unidades residenciales." data-en="Developed interactive availability maps with Google Maps API and dynamic unit-level data sourced from Google Sheets API, enabling real-time inventory visualization for 180+ residential units.">Desarrollé mapas interactivos de disponibilidad con <strong>Google Maps API</strong> y datos dinámicos de unidades provenientes de <strong>Google Sheets API</strong>, permitiendo visualización de inventario en tiempo real para 180+ unidades residenciales.</span>
+            </li>
+            <li>
+                <span data-es="Configuré pipelines de CI/CD automatizados con GitHub Actions para rebuilds programados cada 12 horas, y despliegue a dominio personalizado (aldeasavia.onixliving.mx)." data-en="Configured automated CI/CD pipelines with GitHub Actions for scheduled rebuilds every 12 hours, and deployed to custom domain (aldeasavia.onixliving.mx).">Configuré pipelines de CI/CD automatizados con <strong>GitHub Actions</strong> para rebuilds programados cada 12 horas, y despliegue a dominio personalizado (aldeasavia.onixliving.mx).</span>
+            </li>
         </ul>
     </div>
 
     <div class="entry">
         <div class="entry-header">
             <div>
-                <span class="entry-org">Pocky — Cross-Platform Virtual Pet PWA</span>
-                <span class="entry-location"> — Personal</span>
+                <span class="entry-org">
+                    <span data-es="Pocky — Mascota Virtual PWA Multiplataforma" data-en="Pocky — Cross-Platform Virtual Pet PWA">Pocky — Mascota Virtual PWA Multiplataforma</span>
+                </span>
+                <span class="entry-location"> — <span data-es="Personal" data-en="Personal">Personal</span></span>
             </div>
         </div>
         <ul class="bullets">
-            <li>Developed a shared virtual pet application with real-time synchronization via <strong>Firebase</strong> across iOS (Safari PWA) and Android (Capacitor) without App Store or Google Play distribution.</li>
-            <li>Implemented 24/7 pet degradation system, animated ASCII art characters, and Web Push notifications for cross-platform user engagement.</li>
+            <li>
+                <span data-es="Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía Firebase a través de iOS (Safari PWA) y Android (Capacitor) sin distribución por App Store ni Google Play." data-en="Developed a shared virtual pet application with real-time synchronization via Firebase across iOS (Safari PWA) and Android (Capacitor) without App Store or Google Play distribution.">Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía <strong>Firebase</strong> a través de iOS (Safari PWA) y Android (Capacitor) sin distribución por App Store ni Google Play.</span>
+            </li>
+            <li>
+                <span data-es="Implementé sistema de degradación 24/7 de la mascota, personajes animados en ASCII art y notificaciones Web Push para engagement multiplataforma." data-en="Implemented 24/7 pet degradation system, animated ASCII art characters, and Web Push notifications for cross-platform user engagement.">Implementé sistema de degradación 24/7 de la mascota, personajes animados en ASCII art y notificaciones Web Push para engagement multiplataforma.</span>
+            </li>
         </ul>
     </div>
 
     <div class="entry">
         <div class="entry-header">
             <div>
-                <span class="entry-org">Microservices Architecture — Docker + Kubernetes + Helm</span>
-                <span class="entry-location"> — Academic</span>
+                <span class="entry-org">
+                    <span data-es="Arquitectura de Microservicios — Docker + Kubernetes + Helm" data-en="Microservices Architecture — Docker + Kubernetes + Helm">Arquitectura de Microservicios — Docker + Kubernetes + Helm</span>
+                </span>
+                <span class="entry-location"> — <span data-es="Académico" data-en="Academic">Académico</span></span>
             </div>
         </div>
         <ul class="bullets">
-            <li>Designed a full microservices stack with Node.js backend, nginx reverse-proxy frontend, and MySQL database.</li>
-            <li>Configured <strong>Kubernetes</strong> deployments via <strong>Helm charts</strong> (Secrets, ConfigMaps, PVCs, Services) and automated CI/CD pipeline with <strong>GitHub Actions</strong> for Docker Hub publishing.</li>
+            <li>
+                <span data-es="Diseñé un stack completo de microservicios con backend Node.js, frontend con reverse-proxy nginx y base de datos MySQL." data-en="Designed a full microservices stack with Node.js backend, nginx reverse-proxy frontend, and MySQL database.">Diseñé un stack completo de microservicios con backend Node.js, frontend con reverse-proxy nginx y base de datos MySQL.</span>
+            </li>
+            <li>
+                <span data-es="Configuré despliegues en Kubernetes mediante Helm charts (Secrets, ConfigMaps, PVCs, Services) y automaticé pipeline CI/CD con GitHub Actions para publicación en Docker Hub." data-en="Configured Kubernetes deployments via Helm charts (Secrets, ConfigMaps, PVCs, Services) and automated CI/CD pipeline with GitHub Actions for Docker Hub publishing.">Configuré despliegues en <strong>Kubernetes</strong> mediante <strong>Helm charts</strong> (Secrets, ConfigMaps, PVCs, Services) y automaticé pipeline CI/CD con <strong>GitHub Actions</strong> para publicación en Docker Hub.</span>
+            </li>
         </ul>
     </div>
 
     <div class="entry">
         <div class="entry-header">
             <div>
-                <span class="entry-org">OnixDashTI — Internal IT Dashboard</span>
+                <span class="entry-org">OnixDashTI — <span data-es="Dashboard Interno de TI" data-en="Internal IT Dashboard">Dashboard Interno de TI</span></span>
                 <span class="entry-location"> — Onix Living</span>
             </div>
         </div>
         <ul class="bullets">
-            <li>Created a drag-and-drop dashboard for IT operations data visualization using <strong>Gridstack</strong>; containerized with <strong>Docker Compose</strong> and deployed on internal network.</li>
+            <li>
+                <span data-es="Creé un dashboard drag-and-drop para visualización de datos de operaciones de TI usando Gridstack; containericé con Docker Compose y desplegué en red interna." data-en="Created a drag-and-drop dashboard for IT operations data visualization using Gridstack; containerized with Docker Compose and deployed on internal network.">Creé un dashboard drag-and-drop para visualización de datos de operaciones de TI usando <strong>Gridstack</strong>; containericé con <strong>Docker Compose</strong> y desplegué en red interna.</span>
+            </li>
         </ul>
     </div>
 
     <!-- SKILLS -->
-    <div class="section-heading">Skills</div>
+    <div class="section-heading">
+        <span data-es="Habilidades" data-en="Skills">Habilidades</span>
+    </div>
 
     <div class="skills-row">
-        <span class="skills-label">Languages:</span>
+        <span class="skills-label" data-es="Lenguajes:" data-en="Languages:">Lenguajes:</span>
         <span class="skills-val">JavaScript, TypeScript, HTML5, CSS3, Java, PHP, SQL</span>
     </div>
     <div class="skills-row">
@@ -324,42 +415,44 @@
         <span class="skills-val">Node.js, Spring Boot, Laravel</span>
     </div>
     <div class="skills-row">
-        <span class="skills-label">Infrastructure:</span>
+        <span class="skills-label" data-es="Infraestructura:" data-en="Infrastructure:">Infraestructura:</span>
         <span class="skills-val">AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions</span>
     </div>
     <div class="skills-row">
-        <span class="skills-label">Databases:</span>
+        <span class="skills-label" data-es="Bases de datos:" data-en="Databases:">Bases de datos:</span>
         <span class="skills-val">MySQL</span>
     </div>
     <div class="skills-row">
-        <span class="skills-label">Other:</span>
+        <span class="skills-label" data-es="Otros:" data-en="Other:">Otros:</span>
         <span class="skills-val">Firebase (Realtime, Admin), PWA, Capacitor, Git, Snipe-IT, Figma</span>
     </div>
 
     <!-- CERTIFICATIONS -->
-    <div class="section-heading">Certifications</div>
+    <div class="section-heading">
+        <span data-es="Certificaciones" data-en="Certifications">Certificaciones</span>
+    </div>
 
     <div class="certs-grid">
         <div class="cert-item">
-            <span class="cert-name">Big Data 101</span> — Cognitive Class (IBM), Apr 2026
+            <span class="cert-name">Big Data 101</span> — Cognitive Class (IBM), <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">Big Data Foundations L1 & L2</span> — IBM, Apr 2026
+            <span class="cert-name">Big Data Foundations L1 & L2</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">Spark — Level 1</span> — IBM, Apr 2026
+            <span class="cert-name">Spark — Level 1</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">Hadoop Foundations — Level 1</span> — IBM, Apr 2026
+            <span class="cert-name">Hadoop Foundations — Level 1</span> — IBM, <span data-es="Abr 2026" data-en="Apr 2026">Abr 2026</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">AWS Academy Graduate — Data Engineering</span> — AWS, Dec 2025
+            <span class="cert-name">AWS Academy Graduate — Data Engineering</span> — AWS, <span data-es="Dic 2025" data-en="Dec 2025">Dic 2025</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">EF SET English — C1 Advanced (67/100)</span> — EF SET, Jul 2025
+            <span class="cert-name">EF SET English — C1 Advanced (67/100)</span> — EF SET, <span data-es="Jul 2025" data-en="Jul 2025">Jul 2025</span>
         </div>
         <div class="cert-item">
-            <span class="cert-name">Networking Academy Learn-A-Thon 2024</span> — Cisco, Jun 2024
+            <span class="cert-name">Networking Academy Learn-A-Thon 2024</span> — Cisco, <span data-es="Jun 2024" data-en="Jun 2024">Jun 2024</span>
         </div>
         <div class="cert-item">
             <span class="cert-name">Figma Avanzado</span> — LinkedIn Learning
@@ -367,5 +460,20 @@
     </div>
 
 </div>
+
+<script>
+    let currentLang = 'es';
+
+    function setLang(lang) {
+        currentLang = lang;
+        document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+            el.textContent = el.getAttribute('data-' + lang);
+        });
+        document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+    }
+</script>
+
 </body>
 </html>
