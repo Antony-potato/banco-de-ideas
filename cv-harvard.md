@@ -34,11 +34,12 @@ LinkedIn: linkedin.com/in/antoniocortazar | Portfolio: antoniocortazar.dev | Git
 **Koa Towers — Landing Page con Mapa Interactivo de Disponibilidad** | Onix Living
 - Landing page con mapa interactivo de disponibilidad para **4 torres de 9 niveles** (5 unidades por torre); animación con scroll donde las torres frontales se alejan revelando las traseras, vistas laterales con transiciones suaves y galería multimedia con scroll horizontal usando **Lenis** smooth scroll
 - Integración con **Google Sheets** para gestión de disponibilidad en tiempo real; formulario de contacto con envío directo a Sheets, mapa de ubicación con **Google Maps API** y sección de brochure (PDF renderizado como galería)
-- Desplegada en **Hostinger** con dominio del cliente usando **Astro 6**; CI/CD automatizado con **GitHub Actions** con builds cada 12 horas; **SSG** que genera HTML estático por unidad para optimización SEO
+- Desplegada en **Hostinger** con dominio del cliente usando **Astro 6**
 
 **Aldea Savia — Landing Page Residencial** | Onix Living
-- Landing page residencial con mapa interactivo de disponibilidad para seguimiento de unidades
-- Desplegada en dominio personalizado (aldeasavia.onixliving.mx)
+- Landing page con mapa interactivo de disponibilidad en vista aérea para desarrollo de **274 unidades**; cada departamento es clickable con vistas de torres y renders; filtro y buscador de unidades
+- Integración con **Google Sheets** para gestión de disponibilidad en tiempo real; formulario de contacto con envío directo a Sheets, mapa de ubicación con **Google Maps API** y sección de brochure
+- Desplegada en **Hostinger** con dominio del cliente usando **Astro 6**; CI/CD automatizado con **GitHub Actions** con builds cada 12 horas; **SSG** que genera HTML estático por unidad para optimización SEO
 
 **Pocky — Mascota Virtual Multiplataforma PWA** | Personal
 - Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía **Firebase** a través de iOS (Safari PWA) y Android (Capacitor APK) sin App Store ni Google Play
