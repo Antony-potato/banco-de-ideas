@@ -4,78 +4,77 @@ LinkedIn: linkedin.com/in/antoniocortazar | Portfolio: antoniocortazar.dev | Git
 
 ---
 
-## EDUCATION
+## EDUCACIÓN
 
 **Universidad Tecmilenio** — Cancún, México
-*Ingeniería en Desarrollo de Software* | 2023 – Present
-- Relevant Coursework: Estructuras de datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infrastructure as Code
+*Ingeniería en Desarrollo de Software* | 2023 – Presente
+- Materias relevantes: Estructuras de datos, Programación Orientada a Objetos (Java), Desarrollo Web Full Stack, Bases de Datos Relacionales, Infrastructure as Code
 
 ---
 
-## EXPERIENCE
+## EXPERIENCIA
 
-**Onix Living** — Auxiliar de TI y Desarrollo Web | Ago 2025 – Present
-- Developed and deployed landing pages with **Astro** for 3 residential real estate projects (Koa Towers, Aldea Savia, CRZR), including 2 interactive availability maps for unit tracking
-- Implemented **Snipe-IT** asset management system to track 100+ fixed assets; automated provisioning/decommissioning workflows with web forms and operational dashboards
-- Deployed web applications on **AWS** and managed static asset storage via **Amazon S3**
-- Built an internal IT operations dashboard using **Next.js** and **Gridstack** with drag-and-drop widgets for real-time data visualization
-- Provided Tier 1 and Tier 2 technical support for hardware and software across office infrastructure
+**Onix Living** — Auxiliar de TI y Desarrollo Web | Ago 2025 – Presente
+- Desarrollé y desplegué landing pages con **Astro** para 2 proyectos residenciales de bienes raíces (Koa Towers, Aldea Savia), incluyendo 2 mapas interactivos de disponibilidad para seguimiento de unidades
+- Implementé el sistema de gestión de activos **Snipe-IT** para rastrear **100+ activos fijos**; automaté flujos de aprovisionamiento y baja con formularios web y dashboards operativos
+- Desplegué aplicaciones web en **AWS** y gestioné almacenamiento de activos estáticos mediante **Amazon S3**
+- Construí un dashboard interno de operaciones de TI usando **Next.js** y **Gridstack** con widgets drag-and-drop para visualización de datos en tiempo real
+- Capacité a **más de 25 personas** en inteligencia artificial y uso de **HubSpot** (CRM, Forms y herramientas del ecosistema)
+- Brindé soporte técnico Nivel 1 y Nivel 2 para hardware y software en la infraestructura de la oficina
 
 **Office Depot** — Supervisor de Área de Tecnología | Jun 2024 – Ago 2025
-- Led a team of 5 associates in the technology department, providing training and daily operational guidance
-- Drove technology product sales and delivered customer-facing consultations on hardware, software, and electronics
-- Managed department KPIs including sales targets, customer satisfaction scores, and inventory accuracy
-- Provided basic technical support to customers for hardware and software troubleshooting
+- Lideré un equipo de 5 colaboradores en el departamento de tecnología, brindando capacitación y guía operativa diaria
+- Impulsé ventas de productos tecnológicos y brindé consultas a clientes sobre hardware, software y electrónica
+- Gestioné KPIs del departamento incluyendo metas de venta, satisfacción del cliente y precisión de inventario
+- Brindé soporte técnico a clientes y demostraciones de productos
 
 ---
 
-## PROJECTS
+## PROYECTOS
 
-**Koa Towers & Aldea Savia — Interactive Availability Maps** | Onix Living
-- Built static landing pages with **Astro 6** featuring interactive availability maps for residential unit tracking
-- Deployed to Vercel (`koa-towers`) and custom domain (`aldeasavia.onixliving.mx`)
+**Koa Towers & Aldea Savia — Mapas Interactivos de Disponibilidad** | Onix Living
+- Construí landing pages estáticas con **Astro 6** con mapas interactivos de disponibilidad para seguimiento de unidades residenciales
+- Desplegadas en Vercel y dominio personalizado (aldeasavia.onixliving.mx)
 - Tech: Astro, HTML, CSS, Amazon S3
 
-**Pocky — Cross-Platform Virtual Pet PWA** | Personal
-- Developed a shared virtual pet application with real-time synchronization via **Firebase** across iOS (Safari PWA) and Android (Capacitor APK)
-- Implemented 24/7 pet degradation system, animated ASCII art characters, and Web Push notifications
+**Pocky — Mascota Virtual Multiplataforma PWA** | Personal
+- Desarrollé una aplicación de mascota virtual compartida con sincronización en tiempo real vía **Firebase** a través de iOS (Safari PWA) y Android (Capacitor APK) sin App Store ni Google Play
+- Implementé sistema de degradación 24/7 de la mascota, personajes animados en ASCII art y notificaciones Web Push
 - Tech: Next.js 16, React 19, Firebase, Zustand, Lottie, Capacitor, PWA
 
-**Microservices Architecture — Docker + Kubernetes + Helm** | Academic
-- Designed a full microservices stack with Node.js/Express backend, nginx reverse-proxy frontend, and MySQL database
-- Configured **Kubernetes** deployments via **Helm charts** (Secrets, ConfigMaps, PVCs, Services)
-- Automated CI/CD pipeline with **GitHub Actions** for Docker Hub image publishing
+**Arquitectura de Microservicios — Docker + Kubernetes + Helm** | Académico
+- Diseñé un stack completo de microservicios con backend Node.js/Express, frontend con reverse-proxy nginx y base de datos MySQL
+- Configuré despliegues en **Kubernetes** mediante **Helm charts** (Secrets, ConfigMaps, PVCs, Services) y automaté pipeline CI/CD con **GitHub Actions** para publicación en Docker Hub
 - Tech: Docker, Docker Compose, Kubernetes, Helm, GitHub Actions, MySQL, nginx
 
-**CRZ-Tech — Dark Mode Portfolio** | Personal
-- Built a modern portfolio with dark-mode aesthetic, cyber-themed details, and fluid animations using **Framer Motion** and smooth scroll via **react-lenis**
+**CRZ-Tech — Portafolio Dark Mode** | Personal
+- Construí un portafolio moderno con estética dark mode y animaciones fluidas usando **Framer Motion** y scroll suave con **react-lenis**
 - Tech: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Lucide React
 
-**OnixDashTI — Internal IT Dashboard** | Onix Living
-- Created a drag-and-drop dashboard for IT operations data visualization using **Gridstack**
-- Containerized with **Docker Compose** and deployed on internal network
+**OnixDashTI — Dashboard Interno de TI** | Onix Living
+- Creé un dashboard drag-and-drop para visualización de datos de operaciones de TI usando **Gridstack**; containerizado con **Docker Compose** y desplegado en red interna
 - Tech: Next.js 16, React 19, TypeScript, Gridstack, next-auth, Docker
 
 ---
 
-## SKILLS
+## HABILIDADES
 
-- **Languages:** JavaScript, TypeScript, HTML5, CSS3, Java, PHP, SQL
+- **Lenguajes:** JavaScript, TypeScript, HTML5, CSS3, Java, PHP, SQL
 - **Frontend:** Astro, Next.js, React, Vue 3, Tailwind CSS, Framer Motion, Swiper
 - **Backend:** Node.js, Express, Spring Boot, Laravel, Blade
-- **Infrastructure & DevOps:** AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions, Ansible
-- **Databases:** MySQL
-- **Other:** Firebase (Realtime, Admin), PWA, Capacitor (APK), Git, Snipe-IT, Figma, Adobe
+- **Infraestructura:** AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions, Ansible
+- **Bases de datos:** MySQL
+- **Otros:** Firebase (Realtime, Admin), PWA, Capacitor (APK), Git, Snipe-IT, HubSpot, Figma
 
 ---
 
-## CERTIFICATIONS
+## CERTIFICACIONES
 
-- **Big Data 101** | Cognitive Class (IBM) | Apr 2026
-- **Big Data Foundations — Level 1 & 2** | IBM | Apr 2026
-- **Spark — Level 1** | IBM | Apr 2026
-- **Hadoop Foundations — Level 1** | IBM | Apr 2026
-- **AWS Academy Graduate — Data Engineering** | Amazon Web Services | Dec 2025
-- **EF SET English Certificate — 67/100 (C1 Advanced)** | EF SET | Jul 2025
+- **Big Data 101** | Cognitive Class (IBM) | Abr 2026
+- **Big Data Foundations — Nivel 1 y 2** | IBM | Abr 2026
+- **Spark — Nivel 1** | IBM | Abr 2026
+- **Hadoop Foundations — Nivel 1** | IBM | Abr 2026
+- **AWS Academy Graduate — Data Engineering** | Amazon Web Services | Dic 2025
+- **EF SET English Certificate — 67/100 (C1 Avanzado)** | EF SET | Jul 2025
 - **Networking Academy Learn-A-Thon 2024** | Cisco | Jun 2024
 - **Figma Avanzado** | LinkedIn Learning
