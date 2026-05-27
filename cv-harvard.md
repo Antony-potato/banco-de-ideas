@@ -32,11 +32,9 @@ LinkedIn: linkedin.com/in/antoniocortazar | Portfolio: antoniocortazar.dev | Git
 ## PROYECTOS
 
 **Koa Towers — Landing Page con Mapa Interactivo de Disponibilidad** | Onix Living
-- Landing page completa con mapa interactivo de disponibilidad para **4 torres de 9 niveles** (5 unidades por torre); animación con scroll donde las 2 torres frontales se alejan revelando las traseras, navegación clickeable por torre y nivel con renders 3D
-- Vistas laterales (izquierda/derecha) con transiciones fluidas generadas con **inteligencia artificial**; galería multimedia interactiva con scroll horizontal usando **Lenis** smooth scroll
-- Integración con **Google Sheets** para gestión de disponibilidad en tiempo real por el equipo de ventas; formulario de contacto con envío directo a Sheets
-- Mapa de ubicación con **Google Maps API**, página de contacto completa y sección de brochure (PDF renderizado como galería de imágenes para vendedores)
-- Desplegada con **Astro 6** en Vercel y dominio personalizado (koa-towers)
+- Landing page con mapa interactivo de disponibilidad para **4 torres de 9 niveles** (5 unidades por torre); animación con scroll donde las torres frontales se alejan revelando las traseras, vistas laterales con transiciones suaves y galería multimedia con scroll horizontal usando **Lenis** smooth scroll
+- Integración con **Google Sheets** para gestión de disponibilidad en tiempo real; formulario de contacto con envío directo a Sheets, mapa de ubicación con **Google Maps API** y sección de brochure (PDF renderizado como galería)
+- Desplegada en **Hostinger** con dominio del cliente usando **Astro 6**; CI/CD automatizado con **GitHub Actions** con builds cada 12 horas para actualizar datos de Sheets; **SSG** que genera HTML estático por unidad para optimización SEO
 
 **Aldea Savia — Landing Page Residencial** | Onix Living
 - Landing page residencial con mapa interactivo de disponibilidad para seguimiento de unidades
