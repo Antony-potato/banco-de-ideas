@@ -15,12 +15,11 @@ LinkedIn: linkedin.com/in/antoniocortazar | Portfolio: antoniocortazar.dev | Git
 ## EXPERIENCIA
 
 **Onix Living** — Auxiliar de TI y Desarrollo Web | Ago 2025 – Presente
-- Desarrollé y desplegué landing pages con **Astro** para 2 proyectos residenciales de bienes raíces (Koa Towers, Aldea Savia), incluyendo 2 mapas interactivos de disponibilidad para seguimiento de unidades
-- Implementé el sistema de gestión de activos **Snipe-IT** para rastrear **100+ activos fijos**; automaté flujos de aprovisionamiento y baja con formularios web y dashboards operativos
-- Desplegué aplicaciones web en **AWS** y gestioné almacenamiento de activos estáticos mediante **Amazon S3**
-- Construí un dashboard interno de operaciones de TI usando **Next.js** y **Gridstack** con widgets drag-and-drop para visualización de datos en tiempo real
-- Capacité a **más de 25 personas** en inteligencia artificial y uso de **HubSpot** (CRM, Forms y herramientas del ecosistema)
-- Brindé soporte técnico Nivel 1 y Nivel 2 para hardware y software en la infraestructura de la oficina
+- Desarrollé y desplegué en **AWS/S3** con **Docker** y **Cloudflare Tunnel** landing pages en **Astro** para 2 proyectos residenciales (Koa Towers, Aldea Savia) con mapas interactivos de disponibilidad
+- Containericé con **Docker** el sistema de gestión de activos **Snipe-IT** para **100+ activos fijos** y automaté flujos de aprovisionamiento y baja con **Zapier** y **Zoho Flow**
+- Construí un dashboard de operaciones de TI con **Next.js** y **Gridstack** (widgets drag-and-drop), desplegado con Docker y expuesto vía Cloudflare Tunnel
+- Capacité a **25+ personas** en inteligencia artificial y herramientas de **Zoho One** (CRM, Forms, ecosistema)
+- Brindé soporte técnico **Nivel 1, 2 y 3** para hardware y software en la infraestructura de la oficina
 
 **Office Depot** — Supervisor de Área de Tecnología | Jun 2024 – Ago 2025
 - Lideré un equipo de 5 colaboradores en el departamento de tecnología, brindando capacitación y guía operativa diaria
@@ -62,9 +61,9 @@ LinkedIn: linkedin.com/in/antoniocortazar | Portfolio: antoniocortazar.dev | Git
 - **Lenguajes:** JavaScript, TypeScript, HTML5, CSS3, Java, PHP, SQL
 - **Frontend:** Astro, Next.js, React, Vue 3, Tailwind CSS, Framer Motion, Swiper
 - **Backend:** Node.js, Express, Spring Boot, Laravel, Blade
-- **Infraestructura:** AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions, Ansible
+- **Infraestructura:** AWS, Amazon S3, Docker, Kubernetes, Helm, GitHub Actions, Ansible, Cloudflare
 - **Bases de datos:** MySQL
-- **Otros:** Firebase (Realtime, Admin), PWA, Capacitor (APK), Git, Snipe-IT, HubSpot, Figma
+- **Otros:** Firebase (Realtime, Admin), PWA, Capacitor (APK), Git, Snipe-IT, Zoho One, Zapier, Zoho Flow, Figma
 
 ---
 
