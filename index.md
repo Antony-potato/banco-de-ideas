@@ -43,6 +43,24 @@ _Creado el 19 de mayo de 2026_
 - **Descripción:** Crear un portafolio profesional de desarrollo web para mostrar proyectos, habilidades y experiencia.
 - **Estado:** 📋 Investigación en curso → ver `investigacion-portafolio-web.md`
 
+### 💡 Idea: Guía Freelance en Desarrollo Web
+- **Fecha:** Junio 2026
+- **Descripción:** Investigación completa sobre cómo empezar como freelance en desarrollo web: pricing, entregas, revisiones, contratos, forma de pago y mejores prácticas.
+- **Contenido:**
+  - 3 modelos de pricing (fijo, por hora, híbrido) + fórmula para calcular precio
+  - Cómo definir entregas con Scope of Work y 4 fases de entrega
+  - Política de revisiones (2-3 rondas incluidas, cambios extra se cobran)
+  - Elementos mínimos de un contrato
+  - Estructura de pago 50/50 con anticipo obligatorio
+  - Precios referenciales para México/LatAm
+  - 8 mejores prácticas para empezar
+- **Precios de referencia:**
+  - Landing page: $8,000 – $25,000 MXN
+  - Sitio corporativo: $20,000 – $60,000 MXN
+  - E-commerce: $30,000 – $100,000+ MXN
+  - Web app: $50,000 – $200,000+ MXN
+- **Estado:** 📋 Investigación completada → ver `guia-freelance-web.html`
+
 ### 💡 Idea 3: Monitoreo de cámaras en múltiples locaciones con notificaciones
 - **Fecha:** 20 mayo 2026
 - **Descripción:** Sistema que monitoree cámaras de seguridad Tapo y Steren distribuidas en varias ciudades/locaciones y envíe notificaciones automáticas si alguna cámara se apaga o pierde conexión. Integración con Zoho Cliq y Telegram como canales de notificación.
